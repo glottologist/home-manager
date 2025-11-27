@@ -11548,7 +11548,7 @@ typically requires performing some manual steps, such as data
 conversion or moving files.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03”, “21.05”, “21.11”, “22.05”, “22.11”, “23.05”, “23.11”, “24.05”, “24.11”, “25.05”, “25.11”</p>
+one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03”, “21.05”, “21.11”, “22.05”, “22.11”, “23.05”, “23.11”, “24.05”, “24.11”, “25.05”, “25.11”, “26.05”</p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -26289,6 +26289,85 @@ JSON value</p>
   theme = &quot;dark&quot;;
 }
 </code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.claude-code.skills"></a><a class="term" href="options.xhtml#opt-programs.claude-code.skills"><code class="option">programs.claude-code.skills</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom skills for Claude Code.
+The attribute name becomes the skill filename or directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates .claude/skills/&lt;name&gt;.md)</p></li><li class="listitem"><p>A path to a file (creates .claude/skills/&lt;name&gt;.md)</p></li><li class="listitem"><p>A path to a directory (creates .claude/skills/&lt;name&gt;/ with all files)</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  xlsx = ./skills/xlsx.md;
+  data-analysis = ./skills/data-analysis;
+  pdf-processing = &#x27;&#x27;
+    ---
+    name: pdf-processing
+    description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+    ---
+
+    # PDF Processing
+
+    ## Quick start
+
+    Use pdfplumber to extract text from PDFs:
+
+    ```python
+    import pdfplumber
+
+    with pdfplumber.open(&quot;document.pdf&quot;) as pdf:
+        text = pdf.pages[0].extract_text()
+    ```
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.claude-code.skillsDir"></a><a class="term" href="options.xhtml#opt-programs.claude-code.skillsDir"><code class="option">programs.claude-code.skillsDir</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to a directory containing skill files for Claude Code.
+Skill files from this directory will be symlinked to .claude/skills/.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">./skills</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -62551,12 +62630,13 @@ available keys.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{ PASSWORD_STORE_DIR = &quot;$XDG_DATA_HOME/password-store&quot;; }
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{ }                                                       for state version ≥ 25.11
+{ PASSWORD_STORE_DIR = &quot;$XDG_DATA_HOME/password-store&quot;; } for state version &lt; 25.11
 
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
-  PASSWORD_STORE_DIR = &quot;/some/directory&quot;;
+  PASSWORD_STORE_DIR = &quot;$\{config.xdg.dataHome\}/password-store&quot;;
   PASSWORD_STORE_KEY = &quot;12345678&quot;;
   PASSWORD_STORE_CLIP_TIME = &quot;60&quot;;
 }
@@ -103451,10 +103531,10 @@ package</p>
  </span>
 </dt>
 <dd>
-<p>Absolute path to password store. Defaults to
-<code class="filename">$HOME/.password-store</code> if the
-<code class="option">programs.password-store</code> module is not enabled, and
-<code class="option">programs.password-store.settings.PASSWORD_STORE_DIR</code> if it is.</p>
+<p>Absolute path to the password store. If the
+<code class="option">programs.password-store</code> module is enabled, the
+<code class="option">programs.password-store.settings.PASSWORD_STORE_DIR</code> option
+will be checked, if found it will be inherited as the default.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
