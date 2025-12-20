@@ -1746,10 +1746,10 @@ one of “vdir”, “discover”</p>
 <p>Local configuration for the contacts.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (submodule)</p>
+submodule</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">null</code></p>
+<code class="literal">{ }</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -7511,6 +7511,31 @@ list of package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-dconf.databases"></a><a class="term" href="options.xhtml#opt-dconf.databases"><code class="option">dconf.databases</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings to write to specific dconf user databases.
+See <a class="xref" href="options.xhtml#opt-dconf.settings"  ><code class="option">dconf.settings</code></a> for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of attribute set of attribute set of (GVariant value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/dconf.nix" target="_top">
+&lt;home-manager/modules/misc/dconf.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-dconf.settings"></a><a class="term" href="options.xhtml#opt-dconf.settings"><code class="option">dconf.settings</code>
   </a>
  </span>
@@ -9634,13 +9659,15 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>Theme for GTK 4 applications.</p>
+<p>Theme for GTK 4 applications.</p><p>Warning: This is not officially supported and applied using a workaround.
+It may cause issues with some apps.</p><p>For context, see <a class="link" href="https://stopthemingmy.app/"  target="_top">Please don’t theme our apps</a>
+and <a class="link" href="https://blogs.gnome.org/tbernard/2018/10/15/restyling-apps-at-scale/"  target="_top">Restyling apps at scale</a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or (submodule)</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">config.gtk.theme</code></p>
+<code class="literal">if lib.versionOlder config.home.stateVersion &quot;26.05&quot; then cfg.theme else null</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -9788,7 +9815,7 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>Default theme for all GTK versions.</p>
+<p>Default theme for GTK 2/3.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or (submodule)</p>
@@ -11555,6 +11582,33 @@ one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/version.nix" target="_top">
 &lt;home-manager/modules/misc/version.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-home.uid"></a><a class="term" href="options.xhtml#opt-home.uid"><code class="option">home.uid</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The user’s uid.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">1000</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix" target="_top">
+&lt;home-manager/modules/home-environment.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -14415,8 +14469,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -16059,40 +16113,6 @@ null or package</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.aerospace.extraConfig"></a><a class="term" href="options.xhtml#opt-programs.aerospace.extraConfig"><code class="option">programs.aerospace.extraConfig</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Extra configuration to append to the aerospace.toml file.
-This allows you to add raw TOML content, including multiline strings.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-strings concatenated with “\n”</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">&quot;&quot;</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">alt-enter = &#x27;&#x27;&#x27;exec-and-forget osascript -e &#x27;
-  tell application &quot;Terminal&quot;
-      do script
-      activate
-  end tell&#x27;
-&#x27;&#x27;&#x27;
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aerospace.nix" target="_top">
-&lt;home-manager/modules/programs/aerospace.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
  <a id="opt-programs.aerospace.launchd.enable"></a><a class="term" href="options.xhtml#opt-programs.aerospace.launchd.enable"><code class="option">programs.aerospace.launchd.enable</code>
   </a>
  </span>
@@ -16149,7 +16169,7 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.aerospace.userSettings"></a><a class="term" href="options.xhtml#opt-programs.aerospace.userSettings"><code class="option">programs.aerospace.userSettings</code>
+ <a id="opt-programs.aerospace.settings"></a><a class="term" href="options.xhtml#opt-programs.aerospace.settings"><code class="option">programs.aerospace.settings</code>
   </a>
  </span>
 </dt>
@@ -16177,6 +16197,27 @@ TOML value</p>
     alt-k = &quot;focus up&quot;;
     alt-l = &quot;focus right&quot;;
   };
+  on-window-detected = [
+    {
+      &quot;if&quot;.app-id = &quot;com.apple.finder&quot;;
+      run = &quot;move-node-to-workspace 9&quot;;
+    }
+
+    {
+      &quot;if&quot; = {
+        app-id = &quot;com.apple.systempreferences&quot;;
+        app-name-regex-substring = &quot;settings&quot;;
+        window-title-regex-substring = &quot;substring&quot;;
+        workspace = &quot;workspace-name&quot;;
+        during-aerospace-startup = true;
+      };
+      check-further-callbacks = true;
+      run = [
+        &quot;layout floating&quot;
+        &quot;move-node-to-workspace S&quot;
+      ];
+    }
+  ];
 }
 
 </code></pre>
@@ -25049,6 +25090,81 @@ TOML value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.calibre.enable"></a><a class="term" href="options.xhtml#opt-programs.calibre.enable"><code class="option">programs.calibre.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable calibre.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/calibre.nix" target="_top">
+&lt;home-manager/modules/programs/calibre.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.calibre.package"></a><a class="term" href="options.xhtml#opt-programs.calibre.package"><code class="option">programs.calibre.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The calibre package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.calibre</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/calibre.nix" target="_top">
+&lt;home-manager/modules/programs/calibre.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.calibre.plugins"></a><a class="term" href="options.xhtml#opt-programs.calibre.plugins"><code class="option">programs.calibre.plugins</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of plugins to install for calibre</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/calibre.nix" target="_top">
+&lt;home-manager/modules/programs/calibre.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.carapace.enable"></a><a class="term" href="options.xhtml#opt-programs.carapace.enable"><code class="option">programs.carapace.enable</code>
   </a>
  </span>
@@ -25202,6 +25318,58 @@ package</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/carapace.nix" target="_top">
 &lt;home-manager/modules/programs/carapace.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.cargo.enable"></a><a class="term" href="options.xhtml#opt-programs.cargo.enable"><code class="option">programs.cargo.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable management of cargo config.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cargo.nix" target="_top">
+&lt;home-manager/modules/programs/cargo.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.cargo.settings"></a><a class="term" href="options.xhtml#opt-programs.cargo.settings"><code class="option">programs.cargo.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Available configuration options for the .cargo/config see:
+https://doc.rust-lang.org/cargo/reference/config.html</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cargo.nix" target="_top">
+&lt;home-manager/modules/programs/cargo.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -25783,7 +25951,7 @@ null or string</p>
 <p>Resulting customized Chromium package</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-package <span class="emphasis"><em>(read only)</em></span></p>
+null or package <span class="emphasis"><em>(read only)</em></span></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -26209,6 +26377,80 @@ null or strings concatenated with “\n”</p>
   - claude-code.nix: Main module implementation
 &#x27;&#x27;
 </code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.claude-code.rules"></a><a class="term" href="options.xhtml#opt-programs.claude-code.rules"><code class="option">programs.claude-code.rules</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Modular rule files for Claude Code.
+The attribute name becomes the rule filename, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the rule content
+Rules are stored in .claude/rules/ directory.
+All markdown files in .claude/rules/ are automatically loaded as project memory.</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  code-style = &#x27;&#x27;
+    # Code Style Guidelines
+
+    - Use consistent formatting
+    - Follow language conventions
+  &#x27;&#x27;;
+  testing = &#x27;&#x27;
+    # Testing Conventions
+
+    - Write tests for all new features
+    - Maintain test coverage above 80%
+  &#x27;&#x27;;
+  security = ./rules/security.md;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.claude-code.rulesDir"></a><a class="term" href="options.xhtml#opt-programs.claude-code.rulesDir"><code class="option">programs.claude-code.rulesDir</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to a directory containing rule files for Claude Code.
+Rule files from this directory will be symlinked to .claude/rules/.
+All markdown files in this directory are automatically loaded as project memory.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">./rules</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -30957,8 +31199,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -31788,8 +32030,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33409,8 +33651,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34240,8 +34482,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36547,7 +36789,7 @@ boolean</p>
 to gain access to <span class="command"><strong>git send-email</strong></span> for instance.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-package</p>
+null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs.git</code></p>
@@ -40011,7 +40253,8 @@ package</p>
 </dt>
 <dd>
 <p>Whether to configure <span class="command"><strong>hx</strong></span> as the default
-editor using the <code class="envar">EDITOR</code> environment variable.</p>
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -42824,6 +43067,130 @@ attribute set of attribute set of (boolean or signed integer or string)</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/imv.nix" target="_top">
 &lt;home-manager/modules/programs/imv.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.infat.enable"></a><a class="term" href="options.xhtml#opt-programs.infat.enable"><code class="option">programs.infat.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable infat.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/infat.nix" target="_top">
+&lt;home-manager/modules/programs/infat.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.infat.package"></a><a class="term" href="options.xhtml#opt-programs.infat.package"><code class="option">programs.infat.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The infat package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.infat</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/infat.nix" target="_top">
+&lt;home-manager/modules/programs/infat.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.infat.autoActivate"></a><a class="term" href="options.xhtml#opt-programs.infat.autoActivate"><code class="option">programs.infat.autoActivate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Automatically activate infat on startup.
+This is useful if you want to use infat as a
+default application handler for certain file types.
+If you don’t want this, set this to false.
+This option is only effective if <code class="literal">settings</code> is set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/infat.nix" target="_top">
+&lt;home-manager/modules/programs/infat.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.infat.settings"></a><a class="term" href="options.xhtml#opt-programs.infat.settings"><code class="option">programs.infat.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/infat/config.toml</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  extensions = {
+    md = &quot;TextEdit&quot;;
+    html = &quot;Safari&quot;;
+    pdf = &quot;Preview&quot;;
+  };
+  schemes = {
+    mailto = &quot;Mail&quot;;
+    web = &quot;Safari&quot;;
+  };
+  types = {
+    plain-text = &quot;VSCode&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/infat.nix" target="_top">
+&lt;home-manager/modules/programs/infat.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -46309,7 +46676,8 @@ boolean</p>
 </dt>
 <dd>
 <p>Whether to configure <span class="command"><strong>kak</strong></span> as the default
-editor using the <code class="envar">EDITOR</code> environment variable.</p>
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -49464,13 +49832,13 @@ strings concatenated with “\n”</p>
  </span>
 </dt>
 <dd>
-<p>GNU-style options to be set via <code class="envar">$LESS</code>.</p>
+<p>Options to be set via <code class="envar">$LESS</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (boolean or signed integer or string)</p>
+(list of string) or (attribute set of (boolean or signed integer or string or list of (boolean or signed integer or string))) convertible to it</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">{ }</code></p>
+<code class="literal">[ ]</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
   RAW-CONTROL-CHARS = true;
@@ -50198,8 +50566,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -51029,8 +51397,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -56360,7 +56728,8 @@ JSON value</p>
 </dt>
 <dd>
 <p>Whether to configure <span class="command"><strong>nvim</strong></span> as the default
-editor using the <code class="envar">EDITOR</code> environment variable.</p>
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -58863,6 +59232,101 @@ list of string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/notmuch" target="_top">
 &lt;home-manager/modules/programs/notmuch&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.npm.enable"></a><a class="term" href="options.xhtml#opt-programs.npm.enable"><code class="option">programs.npm.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable <span class="command"><strong>npm</strong></span> user config.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/npm.nix" target="_top">
+&lt;home-manager/modules/programs/npm.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.npm.package"></a><a class="term" href="options.xhtml#opt-programs.npm.package"><code class="option">programs.npm.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The nodejs package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.nodejs</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">nodejs_24</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/npm.nix" target="_top">
+&lt;home-manager/modules/programs/npm.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.npm.settings"></a><a class="term" href="options.xhtml#opt-programs.npm.settings"><code class="option">programs.npm.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The user-specific npm configuration.
+See <a class="link" href="https://docs.npmjs.com/cli/using-npm/config"  target="_top">https://docs.npmjs.com/cli/using-npm/config</a> and
+<a class="link" href="https://docs.npmjs.com/cli/configuring-npm/npmrc"  target="_top">https://docs.npmjs.com/cli/configuring-npm/npmrc</a>
+for more information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (INI atom (null, bool, int, float or string) or a list of them for duplicate keys)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{
+  prefix = &quot;\${HOME}/.npm&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  color = true;
+  include = [
+    &quot;dev&quot;
+    &quot;prod&quot;
+  ];
+  init-license = &quot;MIT&quot;;
+  prefix = &quot;${HOME}/.npm&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/npm.nix" target="_top">
+&lt;home-manager/modules/programs/npm.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -62557,6 +63021,81 @@ attribute set of (boolean or signed integer or string)</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/papis.nix" target="_top">
 &lt;home-manager/modules/programs/papis.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.parallel.enable"></a><a class="term" href="options.xhtml#opt-programs.parallel.enable"><code class="option">programs.parallel.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable GNU Parallel.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/parallel.nix" target="_top">
+&lt;home-manager/modules/programs/parallel.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.parallel.package"></a><a class="term" href="options.xhtml#opt-programs.parallel.package"><code class="option">programs.parallel.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The parallel-full package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.parallel-full</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/parallel.nix" target="_top">
+&lt;home-manager/modules/programs/parallel.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.parallel.will-cite"></a><a class="term" href="options.xhtml#opt-programs.parallel.will-cite"><code class="option">programs.parallel.will-cite</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Accept GNU Parallels citation policy: <a class="link" href="https://www.gnu.org/software/parallel/parallel_design.html#citation-notice"  target="_top">https://www.gnu.org/software/parallel/parallel_design.html#citation-notice</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/parallel.nix" target="_top">
+&lt;home-manager/modules/programs/parallel.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -70008,6 +70547,100 @@ package</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/scmpuff.nix" target="_top">
 &lt;home-manager/modules/programs/scmpuff.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.screen.enable"></a><a class="term" href="options.xhtml#opt-programs.screen.enable"><code class="option">programs.screen.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable screen.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/screen.nix" target="_top">
+&lt;home-manager/modules/programs/screen.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.screen.package"></a><a class="term" href="options.xhtml#opt-programs.screen.package"><code class="option">programs.screen.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The screen package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.screen</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/screen.nix" target="_top">
+&lt;home-manager/modules/programs/screen.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.screen.screenrc"></a><a class="term" href="options.xhtml#opt-programs.screen.screenrc"><code class="option">programs.screen.screenrc</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Config file for GNU Screen. All the details can be found here:
+<a class="link" href="https://www.gnu.org/software/screen/manual/screen.html"  target="_top">https://www.gnu.org/software/screen/manual/screen.html</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  screen -t rtorrent rtorrent
+  screen -t irssi irssi
+  screen -t centerim centerim
+  screen -t ncmpc ncmpc -c
+  screen -t bash4
+  screen -t bash5
+  screen -t bash6
+  screen -t bash7
+  screen -t bash8
+  screen -t bash9
+  altscreen on
+  term screen-256color
+  bind &#x27;,&#x27; prev
+  bind &#x27;.&#x27; next
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/screen.nix" target="_top">
+&lt;home-manager/modules/programs/screen.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -78116,8 +78749,8 @@ list of (maintainer)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/8r122bbj0jfjv469zbzwjvkxk72l839v-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/6fzkz7pmhfwk0hdz1lss4ivkg39d9if2-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -80168,6 +80801,91 @@ TOML value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.ty.enable"></a><a class="term" href="options.xhtml#opt-programs.ty.enable"><code class="option">programs.ty.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable ty.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ty.nix" target="_top">
+&lt;home-manager/modules/programs/ty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ty.package"></a><a class="term" href="options.xhtml#opt-programs.ty.package"><code class="option">programs.ty.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The ty package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.ty</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ty.nix" target="_top">
+&lt;home-manager/modules/programs/ty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ty.settings"></a><a class="term" href="options.xhtml#opt-programs.ty.settings"><code class="option">programs.ty.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/ty/ty.toml</code>.
+See <a class="link" href="https://docs.astral.sh/ty/configuration/"  target="_top">https://docs.astral.sh/ty/configuration/</a>
+and <a class="link" href="https://docs.astral.sh/ty/reference/configuration/"  target="_top">https://docs.astral.sh/ty/reference/configuration/</a>
+for more information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  rules.index-out-of-bounds = &quot;ignore&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ty.nix" target="_top">
+&lt;home-manager/modules/programs/ty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.urxvt.enable"></a><a class="term" href="options.xhtml#opt-programs.urxvt.enable"><code class="option">programs.urxvt.enable</code>
   </a>
  </span>
@@ -81435,7 +82153,8 @@ package</p>
 </dt>
 <dd>
 <p>Whether to configure <span class="command"><strong>vim</strong></span> as the default
-editor using the <code class="envar">EDITOR</code> environment variable.</p>
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -81496,7 +82215,7 @@ strings concatenated with “\n”</p>
 list of (string or package)</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[
-  &lt;derivation vimplugin-vim-sensible-2024-06-08&gt;
+  &lt;derivation vimplugin-vim-sensible-2.0-unstable-2024-06-08&gt;
 ]
 </code></pre>
 
@@ -82006,7 +82725,7 @@ null or string</p>
 <p>Color mode for vivid.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
+null or string or one of “8-bit”, “24-bit”</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">null</code></p>
@@ -90285,6 +91004,86 @@ null or one of “gtk”, “gtk3”, “gnome”, “adwaita”, “lxqt”, �
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-qt.qt5ctSettings"></a><a class="term" href="options.xhtml#opt-qt.qt5ctSettings"><code class="option">qt.qt5ctSettings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Qtct configuration. Writes settings to <code class="literal">qt5ct/qt5ct.conf</code>
+file. Lists will be translated to comma-separated strings.
+Fonts must be quoted (see example).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  Appearance = {
+    style = &quot;kvantum&quot;;
+    icon_theme = &quot;Papirus-Dark&quot;;
+    standar_dialogs = &quot;xdgdesktopportal&quot;;
+  };
+  Fonts = {
+    fixed = &quot;\&quot;DejaVuSansM Nerd Font Mono,12\&quot;&quot;;
+    general = &quot;\&quot;DejaVu Sans,12\&quot;&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
+&lt;home-manager/modules/misc/qt.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.qt6ctSettings"></a><a class="term" href="options.xhtml#opt-qt.qt6ctSettings"><code class="option">qt.qt6ctSettings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Qtct configuration. Writes settings to <code class="literal">qt6ct/qt6ct.conf</code>
+file. Lists will be translated to comma-separated strings.
+Fonts must be quoted (see example).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  Appearance = {
+    style = &quot;kvantum&quot;;
+    icon_theme = &quot;Papirus-Dark&quot;;
+    standar_dialogs = &quot;xdgdesktopportal&quot;;
+  };
+  Fonts = {
+    fixed = &quot;\&quot;DejaVuSansM Nerd Font Mono,12\&quot;&quot;;
+    general = &quot;\&quot;DejaVu Sans,12\&quot;&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt.nix" target="_top">
+&lt;home-manager/modules/misc/qt.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-qt.style.package"></a><a class="term" href="options.xhtml#opt-qt.style.package"><code class="option">qt.style.package</code>
   </a>
  </span>
@@ -92936,6 +93735,423 @@ JSON value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.colima.enable"></a><a class="term" href="options.xhtml#opt-services.colima.enable"><code class="option">services.colima.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Colima, a container runtime.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.package"></a><a class="term" href="options.xhtml#opt-services.colima.package"><code class="option">services.colima.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The colima package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.colima</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.bashPackage"></a><a class="term" href="options.xhtml#opt-services.colima.bashPackage"><code class="option">services.colima.bashPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The bashNonInteractive package to use. Used by colima’s internal scripts.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.bashNonInteractive</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.coreutilsPackage"></a><a class="term" href="options.xhtml#opt-services.colima.coreutilsPackage"><code class="option">services.colima.coreutilsPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The coreutils package to use. Used in various ways by colima.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.coreutils</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.curlPackage"></a><a class="term" href="options.xhtml#opt-services.colima.curlPackage"><code class="option">services.colima.curlPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The curl package to use. Used by colima to donwload images.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.curl</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.dockerPackage"></a><a class="term" href="options.xhtml#opt-services.colima.dockerPackage"><code class="option">services.colima.dockerPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The docker package to use. Used by colima to activate profiles. Not needed if no profile is set to isActive.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.docker</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.perlPackage"></a><a class="term" href="options.xhtml#opt-services.colima.perlPackage"><code class="option">services.colima.perlPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The perl package to use. Used by colima during image download for the shasum command.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.perl</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles"></a><a class="term" href="options.xhtml#opt-services.colima.profiles"><code class="option">services.colima.profiles</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Profiles allow multiple colima configurations. The default profile is active by default.
+If you have used colima before, you may need to delete existing configuration using <code class="literal">colima delete</code> or use a different profile.</p><p>Note that removing a configured profile will not delete the corresponding Colima instance.
+You will need to manually run <code class="literal">colima delete &lt;profile-name&gt;</code> to remove the instance and release resources.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{
+  default = {
+    isActive = true;
+    isService = true;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  {
+    default = {
+      isActive = true;
+      isService = true;
+    };
+    rosetta = {
+      isService = true;
+      settings.rosetta = true;
+    };
+    powerful = {
+      settings.cpu = 8;
+    };
+  };
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles._name_.isActive"></a><a class="term" href="options.xhtml#opt-services.colima.profiles._name_.isActive"><code class="option">services.colima.profiles.&lt;name&gt;.isActive</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to set this profile as:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>active docker context</p></li><li class="listitem"><p>active kubernetes context</p></li><li class="listitem"><p>active incus remote
+Exactly one or zero profiles should have this option set.</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles._name_.isService"></a><a class="term" href="options.xhtml#opt-services.colima.profiles._name_.isService"><code class="option">services.colima.profiles.&lt;name&gt;.isService</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether this profile will run as a service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles._name_.logFile"></a><a class="term" href="options.xhtml#opt-services.colima.profiles._name_.logFile"><code class="option">services.colima.profiles.&lt;name&gt;.logFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Combined stdout and stderr log file for the Colima service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">${config.home.homeDirectory}/.local/state/colima-${name}.log</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles._name_.name"></a><a class="term" href="options.xhtml#opt-services.colima.profiles._name_.name"><code class="option">services.colima.profiles.&lt;name&gt;.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The profile’s name.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string <span class="emphasis"><em>(read only)</em></span></p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;‹name›&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.profiles._name_.settings"></a><a class="term" href="options.xhtml#opt-services.colima.profiles._name_.settings"><code class="option">services.colima.profiles.&lt;name&gt;.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Colima configuration settings, see <a class="link" href="https://github.com/abiosoft/colima/blob/main/embedded/defaults/colima.yaml"  target="_top">https://github.com/abiosoft/colima/blob/main/embedded/defaults/colima.yaml</a> or run <code class="literal">colima template</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+YAML 1.1 value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  {
+    cpu = 2;
+    disk = 100;
+    memory = 2;
+    arch = &quot;host&quot;;
+    runtime = &quot;docker&quot;;
+    hostname = null;
+    kubernetes = {
+      enabled = false;
+      version = &quot;v1.33.3+k3s1&quot;;
+      k3sArgs = [ &quot;--disable=traefik&quot; ];
+      port = 0;
+    };
+    autoActivate = true;
+    network = {
+      address = false;
+      mode = &quot;shared&quot;;
+      interface = &quot;en0&quot;;
+      preferredRoute = false;
+      dns = [ ];
+      dnsHosts = {
+        &quot;host.docker.internal&quot; = &quot;host.lima.internal&quot;;
+      };
+      hostAddresses = false;
+    };
+    forwardAgent = false;
+    docker = { };
+    vmType = &quot;qemu&quot;;
+    portForwarder = &quot;ssh&quot;;
+    rosetta = false;
+    binfmt = true;
+    nestedVirtualization = false;
+    mountType = &quot;sshfs&quot;;
+    mountInotify = false;
+    cpuType = &quot;host&quot;;
+    provision = [ ];
+    sshConfig = true;
+    sshPort = 0;
+    mounts = [ ];
+    diskImage = &quot;&quot;;
+    rootDisk = 20;
+    env = { };
+  }
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.colima.sshPackage"></a><a class="term" href="options.xhtml#opt-services.colima.sshPackage"><code class="option">services.colima.sshPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The openssh package to use. Used by colima to manage the vm.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.openssh</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/colima.nix" target="_top">
+&lt;home-manager/modules/services/colima.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.comodoro.enable"></a><a class="term" href="options.xhtml#opt-services.comodoro.enable"><code class="option">services.comodoro.enable</code>
   </a>
  </span>
@@ -94304,7 +95520,8 @@ list of string</p>
 </dt>
 <dd>
 <p>Whether to configure <span class="command"><strong>emacsclient</strong></span> as the default
-editor using the <code class="envar">EDITOR</code> environment variable.</p>
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -97591,6 +98808,99 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.hyprlauncher.enable"></a><a class="term" href="options.xhtml#opt-services.hyprlauncher.enable"><code class="option">services.hyprlauncher.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable hyprlauncher.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hyprlauncher.nix" target="_top">
+&lt;home-manager/modules/services/hyprlauncher.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hyprlauncher.package"></a><a class="term" href="options.xhtml#opt-services.hyprlauncher.package"><code class="option">services.hyprlauncher.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The hyprlauncher package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.hyprlauncher</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hyprlauncher.nix" target="_top">
+&lt;home-manager/modules/services/hyprlauncher.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.hyprlauncher.settings"></a><a class="term" href="options.xhtml#opt-services.hyprlauncher.settings"><code class="option">services.hyprlauncher.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration settings for hyprlauncher. All the available options can be found here:
+<a class="link" href="https://wiki.hypr.land/Hypr-Ecosystem/hyprlauncher/#config"  target="_top">https://wiki.hypr.land/Hypr-Ecosystem/hyprlauncher/#config</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+Hyprland configuration value</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  cache = {
+    enabled = true;
+  };
+  finders = {
+    desktop_icons = true;
+    math_prefix = &quot;=&quot;;
+  };
+  general = {
+    grab_focus = true;
+  };
+  ui = {
+    window_size = &quot;400 260&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/hyprlauncher.nix" target="_top">
+&lt;home-manager/modules/services/hyprlauncher.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.hyprpaper.enable"></a><a class="term" href="options.xhtml#opt-services.hyprpaper.enable"><code class="option">services.hyprpaper.enable</code>
   </a>
  </span>
@@ -99015,7 +100325,7 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 See kanshi(5) for informations.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-list of attribute-tagged union</p>
+list of attribute-tagged union with choices: include, output, profile</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">[ ]</code></p>
@@ -100628,18 +101938,14 @@ for available options.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 YAML 1.1 value</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{
-  backup = {
-    path = &quot;$XDG_STATE_HOME/backups/ludusavi&quot;;
-  };
-  manifest = {
-    url = &quot;https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml&quot;;
-  };
-  restore = {
-    path = &quot;$XDG_STATE_HOME/backups/ludusavi&quot;;
-  };
-  roots = [ ];
-}
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  {
+    manifest.url = &quot;https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml&quot;;
+    roots = [ ];
+    backup.path = &quot;$XDG_STATE_HOME/backups/ludusavi&quot;;
+    restore.path = &quot;$XDG_STATE_HOME/backups/ludusavi&quot;;
+  }
+&#x27;&#x27;
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
@@ -111346,15 +112652,15 @@ package</p>
 <p>Run command on occurrence of a event.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-list of (submodule)</p>
+(submodule) or (list of (attribute set)) convertible to it</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">[ ]</code></p>
+<code class="literal">{ }</code></p>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">[
-  { event = &quot;before-sleep&quot;; command = &quot;${pkgs.swaylock}/bin/swaylock -fF&quot;; }
-  { event = &quot;lock&quot;; command = &quot;lock&quot;; }
-]
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">{
+  &quot;before-sleep&quot; = &quot;${pkgs.swaylock}/bin/swaylock -fF&quot;;
+  &quot;lock&quot; = &quot;lock&quot;;
+}
 
 </code></pre>
 
@@ -111369,15 +112675,18 @@ list of (submodule)</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-services.swayidle.events._.command"></a><a class="term" href="options.xhtml#opt-services.swayidle.events._.command"><code class="option">services.swayidle.events.*.command</code>
+ <a id="opt-services.swayidle.events.after-resume"></a><a class="term" href="options.xhtml#opt-services.swayidle.events.after-resume"><code class="option">services.swayidle.events.after-resume</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Command to run when event occurs.</p>
+<p>Command to run after resuming.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -111390,15 +112699,66 @@ string</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-services.swayidle.events._.event"></a><a class="term" href="options.xhtml#opt-services.swayidle.events._.event"><code class="option">services.swayidle.events.*.event</code>
+ <a id="opt-services.swayidle.events.before-sleep"></a><a class="term" href="options.xhtml#opt-services.swayidle.events.before-sleep"><code class="option">services.swayidle.events.before-sleep</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Event name.</p>
+<p>Command to run before suspending.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-one of “before-sleep”, “after-resume”, “lock”, “unlock”</p>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix" target="_top">
+&lt;home-manager/modules/services/swayidle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swayidle.events.lock"></a><a class="term" href="options.xhtml#opt-services.swayidle.events.lock"><code class="option">services.swayidle.events.lock</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Command to run when the logind session is locked.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/swayidle.nix" target="_top">
+&lt;home-manager/modules/services/swayidle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.swayidle.events.unlock"></a><a class="term" href="options.xhtml#opt-services.swayidle.events.unlock"><code class="option">services.swayidle.events.unlock</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Command to run when the logind session is unlocked.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -120702,27 +122062,6 @@ attribute set</p>
 
 <p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">pkgs</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/targets/generic-linux/gpu" target="_top">
-&lt;home-manager/modules/targets/generic-linux/gpu&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-targets.genericLinux.gpu.drivers"></a><a class="term" href="options.xhtml#opt-targets.genericLinux.gpu.drivers"><code class="option">targets.genericLinux.gpu.drivers</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Resulting drivers package.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-package <span class="emphasis"><em>(read only)</em></span></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -130428,6 +131767,36 @@ boolean</p>
 <code class="literal">false</code></p>
 
 <p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/window-managers/herbstluftwm.nix" target="_top">
+&lt;home-manager/modules/services/window-managers/herbstluftwm.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-xsession.windowManager.herbstluftwm.enableAlias"></a><a class="term" href="options.xhtml#opt-xsession.windowManager.herbstluftwm.enableAlias"><code class="option">xsession.windowManager.herbstluftwm.enableAlias</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set an alias for the <span class="command"><strong>herbstclient</strong></span> command in the
+<code class="filename">autostart</code> script that only stores its arguments and executes
+them all at once at the end of the <code class="filename">autostart</code> script.</p><p>This reduces the amount of flickering you get while all options are
+being applied and improves the performance.</p><p>On the other hand, this makes it more difficult to write bash functions
+that call <span class="command"><strong>herbstclient</strong></span>. You can work around this by calling
+<span class="command"><strong>command herbstclient</strong></span> in your functions to still get some of
+the benefits of enabling this alias.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
 <code class="literal">true</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
