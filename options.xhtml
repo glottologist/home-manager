@@ -14687,8 +14687,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -14715,8 +14715,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -26936,6 +26936,55 @@ null or absolute path</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.claude-code.lspServers"></a><a class="term" href="options.xhtml#opt-programs.claude-code.lspServers"><code class="option">programs.claude-code.lspServers</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>LSP (Language Server Protocol) servers configuration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  go = {
+    args = [
+      &quot;serve&quot;
+    ];
+    command = &quot;gopls&quot;;
+    extensionToLanguage = {
+      &quot;.go&quot; = &quot;go&quot;;
+    };
+  };
+  typescript = {
+    args = [
+      &quot;--stdio&quot;
+    ];
+    command = &quot;typescript-language-server&quot;;
+    extensionToLanguage = {
+      &quot;.js&quot; = &quot;javascript&quot;;
+      &quot;.jsx&quot; = &quot;javascriptreact&quot;;
+      &quot;.ts&quot; = &quot;typescript&quot;;
+      &quot;.tsx&quot; = &quot;typescriptreact&quot;;
+    };
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.claude-code.mcpServers"></a><a class="term" href="options.xhtml#opt-programs.claude-code.mcpServers"><code class="option">programs.claude-code.mcpServers</code>
   </a>
  </span>
@@ -32025,8 +32074,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32053,8 +32102,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32669,8 +32718,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32697,8 +32746,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33391,8 +33440,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33419,8 +33468,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34148,7 +34197,32 @@ boolean</p>
 <p>Specify the bind mode that the bind is used in</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or one of “default”, “insert”, “paste”</p>
+null or one of “default”, “insert”, “paste” or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix" target="_top">
+&lt;home-manager/modules/programs/fish.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.fish.binds._name_.name"></a><a class="term" href="options.xhtml#opt-programs.fish.binds._name_.name"><code class="option">programs.fish.binds.&lt;name&gt;.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The key name that is used for the bind.
+If null, the attribute set key is used.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -34223,7 +34297,7 @@ boolean</p>
 <p>Change current mode after bind is executed</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or one of “default”, “insert”, “paste”</p>
+null or one of “default”, “insert”, “paste” or string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -35354,8 +35428,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35382,8 +35456,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35998,8 +36072,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36026,8 +36100,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36720,8 +36794,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36748,8 +36822,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38323,6 +38397,48 @@ null or string</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;gemini-2.5-flash&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
+&lt;home-manager/modules/programs/gemini-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gemini-cli.policies"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.policies"><code class="option">programs.gemini-cli.policies</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>An attribute set of policy definitions to create in <code class="literal">~/.gemini/policies/</code>.
+The attribute name becomes the filename with <code class="literal">.toml</code> extension automatically added.
+The value can be either an attribute set representing the TOML policy or a path to a TOML file.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (absolute path or TOML value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;my-rules&quot; = {
+    rule = [
+      {
+        toolName = &quot;run_shell_command&quot;;
+        commandPrefix = &quot;git &quot;;
+        decision = &quot;ask_user&quot;;
+        priority = 100;
+      }
+    ];
+  };
+  &quot;other-rules&quot; = ./path/to/rules.toml;
+}
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -53322,8 +53438,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -53350,8 +53466,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -53966,8 +54082,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -53994,8 +54110,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54688,8 +54804,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54716,8 +54832,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -84304,8 +84420,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -84332,8 +84448,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/01khq96pqw16y2sg1v6l8q0qfgnhsijd-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -99526,6 +99642,36 @@ boolean</p>
 package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.clipman
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/clipman.nix" target="_top">
+&lt;home-manager/modules/services/clipman.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.clipman.extraArgs"></a><a class="term" href="options.xhtml#opt-services.clipman.extraArgs"><code class="option">services.clipman.extraArgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra arguments to be passed to the clipman executable.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;--max-items&quot;
+  &quot;100&quot;
+]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
