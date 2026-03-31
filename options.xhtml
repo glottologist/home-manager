@@ -61,6 +61,9 @@ the <code class="option">nixpkgs.pkgs</code> option.</p></li></ul></div>
 <p><span class="emphasis"><em>Type:</em></span>
 lazy attribute set of raw value</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -3483,6 +3486,9 @@ then this is set to
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -9745,7 +9751,8 @@ and <a class="link" href="https://blogs.gnome.org/tbernard/2018/10/15/restyling-
 <p><span class="emphasis"><em>Type:</em></span>
 null or (submodule)</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionOlder config.home.stateVersion &quot;26.05&quot; then cfg.theme else null
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then null else config.gtk.theme
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -11848,7 +11855,7 @@ list of package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 package</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&lt;derivation fcitx5-with-addons-5.1.16&gt;
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&lt;derivation fcitx5-with-addons-5.1.19&gt;
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">pkgs.kdePackages.fcitx5-with-addons
@@ -14687,8 +14694,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -14715,8 +14722,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -15517,6 +15524,9 @@ null or (attribute set)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (string or signed integer or boolean or package)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   id = &quot;nixpkgs&quot;;
   type = &quot;indirect&quot;;
@@ -15543,6 +15553,9 @@ attribute set of (string or signed integer or boolean or package)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (string or signed integer or boolean or package)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   owner = &quot;my-org&quot;;
@@ -18092,6 +18105,9 @@ hidden from view, if the key translated is set to
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -20810,30 +20826,6 @@ null or package</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.aria2.extraConfig"></a><a class="term" href="options.xhtml#opt-programs.aria2.extraConfig"><code class="option">programs.aria2.extraConfig</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Extra lines added to <code class="filename">aria2.conf</code> file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-strings concatenated with “\n”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aria2.nix" target="_top">
-&lt;home-manager/modules/programs/aria2.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
  <a id="opt-programs.aria2.settings"></a><a class="term" href="options.xhtml#opt-programs.aria2.settings"><code class="option">programs.aria2.settings</code>
   </a>
  </span>
@@ -20845,7 +20837,7 @@ See
 for options.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (boolean or floating point number or signed integer or string)</p>
+attribute set of (atom (null, bool, int, float or string))</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -20865,6 +20857,99 @@ attribute set of (boolean or floating point number or signed integer or string)<
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aria2.nix" target="_top">
 &lt;home-manager/modules/programs/aria2.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.aria2p.enable"></a><a class="term" href="options.xhtml#opt-programs.aria2p.enable"><code class="option">programs.aria2p.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable aria2p a terminal client for aria2c…</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aria2p.nix" target="_top">
+&lt;home-manager/modules/programs/aria2p.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.aria2p.package"></a><a class="term" href="options.xhtml#opt-programs.aria2p.package"><code class="option">programs.aria2p.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The aria2p package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.python3Packages.aria2p
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aria2p.nix" target="_top">
+&lt;home-manager/modules/programs/aria2p.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.aria2p.settings"></a><a class="term" href="options.xhtml#opt-programs.aria2p.settings"><code class="option">programs.aria2p.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Keybinding and color settings for aria2p.
+Running aria2p generates a default configuration with
+all the options at <code class="filename">~/.config/aria2p/config.toml</code></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  colors = {
+    FOCUSED_HEADER = &quot;BLACK NORMAL CYAN&quot;;
+    METADATA = &quot;WHITE UNDERLINE DEFAULT&quot;;
+    UI = &quot;WHITE BOLD DEFAULT&quot;;
+  };
+  key_bindings = {
+    AUTOCLEAR = &quot;c&quot;;
+    FILTER = [
+      &quot;F4&quot;
+      &quot;\\&quot;
+    ];
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/aria2p.nix" target="_top">
+&lt;home-manager/modules/programs/aria2p.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -21262,6 +21347,136 @@ string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/astroid" target="_top">
 &lt;home-manager/modules/programs/astroid&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.atool.enable"></a><a class="term" href="options.xhtml#opt-programs.atool.enable"><code class="option">programs.atool.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable atool a commandline archive manager…</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix" target="_top">
+&lt;home-manager/modules/programs/atool.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.atool.package"></a><a class="term" href="options.xhtml#opt-programs.atool.package"><code class="option">programs.atool.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The atool package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.atool
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix" target="_top">
+&lt;home-manager/modules/programs/atool.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.atool.extraPackages"></a><a class="term" href="options.xhtml#opt-programs.atool.extraPackages"><code class="option">programs.atool.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra packages for atool.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix"># all supported archive backends
+with pkgs; [ bzip2 cpio gnutar gzip lhasa lzop p7zip unrar-free unzip xz zip ]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix" target="_top">
+&lt;home-manager/modules/programs/atool.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.atool.finalPackage"></a><a class="term" href="options.xhtml#opt-programs.atool.finalPackage"><code class="option">programs.atool.finalPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Final atool package bundled with extraPackages.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package <span class="emphasis"><em>(read only)</em></span></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix" target="_top">
+&lt;home-manager/modules/programs/atool.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.atool.settings"></a><a class="term" href="options.xhtml#opt-programs.atool.settings"><code class="option">programs.atool.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>atool settings to generate <code class="filename">~/.atoolrc</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or signed integer)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  path_unrar = &quot;unrar-free&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/atool.nix" target="_top">
+&lt;home-manager/modules/programs/atool.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -23524,7 +23739,8 @@ version ≥ 19.03. For earlier versions beets is enabled if
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;false&quot;
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;19.03&quot; then false else config.programs.beets.settings != { }
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -23946,6 +24162,9 @@ each with its own source directories and repositories.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   personal = {
     location = {
@@ -24216,6 +24435,9 @@ null or (list of string)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of (string or (submodule))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
   {
@@ -25994,12 +26216,39 @@ null or package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.cargo.cargoHome"></a><a class="term" href="options.xhtml#opt-programs.cargo.cargoHome"><code class="option">programs.cargo.cargoHome</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Directory to store cargo configuration &amp; state. Setting this also sets $CARGO_HOME.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.xdg.dataHome}/cargo
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/cargo.nix" target="_top">
+&lt;home-manager/modules/programs/cargo.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.cargo.settings"></a><a class="term" href="options.xhtml#opt-programs.cargo.settings"><code class="option">programs.cargo.settings</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Available configuration options for the .cargo/config see:
+<p>Available configuration options for the $CARGO_HOME/config see:
 https://doc.rust-lang.org/cargo/reference/config.html</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -26596,6 +26845,9 @@ null or string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -26985,6 +27237,43 @@ attribute set of (JSON value)</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.claude-code.marketplaces"></a><a class="term" href="options.xhtml#opt-programs.claude-code.marketplaces"><code class="option">programs.claude-code.marketplaces</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom marketplaces for Claude Code plugins.
+The attribute name becomes the marketplace name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>A path to the marketplace directory</p></li><li class="listitem"><p>The marketplace package, whether a nix package or the output of a fetcher</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (package or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  local-marketplace = ./my-local-marketplace;
+  gh-marketplace = fetchFromGithub {
+    owner = &quot;some-github-org&quot;;
+    repo = &quot;claude-marketplace&quot;;
+    rev = &quot;8a873a220b8427b25b03ce1a821593a24e098c34&quot;;
+    sha256 = &quot;5c2dce95122b5bb73fa547edabbb6c3061c2d193d11e51faecd4d22659e67279&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.claude-code.mcpServers"></a><a class="term" href="options.xhtml#opt-programs.claude-code.mcpServers"><code class="option">programs.claude-code.mcpServers</code>
   </a>
  </span>
@@ -27133,6 +27422,44 @@ attribute set of (strings concatenated with “\n” or absolute path)</p>
     Contents will be used verbatim for the detailed output format.
   &#x27;&#x27;;
 }
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.claude-code.plugins"></a><a class="term" href="options.xhtml#opt-programs.claude-code.plugins"><code class="option">programs.claude-code.plugins</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of plugins to use when running Claude Code.
+Each entry is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>A path to the plugin directory</p></li><li class="listitem"><p>The plugin package, whether a nix package or the output of a fetcher
+Plugins are enabled via a <code class="literal">--plugin-dir</code> argument in the wrapper script.</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (package or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  ./my-local-plugin
+  fetchFromGithub {
+    owner = &quot;some-github-org&quot;;
+    repo = &quot;claude-plugin&quot;;
+    rev = &quot;779a68ebc2a75e4a184d2c87e5a43a758e6458a1&quot;;
+    sha256 = &quot;228fdd7e5908ea1d2f65218ecd9c71e1eefa0834d200d55fbb8bf8b5563acec0&quot;;
+  }
+]
 
 </code></pre>
 
@@ -27752,8 +28079,10 @@ null or TOML value</p>
 </dt>
 <dd>
 <p>Custom skills for Codex.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing multiple skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the skill directory name,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (creates <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code> with all files)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per skill name, each
-containing a <code class="filename">SKILL.md</code>. The directory is symlinked to <code class="filename">&lt;skills-dir&gt;/</code>.</p><p>The skills target directory depends on Codex version:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="filename">~/.agents/skills</code> for Codex &gt;= 0.94.0</p></li><li class="listitem"><p><code class="filename">~/.codex/skills</code> for older versions</p></li></ul></div>
+and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a file (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per skill name, each
+containing a <code class="filename">SKILL.md</code>. Each top-level skill entry is symlinked into
+<code class="filename">&lt;skills-dir&gt;/</code>, leaving <code class="filename">&lt;skills-dir&gt;/</code> itself as a normal
+directory so unmanaged skills can coexist.</p><p>The skills target directory depends on Codex version:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="filename">~/.agents/skills</code> for Codex &gt;= 0.94.0</p></li><li class="listitem"><p><code class="filename">~/.codex/skills</code> for older versions</p></li></ul></div>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
@@ -31825,6 +32154,9 @@ null or string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -32074,8 +32406,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32102,8 +32434,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32718,8 +33050,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32746,8 +33078,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33440,8 +33772,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33468,8 +33800,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35179,6 +35511,9 @@ null or string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -35428,8 +35763,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35456,8 +35791,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36072,8 +36407,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36100,8 +36435,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36794,8 +37129,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36822,8 +37157,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -39737,8 +40072,7 @@ Valid values are <code class="literal">openpgp</code> (OpenPGP/GnuPG), <code cla
 <p><span class="emphasis"><em>Type:</em></span>
 null or one of “openpgp”, “ssh”, “x509”</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;openpgp&quot; for state version &lt; 25.05,
-undefined for state version ≥ 25.05
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;25.05&quot; then null else &quot;openpgp&quot;
 
 </code></pre>
 
@@ -39811,6 +40145,9 @@ null or boolean</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -40960,6 +41297,9 @@ string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of string</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -42018,6 +42358,9 @@ in
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (string or boolean or list of string)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   no-comments = false;
   s2k-cipher-algo = &quot;AES128&quot;;
@@ -42414,6 +42757,88 @@ attribute set of string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/grep.nix" target="_top">
 &lt;home-manager/modules/programs/grep.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.grype.enable"></a><a class="term" href="options.xhtml#opt-programs.grype.enable"><code class="option">programs.grype.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Grype.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/grype.nix" target="_top">
+&lt;home-manager/modules/programs/grype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.grype.package"></a><a class="term" href="options.xhtml#opt-programs.grype.package"><code class="option">programs.grype.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The grype package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.grype
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/grype.nix" target="_top">
+&lt;home-manager/modules/programs/grype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.grype.settings"></a><a class="term" href="options.xhtml#opt-programs.grype.settings"><code class="option">programs.grype.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/grype/config.yaml</code>.
+See <a class="link" href="https://oss.anchore.com/docs/reference/grype/configuration/"  target="_top">https://oss.anchore.com/docs/reference/grype/configuration/</a> for supported values.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+YAML 1.1 value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  check-for-app-update = false;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/grype.nix" target="_top">
+&lt;home-manager/modules/programs/grype.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -44835,6 +45260,9 @@ package</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (DAG of attribute set of (INI atom (null, int, bool, string, or float)))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   top = {
@@ -49291,6 +49719,9 @@ strings concatenated with “\n”</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -53189,6 +53620,9 @@ null or string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -53438,8 +53872,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -53466,8 +53900,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54082,8 +54516,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54110,8 +54544,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54804,8 +55238,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54832,8 +55266,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55788,6 +56222,1699 @@ list of package</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/lutris.nix" target="_top">
 &lt;home-manager/modules/programs/lutris.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.enable"></a><a class="term" href="options.xhtml#opt-programs.macchina.enable"><code class="option">programs.macchina.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable macchina system information fetcher.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.package"></a><a class="term" href="options.xhtml#opt-programs.macchina.package"><code class="option">programs.macchina.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The macchina package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.macchina
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.current_shell"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.current_shell"><code class="option">programs.macchina.settings.current_shell</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show the current shell rather than the user’s default shell.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.disk_space_percentage"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.disk_space_percentage"><code class="option">programs.macchina.settings.disk_space_percentage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show percentage next to disk space information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.disks"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.disks"><code class="option">programs.macchina.settings.disks</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Disks to show disk usage for.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (list of string)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;/&quot;
+  &quot;/home/user&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.interface"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.interface"><code class="option">programs.macchina.settings.interface</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Network interface to use for the LocalIP readout. Omitted when null.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;wlan0&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.long_kernel"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.long_kernel"><code class="option">programs.macchina.settings.long_kernel</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show lengthened kernel output.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.long_shell"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.long_shell"><code class="option">programs.macchina.settings.long_shell</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show lengthened shell output.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.long_uptime"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.long_uptime"><code class="option">programs.macchina.settings.long_uptime</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show lengthened uptime output.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.memory_percentage"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.memory_percentage"><code class="option">programs.macchina.settings.memory_percentage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show percentage next to memory information.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.physical_cores"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.physical_cores"><code class="option">programs.macchina.settings.physical_cores</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Show physical CPU core count rather than logical core count.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.show"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.show"><code class="option">programs.macchina.settings.show</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display only the specified readouts. When null, all readouts are shown.
+Values are case-sensitive.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (list of (one of “Host”, “Machine”, “Kernel”, “Distribution”, “OperatingSystem”, “DesktopEnvironment”, “WindowManager”, “Resolution”, “Backlight”, “Packages”, “LocalIP”, “Terminal”, “Shell”, “Uptime”, “Processor”, “ProcessorLoad”, “Memory”, “Battery”, “GPU”, “DiskSpace”))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ &quot;Battery&quot; &quot;Memory&quot; &quot;Processor&quot; &quot;Shell&quot; ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.settings.theme"></a><a class="term" href="options.xhtml#opt-programs.macchina.settings.theme"><code class="option">programs.macchina.settings.theme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Name of the theme to use, without the .toml extension. Case-sensitive.
+Must correspond to a file in the macchina themes directory, or be defined
+in <code class="option">programs.macchina.themes</code>.
+Omitted when null.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;Hydrogen&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes"><code class="option">programs.macchina.themes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Attribute set of macchina themes. Each entry is written to
+<code class="filename">$XDG_CONFIG_HOME/macchina/themes/&lt;name&gt;.toml</code>.</p><p>Theme names are case-sensitive. A theme defined here can be activated
+by setting <code class="option">programs.macchina.settings.theme</code> to its name.</p><p>See <a class="link" href="https://github.com/Macchina-CLI/macchina/wiki/Customization"  target="_top">https://github.com/Macchina-CLI/macchina/wiki/Customization</a>
+for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  Hydrogen = {
+    spacing = 2;
+    padding = 0;
+    hide_ascii = true;
+    separator = &quot;&gt;&quot;;
+    key_color = &quot;Cyan&quot;;
+    separator_color = &quot;White&quot;;
+
+    palette = {
+      type = &quot;Full&quot;;
+      visible = false;
+    };
+
+    bar = {
+      glyph = &quot;o&quot;;
+      symbol_open = &quot;[&quot;;
+      symbol_close = &quot;]&quot;;
+      hide_delimiters = true;
+      visible = true;
+    };
+
+    box = {
+      border = &quot;plain&quot;;
+      visible = true;
+      inner_margin = { x = 1; y = 0; };
+    };
+
+    randomize = {
+      key_color = false;
+      separator_color = false;
+    };
+
+    keys = {
+      host = &quot;Host&quot;;
+      kernel = &quot;Kernel&quot;;
+      battery = &quot;Battery&quot;;
+      os = &quot;OS&quot;;
+      de = &quot;DE&quot;;
+      wm = &quot;WM&quot;;
+      distro = &quot;Distro&quot;;
+      terminal = &quot;Terminal&quot;;
+      shell = &quot;Shell&quot;;
+      packages = &quot;Packages&quot;;
+      uptime = &quot;Uptime&quot;;
+      memory = &quot;Memory&quot;;
+      machine = &quot;Machine&quot;;
+      local_ip = &quot;Local IP&quot;;
+      backlight = &quot;Brightness&quot;;
+      resolution = &quot;Resolution&quot;;
+      cpu_load = &quot;CPU Load&quot;;
+      cpu = &quot;CPU&quot;;
+      gpu = &quot;GPU&quot;;
+      disk_space = &quot;Disk Space&quot;;
+    };
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar"><code class="option">programs.macchina.themes.&lt;name&gt;.bar</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Bar section. Replaces data ranging from 0–100% with visual bars.
+Omit to exclude the [bar] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar.glyph"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar.glyph"><code class="option">programs.macchina.themes.&lt;name&gt;.bar.glyph</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Glyph to use for all bars.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar.hide_delimiters"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar.hide_delimiters"><code class="option">programs.macchina.themes.&lt;name&gt;.bar.hide_delimiters</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to hide bar delimiters.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar.symbol_close"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar.symbol_close"><code class="option">programs.macchina.themes.&lt;name&gt;.bar.symbol_close</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Closing delimiter character. Must be a single character.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar.symbol_open"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar.symbol_open"><code class="option">programs.macchina.themes.&lt;name&gt;.bar.symbol_open</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Opening delimiter character. Must be a single character.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.bar.visible"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.bar.visible"><code class="option">programs.macchina.themes.&lt;name&gt;.bar.visible</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to show bars.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box"><code class="option">programs.macchina.themes.&lt;name&gt;.box</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Box section. Renders a box around system information.
+Omit to exclude the [box] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.border"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.border"><code class="option">programs.macchina.themes.&lt;name&gt;.box.border</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Border style for the box.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or one of “plain”, “thick”, “rounded”, “double”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.inner_margin"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.inner_margin"><code class="option">programs.macchina.themes.&lt;name&gt;.box.inner_margin</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Inner margin between content and the box border.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.inner_margin.x"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.inner_margin.x"><code class="option">programs.macchina.themes.&lt;name&gt;.box.inner_margin.x</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Horizontal margin between content and the box border.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.inner_margin.y"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.inner_margin.y"><code class="option">programs.macchina.themes.&lt;name&gt;.box.inner_margin.y</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Vertical margin between content and the box border.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.title"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.title"><code class="option">programs.macchina.themes.&lt;name&gt;.box.title</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Title displayed on the box. Omitted from config when null.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;Hydrogen&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.box.visible"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.box.visible"><code class="option">programs.macchina.themes.&lt;name&gt;.box.visible</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to show the box.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.custom_ascii"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.custom_ascii"><code class="option">programs.macchina.themes.&lt;name&gt;.custom_ascii</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom ASCII section. Specify your own ASCII art file.
+Omit to exclude the [custom_ascii] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.custom_ascii.color"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.custom_ascii.color"><code class="option">programs.macchina.themes.&lt;name&gt;.custom_ascii.color</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Color of the ASCII art. Omitted when null.
+Accepts hex (“#00FF00”), indexed (“046”), or named colors (e.g. “Green”).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;Cyan&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.custom_ascii.path"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.custom_ascii.path"><code class="option">programs.macchina.themes.&lt;name&gt;.custom_ascii.path</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to a file containing ASCII art. ANSI escape sequences are supported.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;~/ascii/arch_linux&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.hide_ascii"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.hide_ascii"><code class="option">programs.macchina.themes.&lt;name&gt;.hide_ascii</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to disable ASCII rendering entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.key_color"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.key_color"><code class="option">programs.macchina.themes.&lt;name&gt;.key_color</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Color of the keys. Omitted when null.
+Accepts hex (“#00FF00”), indexed (“046”), or named colors (e.g. “Cyan”).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;Cyan&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys"><code class="option">programs.macchina.themes.&lt;name&gt;.keys</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Keys section. Overrides the display label for each readout.
+Omit to exclude the [keys] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.packages"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.packages"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.packages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Packages readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.backlight"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.backlight"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.backlight</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Backlight readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.battery"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.battery"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.battery</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Battery readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.cpu"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.cpu"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.cpu</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Processor readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.cpu_load"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.cpu_load"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.cpu_load</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the ProcessorLoad readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.de"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.de"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.de</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the DesktopEnvironment readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.disk_space"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.disk_space"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.disk_space</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the DiskSpace readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.distro"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.distro"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.distro</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Distribution readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.gpu"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.gpu"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.gpu</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the GPU readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.host"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.host"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.host</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Host readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.kernel"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.kernel"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.kernel</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Kernel readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.local_ip"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.local_ip"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.local_ip</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the LocalIP readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.machine"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.machine"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.machine</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Machine readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.memory"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.memory"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.memory</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Memory readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.os"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.os"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.os</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the OperatingSystem readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.resolution"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.resolution"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.resolution</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Resolution readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.shell"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.shell"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.shell</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Shell readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.terminal"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.terminal"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.terminal</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Terminal readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.uptime"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.uptime"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.uptime</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the Uptime readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.keys.wm"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.keys.wm"><code class="option">programs.macchina.themes.&lt;name&gt;.keys.wm</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Label for the WindowManager readout.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.padding"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.padding"><code class="option">programs.macchina.themes.&lt;name&gt;.padding</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Padding between content and its surroundings.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.palette"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.palette"><code class="option">programs.macchina.themes.&lt;name&gt;.palette</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Palette section. Displays the active colorscheme of your terminal emulator.
+Omit to exclude the [palette] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.palette.glyph"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.palette.glyph"><code class="option">programs.macchina.themes.&lt;name&gt;.palette.glyph</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Glyph for the palette. Append a trailing space to separate glyphs.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.palette.type"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.palette.type"><code class="option">programs.macchina.themes.&lt;name&gt;.palette.type</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Color set to use for the palette. Case-sensitive.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or one of “Dark”, “Light”, “Full”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.palette.visible"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.palette.visible"><code class="option">programs.macchina.themes.&lt;name&gt;.palette.visible</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to show the palette.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.prefer_small_ascii"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.prefer_small_ascii"><code class="option">programs.macchina.themes.&lt;name&gt;.prefer_small_ascii</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Always use smaller variants of built-in ASCII art.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.randomize"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.randomize"><code class="option">programs.macchina.themes.&lt;name&gt;.randomize</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Randomize section. Controls random color selection for keys and separators.
+Omit to exclude the [randomize] section entirely.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.randomize.key_color"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.randomize.key_color"><code class="option">programs.macchina.themes.&lt;name&gt;.randomize.key_color</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to randomize the key color.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.randomize.pool"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.randomize.pool"><code class="option">programs.macchina.themes.&lt;name&gt;.randomize.pool</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Pool of colors to draw from when randomizing. Omitted when null.</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>“hexadecimal”: random color #000000–#FFFFFF</p></li><li class="listitem"><p>“indexed”: random color 0–255</p></li><li class="listitem"><p>“base”: random from black, white, red, green, blue, yellow, magenta, cyan</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or one of “hexadecimal”, “indexed”, “base”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.randomize.separator_color"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.randomize.separator_color"><code class="option">programs.macchina.themes.&lt;name&gt;.randomize.separator_color</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to randomize the separator color.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.separator"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.separator"><code class="option">programs.macchina.themes.&lt;name&gt;.separator</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Glyph to use as the separator.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.separator_color"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.separator_color"><code class="option">programs.macchina.themes.&lt;name&gt;.separator_color</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Color of the separator. Omitted when null.
+Accepts hex (“#00FF00”), indexed (“046”), or named colors (e.g. “White”).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;White&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.macchina.themes._name_.spacing"></a><a class="term" href="options.xhtml#opt-programs.macchina.themes._name_.spacing"><code class="option">programs.macchina.themes.&lt;name&gt;.spacing</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Spacing between the separator and adjacent content.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (unsigned integer, meaning &gt;=0)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/macchina" target="_top">
+&lt;home-manager/modules/programs/macchina&gt;
 </a></code>
 </td></tr>
 </table>
@@ -60603,6 +62730,9 @@ strings concatenated with “\n” <span class="emphasis"><em>(read only)</em></
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of strings concatenated with “\n” <span class="emphasis"><em>(read only)</em></span></p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   viml = &#x27;&#x27;
     &quot; Generated by home-manager
@@ -62945,6 +65075,103 @@ boolean</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nnn.nix" target="_top">
 &lt;home-manager/modules/programs/nnn.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nom.enable"></a><a class="term" href="options.xhtml#opt-programs.nom.enable"><code class="option">programs.nom.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable nom a terminal, rss feed reader…</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nom.nix" target="_top">
+&lt;home-manager/modules/programs/nom.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nom.package"></a><a class="term" href="options.xhtml#opt-programs.nom.package"><code class="option">programs.nom.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The nom package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.nom
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nom.nix" target="_top">
+&lt;home-manager/modules/programs/nom.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.nom.settings"></a><a class="term" href="options.xhtml#opt-programs.nom.settings"><code class="option">programs.nom.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings for nom including themes, rss feeds, and openers for specific url regexes.</p><p>Options are listed on the github: <a class="link" href="https://github.com/guyfedwards/nom"  target="_top">https://github.com/guyfedwards/nom</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  autoread = true;
+  feeds = [
+    {
+      name = &quot;Jeff Geerling&quot;;
+      url = &quot;https://www.youtube.com/feeds/videos.xml?channel_id=UCR-DXc1voovS8nhAvccRZhg&quot;;
+    }
+  ];
+  openers = [
+    {
+      cmd = &quot;mpv %s&quot;;
+      regex = &quot;youtube&quot;;
+    }
+  ];
+  ordering = &quot;desc&quot;;
+  showread = false;
+  theme = {
+    glamour = &quot;dark&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nom.nix" target="_top">
+&lt;home-manager/modules/programs/nom.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -66906,10 +69133,10 @@ JSON value</p>
 </dt>
 <dd>
 <p>Custom agent skills for opencode.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing multiple skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the skill directory name,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/skill/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/skill/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (creates <code class="literal">opencode/skill/&lt;name&gt;/</code> with all files)</p></li></ul></div><p>This also accepts Nix store paths (e.g., source from a package), allowing you to
+and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (creates <code class="literal">opencode/skills/&lt;name&gt;/</code> with all files)</p></li></ul></div><p>This also accepts Nix store paths (e.g., source from a package), allowing you to
 reference subdirectories within a package source.</p><p>If a path is used, it is expected to contain one folder per skill name, each
 containing a <code class="filename">SKILL.md</code>. The directory is symlinked to
-<code class="filename">$XDG_CONFIG_HOME/opencode/skill/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/skills/"  target="_top">https://opencode.ai/docs/skills/</a> for the documentation.</p>
+<code class="filename">$XDG_CONFIG_HOME/opencode/skills/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/skills/"  target="_top">https://opencode.ai/docs/skills/</a> for the documentation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path or string)) or absolute path</p>
@@ -67058,7 +69285,7 @@ boolean</p>
  </span>
 </dt>
 <dd>
-<p>Extra arguments to pass to the opencode web command.</p><p>These arguments override the “server” options defined in the configuration file.
+<p>Extra arguments to pass to the opencode serve command.</p><p>These arguments override the “server” options defined in the configuration file.
 See <a class="link" href="https://opencode.ai/docs/web/#config-file"  target="_top">https://opencode.ai/docs/web/#config-file</a> for available options.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -67839,8 +70066,7 @@ available keys.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }                                                       for state version ≥ 25.11
-{ PASSWORD_STORE_DIR = &quot;$XDG_DATA_HOME/password-store&quot;; } for state version &lt; 25.11
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;25.11&quot; then { } else { PASSWORD_STORE_DIR = &quot;$XDG_DATA_HOME/password-store&quot;; }
 
 </code></pre>
 
@@ -74000,6 +76226,9 @@ null or boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of string</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
   &quot;pdf&quot;
 ]
@@ -76179,6 +78408,9 @@ package</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 open submodule of attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   address = &quot;libera.chat:6697&quot;;
@@ -78461,6 +80693,33 @@ null or string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.smug.projects._name_.session"></a><a class="term" href="options.xhtml#opt-programs.smug.projects._name_.session"><code class="option">programs.smug.projects.&lt;name&gt;.session</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Session name for the smug project.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;‹name›&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{ session = &quot;project-\${worktree}&quot;; }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/smug.nix" target="_top">
+&lt;home-manager/modules/programs/smug.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.smug.projects._name_.stop"></a><a class="term" href="options.xhtml#opt-programs.smug.projects._name_.stop"><code class="option">programs.smug.projects.&lt;name&gt;.stop</code>
   </a>
  </span>
@@ -78494,6 +80753,9 @@ null or (list of string)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -79910,6 +82172,9 @@ list of (submodule)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -79984,6 +82249,9 @@ null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -80201,6 +82469,9 @@ list of (submodule)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -80275,6 +82546,9 @@ null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -84006,6 +86280,9 @@ list of package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -84420,8 +86697,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -84448,8 +86725,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/knf5m0famajw2bzbsg72b052iy1ynpck-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/0aw90x51m1ghbxjk6p6pa6508512m31a-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -86636,6 +88913,94 @@ TOML value</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.ttyper.enable"></a><a class="term" href="options.xhtml#opt-programs.ttyper.enable"><code class="option">programs.ttyper.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable ttyper, a terminal-based typing test.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ttyper.nix" target="_top">
+&lt;home-manager/modules/programs/ttyper.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ttyper.package"></a><a class="term" href="options.xhtml#opt-programs.ttyper.package"><code class="option">programs.ttyper.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The ttyper package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.ttyper
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ttyper.nix" target="_top">
+&lt;home-manager/modules/programs/ttyper.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.ttyper.settings"></a><a class="term" href="options.xhtml#opt-programs.ttyper.settings"><code class="option">programs.ttyper.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/ttyper/config.toml</code>.
+See <a class="link" href="https://github.com/max-niederman/ttyper"  target="_top">https://github.com/max-niederman/ttyper</a> for all available options,
+including supported languages and theme keys.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  default_language = &quot;english200&quot;;
+  theme = {
+    border_type = &quot;rounded&quot;;
+    prompt_correct = &quot;green&quot;;
+    prompt_incorrect = &quot;red&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ttyper.nix" target="_top">
+&lt;home-manager/modules/programs/ttyper.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.twitch-tui.enable"></a><a class="term" href="options.xhtml#opt-programs.twitch-tui.enable"><code class="option">programs.twitch-tui.enable</code>
   </a>
  </span>
@@ -87464,7 +89829,7 @@ boolean</p>
 <p>The vesktop package to use.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-package</p>
+null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.vesktop
 </code></pre>
@@ -87670,8 +90035,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87694,8 +90059,8 @@ null or package</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87724,6 +90089,10 @@ null or package</p>
     sha256 = &quot;sha256-G7il8T1L+P/2mXWJsb68n4BCbVKcrrtK8GnBNxzt73Q=&quot;;
     rev = &quot;4d417c2dfd86a5b2bea202d4a7b48d8eb3dbaeb1&quot;;
   })
+  (config.lib.vicinae.mkRayCastExtension {
+    name = &quot;my-local-raycast-extension&quot;;
+    src = ./extensions/my-local-raycast-extension;
+  })
  ],
 </code></pre>
 
@@ -87736,8 +90105,8 @@ list of package</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87774,8 +90143,8 @@ JSON value</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87801,8 +90170,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87825,8 +90194,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87852,8 +90221,8 @@ string</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87913,8 +90282,8 @@ TOML value</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -87940,8 +90309,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae.nix" target="_top">
-&lt;home-manager/modules/programs/vicinae.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vicinae" target="_top">
+&lt;home-manager/modules/programs/vicinae&gt;
 </a></code>
 </td></tr>
 </table>
@@ -88856,7 +91225,7 @@ boolean</p>
 <p>The vscode package to use. Version of Visual Studio Code to install.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-package</p>
+null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.vscode
 </code></pre>
@@ -89061,6 +91430,38 @@ string</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;MyCoolVSCodeFork&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode" target="_top">
+&lt;home-manager/modules/programs/vscode&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.vscode.pname"></a><a class="term" href="options.xhtml#opt-programs.vscode.pname"><code class="option">programs.vscode.pname</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The package name (pname) of the VS Code variant being used.
+Required when <code class="option">programs.vscode.package</code> is set to
+<code class="literal">null</code>, so that <code class="option">programs.vscode.nameShort</code> and
+<code class="option">programs.vscode.dataFolderName</code> can be derived from
+known products. Has no effect when
+<code class="option">programs.vscode.package</code> is set.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;vscode&quot;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -89488,6 +91889,581 @@ absolute path or JSON value</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode" target="_top">
 &lt;home-manager/modules/programs/vscode&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.enable"></a><a class="term" href="options.xhtml#opt-programs.w3m.enable"><code class="option">programs.w3m.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable the w3m terminal web browser.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.package"></a><a class="term" href="options.xhtml#opt-programs.w3m.package"><code class="option">programs.w3m.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The w3m package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.w3m
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.bindings"></a><a class="term" href="options.xhtml#opt-programs.w3m.bindings"><code class="option">programs.w3m.bindings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Keybindings for w3m.</p><p>See <a class="link" href="https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.keymap"  target="_top">https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.keymap</a> for
+documentation.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;\&quot;;\&quot;&quot; = &quot;MARK_WORD&quot;;
+  C-a = &quot;LINE_BEGIN&quot;;
+  DEL = &quot;CLOSE_TAB&quot;;
+  M-C-j = &quot;SAVE_LINK&quot;;
+  M-TAB = &quot;PREV_LINK&quot;;
+  O = &quot;COMMAND \&quot;SET_OPTION dictprompt=&#x27;GOTO: &#x27;; SET_OPTION dictcommand=file:/cgi-bin/opener.cgi ; DICT_WORD\&quot;&quot;;
+  SPC = &quot;NEXT_PAGE&quot;;
+  UP = &quot;MOVE_UP&quot;;
+  &quot;\\\&quot;&quot; = &quot;REG_MARK&quot;;
+  &quot;\\^&quot; = &quot;LINE_BEGIN&quot;;
+  gg = &quot;BEGIN&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.bookmarks.marks"></a><a class="term" href="options.xhtml#opt-programs.w3m.bookmarks.marks"><code class="option">programs.w3m.bookmarks.marks</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Bookmark file for w3m.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  archlinux = [
+    {
+      name = &quot;aur&quot;;
+      url = &quot;https://aur.archlinux.org/&quot;;
+    }
+    {
+      name = &quot;archwiki&quot;;
+      url = &quot;https://wiki.archlinux.org/title/Main_page&quot;;
+    }
+  ];
+  nix = [
+    {
+      name = &quot;nixos manual&quot;;
+      url = &quot;https://nixos.org/manual/nixos/stable/&quot;;
+    }
+    {
+      name = &quot;home-manager manual&quot;;
+      url = &quot;https://nix-community.github.io/home-manager/&quot;;
+    }
+  ];
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.bookmarks.marks._name_._.name"></a><a class="term" href="options.xhtml#opt-programs.w3m.bookmarks.marks._name_._.name"><code class="option">programs.w3m.bookmarks.marks.&lt;name&gt;.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Display name of bookmark.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.bookmarks.marks._name_._.url"></a><a class="term" href="options.xhtml#opt-programs.w3m.bookmarks.marks._name_._.url"><code class="option">programs.w3m.bookmarks.marks.&lt;name&gt;.*.url</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Destination address of bookmark.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.bookmarks.title"></a><a class="term" href="options.xhtml#opt-programs.w3m.bookmarks.title"><code class="option">programs.w3m.bookmarks.title</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Title of the bookmarks page.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;Bookmarks&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.cgiBin"></a><a class="term" href="options.xhtml#opt-programs.w3m.cgiBin"><code class="option">programs.w3m.cgiBin</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Scripts located in w3m’s cgi-bin directory. For security reasons, w3m can
+only read scripts from here and <code class="filename">${pkgs.w3m}/libexec/w3m/cgi-bin/</code>
+(referenceable as $LIB in w3m). The cgi-bin scripts can be written in any
+language and have access to the query provided to them through the
+QUERY_STRING environment variable. A cgi-bin script can send commands
+back to w3m via stdout with the form “W3m-control: &lt;command&gt;”.</p><p>See <a class="link" href="https://git.sr.ht/~rkta/w3m/tree/master/item/doc/MANUAL.html"  target="_top">https://git.sr.ht/~rkta/w3m/tree/master/item/doc/MANUAL.html</a> for
+more information.</p><p>As of w3m v0.5.5, the option <code class="literal">cgi_bin</code> isn’t defined by default. If you
+want to use any cgi-bin scripts in w3m then set
+<code class="literal">programs.w3m.settings.cgi_bin</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;search.cgi&quot; = {
+    text = &#x27;&#x27;
+      #!/usr/bin/env sh
+      
+      PREFIX=$(echo &quot;$QUERY_STRING&quot; | cut -d &#x27;:&#x27; -f1)
+      INPUT=$(echo &quot;$QUERY_STRING&quot; | cut -d &#x27;:&#x27; -f2-)
+      
+      case $PREFIX in
+        aw) echo &quot;W3m-control: GOTO https://wiki.archlinux.org/index.php?search=$INPUT&quot;;;
+        ddg) echo &quot;W3m-control: GOTO https://lite.duckduckgo.com/lite/?q=$INPUT&quot;;;
+      esac
+      
+      echo &quot;W3m-control: DELETE_PREVBUF&quot;
+    &#x27;&#x27;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.cgiBin._name_.source"></a><a class="term" href="options.xhtml#opt-programs.w3m.cgiBin._name_.source"><code class="option">programs.w3m.cgiBin.&lt;name&gt;.source</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to script file.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.cgiBin._name_.text"></a><a class="term" href="options.xhtml#opt-programs.w3m.cgiBin._name_.text"><code class="option">programs.w3m.cgiBin.&lt;name&gt;.text</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Inline content of script file.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.extraPackages"></a><a class="term" href="options.xhtml#opt-programs.w3m.extraPackages"><code class="option">programs.w3m.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra packages available to w3m.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.rdrview pkgs.libsixel ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.finalPackage"></a><a class="term" href="options.xhtml#opt-programs.w3m.finalPackage"><code class="option">programs.w3m.finalPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Final W3m package that respects homePage, xdg.enable,
+and w3mImg2Sixel.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package <span class="emphasis"><em>(read only)</em></span></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.homePage"></a><a class="term" href="options.xhtml#opt-programs.w3m.homePage"><code class="option">programs.w3m.homePage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Page w3m opens to if a url isn’t provided.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;https://duckduckgo.com&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;\${config.xdg.configHome}/w3m/bookmark.html&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.settings"></a><a class="term" href="options.xhtml#opt-programs.w3m.settings"><code class="option">programs.w3m.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings for w3m typically set on the OPTIONS page. The best way to
+configure them is setting them in w3m then nixifying the w3m <code class="literal">config</code>
+file located at either <code class="filename">~/.w3m/config</code> or
+<code class="filename">~/$XDG_CONFIG_HOME/w3m/config</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or signed integer)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  cgi_bin = &quot;\${config.xdg.configHome}/w3m/cgi-bin&quot;;
+  extbrowser = &quot;firefox&quot;;
+  siteconf_file = &quot;\${config.xdg.configHome}/w3m/siteconf&quot;;
+  tabstop = 4;
+  urimethodmap = &quot;\${config.xdg.configHome}/w3m/urimethodmap&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.siteconf"></a><a class="term" href="options.xhtml#opt-programs.w3m.siteconf"><code class="option">programs.w3m.siteconf</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings for w3m’s siteconf. It allows you to match on a url pattern
+and do various things like url substitutions, site-specific user agent
+settings, specifying charset, and a few others.</p><p>See <a class="link" href="https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.siteconf"  target="_top">https://git.sr.ht/~rkta/w3m/tree/master/item/doc/README.siteconf</a>
+for documentation and examples.</p><p>As of w3m v0.5.5, siteconf doesn’t respect the W3M_DIR environment
+variable, so unless <code class="literal">programs.w3m.settings.siteconf_file</code> is set,
+<code class="literal">siteconf</code> will always be at <code class="filename">~/.w3m/siteconf</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  {
+    preferences = [
+      &quot;substitute_url \&quot;https://lite.duckduckgo.com\&quot;&quot;
+    ];
+    url = &quot;m!^https://duckduckgo.com/!i&quot;;
+  }
+  {
+    preferences = [
+      &quot;url_charset utf-8&quot;
+      &quot;substitute_url \&quot;https://eo.wikipedia.org\&quot;&quot;
+    ];
+    url = &quot;m!^https://wikipedia.org/! exact&quot;;
+  }
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.siteconf._.preferences"></a><a class="term" href="options.xhtml#opt-programs.w3m.siteconf._.preferences"><code class="option">programs.w3m.siteconf.*.preferences</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The preferences that w3m can apply to the matched url. Options
+are: <code class="literal">substitute_url &quot;&lt;destination-url&gt;&quot;</code>,
+<code class="literal">url_charset &lt;charset&gt;</code>, <code class="literal">no_referer_from on|off</code>,
+<code class="literal">no_referer_to on|off</code>, <code class="literal">user_agent &quot;string&quot;</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.siteconf._.url"></a><a class="term" href="options.xhtml#opt-programs.w3m.siteconf._.url"><code class="option">programs.w3m.siteconf.*.url</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The url that the preferences should apply to. Can be of the
+form <code class="literal">&lt;url&gt;</code>, <code class="literal">m!&lt;regex&gt;!</code>, <code class="literal">m@&lt;regex&gt;@</code>, or <code class="literal">/&lt;regex&gt;/</code> with
+optional trailing “i” for case insensitive and “exact” for exact
+matches.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.urimethodmap"></a><a class="term" href="options.xhtml#opt-programs.w3m.urimethodmap"><code class="option">programs.w3m.urimethodmap</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings for w3m’s urimethodmap. It allows you to define custom uri
+schemes and map them to scripts. Scripts must be in the directory
+defined in <code class="literal">programs.w3m.settings.cgi_bin</code>.</p><p>As of w3m v0.5.5, urimethodmap doesn’t respect the W3M_DIR environment
+variable, so unless <code class="literal">programs.w3m.settings.urimethodmap</code> is set,
+<code class="literal">urimethodmap</code> will always be at <code class="filename">~/.w3m/urimethodmap</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  ddg = &quot;file:/cgi-bin/search.cgi?%s&quot;;
+  help = &quot;file:/$LIB/w3mhelp.cgi?%s&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.w3m.w3mImg2Sixel"></a><a class="term" href="options.xhtml#opt-programs.w3m.w3mImg2Sixel"><code class="option">programs.w3m.w3mImg2Sixel</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The executable and arguments that w3m should execute when using libsixel
+as the image backend.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;img2sixel&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;img2sixel -d atkinson&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/w3m.nix" target="_top">
+&lt;home-manager/modules/programs/w3m.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90172,22 +93148,24 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.waybar.systemd.target"></a><a class="term" href="options.xhtml#opt-programs.waybar.systemd.target"><code class="option">programs.waybar.systemd.target</code>
+ <a id="opt-programs.waybar.systemd.targets"></a><a class="term" href="options.xhtml#opt-programs.waybar.systemd.targets"><code class="option">programs.waybar.systemd.targets</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>The systemd target that will automatically start the Waybar service.</p><p>When setting this value to <code class="literal">&quot;sway-session.target&quot;</code>,
+<p>The systemd targets that will automatically start the Waybar service.</p><p>When setting this value to <code class="literal">[ &quot;sway-session.target&quot; ]</code>,
 make sure to also enable <code class="option">wayland.windowManager.sway.systemd.enable</code>,
 otherwise the service may never be started.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+list of string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.wayland.systemd.target
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ config.wayland.systemd.target ]
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;sway-session.target&quot;
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;sway-session.target&quot;
+]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -92141,8 +95119,7 @@ TOML value</p>
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;y&quot;  for state version ≥ 26.05
-&quot;yy&quot; for state version &lt; 26.05
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then &quot;y&quot; else &quot;yy&quot;
 
 </code></pre>
 
@@ -97275,6 +100252,198 @@ attribute set of (KDE option value)</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-qt.kvantum.enable"></a><a class="term" href="options.xhtml#opt-qt.kvantum.enable"><code class="option">qt.kvantum.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Kvantum configuration.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.kvantum.settings"></a><a class="term" href="options.xhtml#opt-qt.kvantum.settings"><code class="option">qt.kvantum.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Global configuration settings written to <code class="filename">$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+open submodule of attribute set of section of a kvconfig file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  Applications = {
+    KvArc = [
+      &quot;app1&quot;
+      &quot;app2&quot;
+    ];
+    KvFlat = [
+      &quot;app3&quot;
+    ];
+  };
+  General = {
+    theme = &quot;KvAdapta&quot;;
+  };
+  SomethingElse = {
+    foo = &quot;bar&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.kvantum.settings.Applications"></a><a class="term" href="options.xhtml#opt-qt.kvantum.settings.Applications"><code class="option">qt.kvantum.settings.Applications</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Application configuration settings for Kvantum.</p><p>Themes set here will override <code class="option">qt.kvantum.settings.General.theme</code>
+for their specific applications.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  KvArc = [
+    &quot;app1&quot;
+    &quot;app2&quot;
+  ];
+  KvFlat = [
+    &quot;app3&quot;
+  ];
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.kvantum.settings.General"></a><a class="term" href="options.xhtml#opt-qt.kvantum.settings.General"><code class="option">qt.kvantum.settings.General</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>General configuration settings for Kvantum.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+open submodule of section of a kvconfig file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  theme = &quot;KvAdapta&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.kvantum.settings.General.theme"></a><a class="term" href="options.xhtml#opt-qt.kvantum.settings.General.theme"><code class="option">qt.kvantum.settings.General.theme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The default Kvantum theme to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;KvAdapta&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-qt.kvantum.themes"></a><a class="term" href="options.xhtml#opt-qt.kvantum.themes"><code class="option">qt.kvantum.themes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Theme packages to install to <code class="filename">$XDG_CONFIG_HOME/Kvantum/</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">with pkgs; [
+  gruvbox-kvantum
+  catppuccin-kvantum
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix" target="_top">
+&lt;home-manager/modules/misc/qt/kvantum.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-qt.platformTheme"></a><a class="term" href="options.xhtml#opt-qt.platformTheme"><code class="option">qt.platformTheme</code>
   </a>
  </span>
@@ -101756,6 +104925,9 @@ JSON value</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of (one of “audio”, “backlight”, “battery”, “cpu_load”, “network”, “time”)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -102911,6 +106083,9 @@ list of package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 YAML 1.1 value</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   threshold = {
     swipe = 0.1;
@@ -103411,6 +106586,9 @@ package</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   xyz = {
@@ -104167,6 +107345,9 @@ null or package</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;pinentry-wayprompt&quot;
 </code></pre>
@@ -106892,6 +110073,9 @@ string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -107052,6 +110236,9 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -109921,6 +113108,246 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.mpdris2-rs.enable"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.enable"><code class="option">services.mpdris2-rs.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable mpdris2-rs, A lightweight implementation of MPD to D-Bus bridge.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.package"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.package"><code class="option">services.mpdris2-rs.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The mpdris2-rs package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.mpdris2-rs
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.host"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.host"><code class="option">services.mpdris2-rs.host</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>hostname + port, or UNIX socket path of MPD server, similar to what <code class="literal">mpc</code> takes</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>if not configured, <code class="literal">MPD_HOST</code> will be used</p></li><li class="listitem"><p>if <code class="literal">MPD_HOST</code> is not set either, <code class="literal">localhost:6600</code> is the default</p></li><li class="listitem"><p>UNIX socket path has to be absolute</p></li><li class="listitem"><p>Abstract sockets are supported on Linux (socket path that starts with <code class="literal">@</code>, e.g., <code class="literal">@mpd_socket</code>)</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;192.168.1.1&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.enable"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.enable"><code class="option">services.mpdris2-rs.notifications.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable song change notifications.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.body"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.body"><code class="option">services.mpdris2-rs.notifications.body</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Templating for the notification body.</p><p>See <a class="link" href="https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration"  target="_top">https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration</a> for available variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;%title% (%elapsed%/%duration%)&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.bodyPaused"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.bodyPaused"><code class="option">services.mpdris2-rs.notifications.bodyPaused</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Templating for the notification body (when paused).</p><p>See <a class="link" href="https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration"  target="_top">https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration</a> for available variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;%title% (%elapsed%/%duration%)&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.summary"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.summary"><code class="option">services.mpdris2-rs.notifications.summary</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Templating for the notification summary.</p><p>See <a class="link" href="https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration"  target="_top">https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration</a> for available variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;%artist% - %album%&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.summaryPaused"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.summaryPaused"><code class="option">services.mpdris2-rs.notifications.summaryPaused</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Templating for the notification summary (when paused).</p><p>See <a class="link" href="https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration"  target="_top">https://github.com/szclsya/mpdris2-rs?tab=readme-ov-file#configuration</a> for available variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;%artist% - %album%&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.mpdris2-rs.notifications.timeout"></a><a class="term" href="options.xhtml#opt-services.mpdris2-rs.notifications.timeout"><code class="option">services.mpdris2-rs.notifications.timeout</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>notification timeout (default 5 secs)</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or floating point number</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">10.0
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/mpdris2-rs.nix" target="_top">
+&lt;home-manager/modules/services/mpdris2-rs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.mpdscribble.enable"></a><a class="term" href="options.xhtml#opt-services.mpdscribble.enable"><code class="option">services.mpdscribble.enable</code>
   </a>
  </span>
@@ -110016,6 +113443,9 @@ attribute set of (submodule)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -119952,20 +123382,22 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-services.swayidle.systemdTarget"></a><a class="term" href="options.xhtml#opt-services.swayidle.systemdTarget"><code class="option">services.swayidle.systemdTarget</code>
+ <a id="opt-services.swayidle.systemdTargets"></a><a class="term" href="options.xhtml#opt-services.swayidle.systemdTargets"><code class="option">services.swayidle.systemdTargets</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Systemd target to bind to.</p>
+<p>Systemd targets to bind to.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+list of string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.wayland.systemd.target
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ config.wayland.systemd.target ]
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;sway-session.target&quot;
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;sway-session.target&quot;
+]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -121866,7 +125298,7 @@ package</p>
  </span>
 </dt>
 <dd>
-<p>Systemd timer period to create for scheduled <span class="command"><strong>tldr --update</strong></span>.</p><p>The format is described in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
+<p>Systemd timer period to create for scheduled <span class="command"><strong>tldr --update</strong></span>.</p><p>On Linux this is a string as defined by <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p><p>On Darwin, it must be one of: hourly, daily, weekly, monthly, semiannually, annually, which are implemented as defined in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
@@ -123407,6 +126839,9 @@ attribute set of (string or list of string)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of string of length 2</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
   &quot;/home/user/documents&quot;
@@ -125373,6 +128808,9 @@ The command is automatically escaped.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${pkgs.libnotify}/bin/notify-send &quot;Idle&quot; &quot;Sleeping in 1 minute&quot;
 
@@ -129350,7 +132788,7 @@ null or string matching the pattern sha256-.*=</p>
 match the version of the driver used by the host OS.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or string matching the pattern [0-9]{3}\.[0-9]{2,3}\.[0-9]{2}</p>
+null or string matching the pattern [0-9]{3}\.[0-9]{2,3}(\.[0-9]{2,3})?</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -133983,6 +137421,9 @@ criteria (which is different from an empty string criteria).</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (string or boolean)</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   title = &quot;x200: ~/work&quot;;
   floating = true;
@@ -137517,7 +140958,7 @@ your application.</p></div><p>This defaults to <code class="literal">true</code>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">lib.versionOlder config.home.stateVersion &quot;26.05&quot;
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then false else true
 
 </code></pre>
 
@@ -137806,6 +141247,9 @@ boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -137826,6 +141270,9 @@ submodule</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -137848,6 +141295,9 @@ submodule</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -137868,6 +141318,9 @@ submodule</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -141519,6 +144972,9 @@ criteria (which is different from an empty string criteria).</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (string or boolean)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   title = &quot;x200: ~/work&quot;;
