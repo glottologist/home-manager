@@ -88276,8 +88276,80 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmux.nix" target="_top">
-&lt;home-manager/modules/programs/tmux.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmuxinator.nix" target="_top">
+&lt;home-manager/modules/programs/tmuxinator.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.tmux.tmuxinator.package"></a><a class="term" href="options.xhtml#opt-programs.tmux.tmuxinator.package"><code class="option">programs.tmux.tmuxinator.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The tmuxinator package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.tmuxinator
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmuxinator.nix" target="_top">
+&lt;home-manager/modules/programs/tmuxinator.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.tmux.tmuxinator.projects"></a><a class="term" href="options.xhtml#opt-programs.tmux.tmuxinator.projects"><code class="option">programs.tmux.tmuxinator.projects</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Tmuxinator projects to write to <code class="filename">$HOME/.config/tmuxinator</code>.
+One project configuration file is generated per attribute.
+See <a class="link" href="https://github.com/tmuxinator/tmuxinator"  target="_top">https://github.com/tmuxinator/tmuxinator</a> for the project
+configuration format.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (YAML 1.1 value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  myproject = {
+    root = &quot;~/code/myproject&quot;;
+    windows = [
+      {
+        editor = {
+          layout = &quot;main-vertical&quot;;
+          panes = [
+            { editor = [ &quot;vim&quot; ]; }
+            &quot;guard&quot;
+          ];
+        };
+      }
+      { server = &quot;bundle exec rails s&quot;; }
+      { logs = &quot;tail -f log/development.log&quot;; }
+    ];
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/tmuxinator.nix" target="_top">
+&lt;home-manager/modules/programs/tmuxinator.nix&gt;
 </a></code>
 </td></tr>
 </table>
