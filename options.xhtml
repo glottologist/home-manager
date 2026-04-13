@@ -3580,6 +3580,204 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews"><code class="option">accounts.email.accounts.&lt;name&gt;.ews</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The EWS configuration to use for this account.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.authentication"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.authentication"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.authentication</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The authentication mechanism.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string or one of “anonymous”, “apop”, “clear”, “cram_md5”, “digest_md5”, “gssapi”, “login”, “ntlm”, “plain”, “xoauth2”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;plain&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.host"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.host"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.host</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Hostname of EWS server.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;ews.example.org&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.serviceDescriptionURL"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.serviceDescriptionURL"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.serviceDescriptionURL</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>URL to EWS service description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;https://ews.example.org/ews/exchange.asmx&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration for secure connections.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+submodule</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.enable"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.enable"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable TLS/SSL.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.certificatesFile"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.certificatesFile"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.certificatesFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to file containing certificate authorities that should
+be used to validate the connection authenticity. If
+<code class="literal">null</code> then the system default is used.
+Note, if set then the system default may still be accepted.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;config.accounts.email.certificatesFile&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-accounts.email.accounts._name_.ews.tls.useStartTls"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.ews.tls.useStartTls"><code class="option">accounts.email.accounts.&lt;name&gt;.ews.tls.useStartTls</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to use STARTTLS.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/accounts/email.nix" target="_top">
+&lt;home-manager/modules/accounts/email.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-accounts.email.accounts._name_.flavor"></a><a class="term" href="options.xhtml#opt-accounts.email.accounts._name_.flavor"><code class="option">accounts.email.accounts.&lt;name&gt;.flavor</code>
   </a>
  </span>
@@ -14775,8 +14973,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -14803,8 +15001,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -27230,6 +27428,34 @@ null or absolute path</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.claude-code.context"></a><a class="term" href="options.xhtml#opt-programs.claude-code.context"><code class="option">programs.claude-code.context</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Global context for Claude Code.</p><p>The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured content is written to
+<code class="filename">~/.claude/CLAUDE.md</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n” or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">./claude-memory.md
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
+&lt;home-manager/modules/programs/claude-code.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.claude-code.hooks"></a><a class="term" href="options.xhtml#opt-programs.claude-code.hooks"><code class="option">programs.claude-code.hooks</code>
   </a>
  </span>
@@ -27429,70 +27655,6 @@ attribute set of (JSON value)</p>
     url = &quot;https://api.githubcopilot.com/mcp/&quot;;
   };
 }
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
-&lt;home-manager/modules/programs/claude-code.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.claude-code.memory.source"></a><a class="term" href="options.xhtml#opt-programs.claude-code.memory.source"><code class="option">programs.claude-code.memory.source</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Path to a file containing memory content for CLAUDE.md.
-This option is mutually exclusive with memory.text.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">./claude-memory.md
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
-&lt;home-manager/modules/programs/claude-code.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.claude-code.memory.text"></a><a class="term" href="options.xhtml#opt-programs.claude-code.memory.text"><code class="option">programs.claude-code.memory.text</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Inline memory content for CLAUDE.md.
-This option is mutually exclusive with memory.source.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or strings concatenated with “\n”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
-  # Project Memory
-  
-  ## Current Task
-  Implementing enhanced claude-code module for home-manager.
-  
-  ## Key Files
-  - claude-code.nix: Main module implementation
-&#x27;&#x27;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -27741,11 +27903,14 @@ JSON value</p>
  </span>
 </dt>
 <dd>
-<p>Custom skills for Claude Code.
-The attribute name becomes the skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates .claude/skills/&lt;name&gt;/SKILL.md)</p></li><li class="listitem"><p>A path to a file (creates .claude/skills/&lt;name&gt;/SKILL.md)</p></li><li class="listitem"><p>A path to a directory (creates .claude/skills/&lt;name&gt;/ with all files)</p></li></ul></div>
+<p>Custom skills for Claude Code.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
+skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates .claude/skills/&lt;name&gt;/SKILL.md)</p></li><li class="listitem"><p>A path to a file (creates .claude/skills/&lt;name&gt;/SKILL.md)</p></li><li class="listitem"><p>A path to a directory (creates .claude/skills/&lt;name&gt;/ with all files)</p></li></ul></div><p>This also accepts Nix store paths, for example a skill directory
+from a package.</p><p>If a path is used, it is expected to contain one folder per
+skill name, each containing a <code class="filename">SKILL.md</code>. The directory is
+symlinked to <code class="filename">~/.claude/skills/</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of (strings concatenated with “\n” or absolute path)</p>
+(attribute set of (strings concatenated with “\n” or absolute path or string)) or absolute path</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -27772,37 +27937,11 @@ attribute set of (strings concatenated with “\n” or absolute path)</p>
         text = pdf.pages[0].extract_text()
     ```
   &#x27;&#x27;;
+
+  # A skill can also be a subdirectory within a package source (store path)
+  beads = &quot;${pkgs.beads.src}/claude-plugin/skills/beads&quot;;
 }
 
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/claude-code.nix" target="_top">
-&lt;home-manager/modules/programs/claude-code.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.claude-code.skillsDir"></a><a class="term" href="options.xhtml#opt-programs.claude-code.skillsDir"><code class="option">programs.claude-code.skillsDir</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Path to a directory containing skill directories for Claude Code.
-Each skill directory should contain a SKILL.md entrypoint file.
-Skill directories from this path will be symlinked to .claude/skills/.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">./skills
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -28100,15 +28239,16 @@ null or package</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.codex.custom-instructions"></a><a class="term" href="options.xhtml#opt-programs.codex.custom-instructions"><code class="option">programs.codex.custom-instructions</code>
+ <a id="opt-programs.codex.context"></a><a class="term" href="options.xhtml#opt-programs.codex.context"><code class="option">programs.codex.context</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Define custom guidance for the agents; this value is written to {file}~/.codex/AGENTS.md</p>
+<p>Global context for Codex.</p><p>The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured content is written to
+<code class="filename">CODEX_HOME/AGENTS.md</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-strings concatenated with “\n”</p>
+strings concatenated with “\n” or absolute path</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
 </code></pre>
@@ -28221,11 +28361,12 @@ null or TOML value</p>
  </span>
 </dt>
 <dd>
-<p>Custom skills for Codex.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing multiple skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the skill directory name,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a file (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per skill name, each
-containing a <code class="filename">SKILL.md</code>. Each top-level skill entry is symlinked into
-<code class="filename">&lt;skills-dir&gt;/</code>, leaving <code class="filename">&lt;skills-dir&gt;/</code> itself as a normal
-directory so unmanaged skills can coexist.</p><p>The skills target directory depends on Codex version:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="filename">~/.agents/skills</code> for Codex &gt;= 0.94.0</p></li><li class="listitem"><p><code class="filename">~/.codex/skills</code> for older versions</p></li></ul></div>
+<p>Custom skills for Codex.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
+skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a file (creates a generated skill directory at <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="filename">&lt;skills-dir&gt;/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per
+skill name, each containing a <code class="filename">SKILL.md</code>. Each top-level
+skill entry is symlinked into <code class="filename">&lt;skills-dir&gt;/</code>, leaving
+<code class="filename">&lt;skills-dir&gt;/</code> itself as a normal directory so unmanaged
+skills can coexist.</p><p>The skills target directory depends on Codex version:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="filename">~/.agents/skills</code> for Codex &gt;= 0.94.0</p></li><li class="listitem"><p><code class="filename">~/.codex/skills</code> for older versions</p></li></ul></div>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
@@ -28733,6 +28874,146 @@ list of string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/darcs.nix" target="_top">
 &lt;home-manager/modules/programs/darcs.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.dbeaver.enable"></a><a class="term" href="options.xhtml#opt-programs.dbeaver.enable"><code class="option">programs.dbeaver.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable DBeaver, a universal database management tool.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dbeaver.nix" target="_top">
+&lt;home-manager/modules/programs/dbeaver.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.dbeaver.package"></a><a class="term" href="options.xhtml#opt-programs.dbeaver.package"><code class="option">programs.dbeaver.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The dbeaver-bin package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.dbeaver-bin
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dbeaver.nix" target="_top">
+&lt;home-manager/modules/programs/dbeaver.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.dbeaver.dataSourcesSettings"></a><a class="term" href="options.xhtml#opt-programs.dbeaver.dataSourcesSettings"><code class="option">programs.dbeaver.dataSourcesSettings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration for DBeaver’s <code class="literal">data-sources.json</code>. This file stores
+database connection definitions and is located at
+<code class="literal">General/.dbeaver/data-sources.json</code> in the DBeaver workspace.</p><p>See the
+<a class="link" href="https://dbeaver.com/docs/dbeaver/Admin-Manage-Connections/"  target="_top">DBeaver documentation</a>
+for available connection options.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  folders = { };
+  connections = {
+    &quot;postgresql-local&quot; = {
+      provider = &quot;postgresql&quot;;
+      driver = &quot;postgres-jdbc&quot;;
+      name = &quot;Local PostgreSQL&quot;;
+      save-password = false;
+      configuration = {
+        host = &quot;localhost&quot;;
+        port = &quot;5432&quot;;
+        database = &quot;mydb&quot;;
+      };
+    };
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dbeaver.nix" target="_top">
+&lt;home-manager/modules/programs/dbeaver.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.dbeaver.settings"></a><a class="term" href="options.xhtml#opt-programs.dbeaver.settings"><code class="option">programs.dbeaver.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>DBeaver workspace preferences. Each attribute set key corresponds to
+a preferences file name (without the <code class="literal">.prefs</code> extension) under
+<code class="literal">General/.settings/</code> in the DBeaver workspace. Each value is a set
+of key-value preference entries.</p><p>Files are generated with an <code class="literal">eclipse.preferences.version=1</code> header
+as required by the Eclipse platform.</p><p>Common plugin IDs include <code class="literal">org.jkiss.dbeaver.core</code>,
+<code class="literal">org.jkiss.dbeaver.model</code>, and <code class="literal">org.jkiss.dbeaver.ui</code>.</p><p>For examples:
+https://dbeaver.com/docs/dbeaver/Admin-Manage-Preferences/</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;org.jkiss.dbeaver.core&quot; = {
+    &quot;ui.showSystemObjects&quot; = &quot;false&quot;;
+    &quot;ui.showUtilityObjects&quot; = &quot;false&quot;;
+  };
+  &quot;org.jkiss.dbeaver.model&quot; = {
+    &quot;read.expiration.period&quot; = &quot;10000&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/dbeaver.nix" target="_top">
+&lt;home-manager/modules/programs/dbeaver.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -31976,6 +32257,112 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.feedr.enable"></a><a class="term" href="options.xhtml#opt-programs.feedr.enable"><code class="option">programs.feedr.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Feedr, a feature-rich terminal-based RSS/Atom feed reader written in Rust.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/feedr.nix" target="_top">
+&lt;home-manager/modules/programs/feedr.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.feedr.package"></a><a class="term" href="options.xhtml#opt-programs.feedr.package"><code class="option">programs.feedr.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The feedr package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.feedr
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/feedr.nix" target="_top">
+&lt;home-manager/modules/programs/feedr.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.feedr.settings"></a><a class="term" href="options.xhtml#opt-programs.feedr.settings"><code class="option">programs.feedr.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Settings for feedr.</p><p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/feedr/config.toml</code>.</p><p>Options are listed on the github: <a class="link" href="https://github.com/bahdotsh/feedr"  target="_top">https://github.com/bahdotsh/feedr</a>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  general = {
+    max_dashboard_items = 100;
+    auto_refresh_interval = 0;
+    refresh_enabled = false;
+    refresh_rate_limit_delay = 2000;
+  };
+
+  network = {
+    http_timeout = 15;
+    user_agent = &quot;Mozilla/5.0 (compatible; Feedr/1.0; +https://github.com/bahdotsh/feedr)&quot;;
+  };
+
+  ui = {
+    tick_rate = 100;
+    error_display_timeout = 3000;
+    theme = &quot;dark&quot;;
+    compact_mode = &quot;auto&quot;;
+  };
+
+  default_feeds = [
+    {
+      url = &quot;https://nixos.org/blog/stories-rss.xml&quot;;
+      category = &quot;NixOS&quot;;
+    }
+  ];
+};
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/feedr.nix" target="_top">
+&lt;home-manager/modules/programs/feedr.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.feh.enable"></a><a class="term" href="options.xhtml#opt-programs.feh.enable"><code class="option">programs.feh.enable</code>
   </a>
  </span>
@@ -32549,8 +32936,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -32577,8 +32964,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33193,8 +33580,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33221,8 +33608,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33915,8 +34302,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33943,8 +34330,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35906,8 +36293,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35934,8 +36321,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36550,8 +36937,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36578,8 +36965,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37272,8 +37659,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37300,8 +37687,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37945,6 +38332,59 @@ boolean</p>
 null or package</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.fresh-editor
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fresh-editor.nix" target="_top">
+&lt;home-manager/modules/programs/fresh-editor.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.fresh-editor.defaultEditor"></a><a class="term" href="options.xhtml#opt-programs.fresh-editor.defaultEditor"><code class="option">programs.fresh-editor.defaultEditor</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to configure <span class="command"><strong>fresh</strong></span> as the default
+editor using the <code class="envar">EDITOR</code> and <code class="envar">VISUAL</code>
+environment variables.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/fresh-editor.nix" target="_top">
+&lt;home-manager/modules/programs/fresh-editor.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.fresh-editor.extraPackages"></a><a class="term" href="options.xhtml#opt-programs.fresh-editor.extraPackages"><code class="option">programs.fresh-editor.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra package to add to fresh</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.rust-analyzer ]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -38697,6 +39137,35 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.gemini-cli.enableMcpIntegration"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.enableMcpIntegration"><code class="option">programs.gemini-cli.enableMcpIntegration</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to integrate the MCP servers config from
+<code class="option">programs.mcp.servers</code> into
+<code class="option">programs.gemini-cli.settings.mcpServers</code>.</p><p>Note: Any servers already present in
+<code class="option">programs.gemini-cli.settings.mcpServers</code>
+is not overridden by servers present under the same
+name in <code class="option">programs.mcp.servers</code></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
+&lt;home-manager/modules/programs/gemini-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.gemini-cli.package"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.package"><code class="option">programs.gemini-cli.package</code>
   </a>
  </span>
@@ -38813,9 +39282,8 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>An attribute set of context files to create in <code class="literal">~/.gemini/</code>.
-The attribute name becomes the filename with <code class="literal">.md</code> extension automatically added.
-The value is either inline content or a path to a file.</p><p>Note: You can customize which context file names gemini-cli looks for by setting
+<p>Global context(s) for gemini-cli.</p><p>The attribute name becomes the filename, with a <code class="filename">.md</code>
+extension added automatically. Each value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured files are written to <code class="filename">~/.gemini/</code>.</p><p>Note: You can customize which context file names gemini-cli looks for by setting
 <code class="literal">settings.context.fileName</code>. For example:</p><pre><code class="programlisting nix">settings = {
   context.fileName = [&quot;AGENTS.md&quot;, &quot;CONTEXT.md&quot;, &quot;GEMINI.md&quot;];
 };
@@ -38970,6 +39438,59 @@ JSON value</p>
     theme = &quot;Default&quot;;
   };
 }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/gemini-cli.nix" target="_top">
+&lt;home-manager/modules/programs/gemini-cli.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.gemini-cli.skills"></a><a class="term" href="options.xhtml#opt-programs.gemini-cli.skills"><code class="option">programs.gemini-cli.skills</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom skills for gemini-cli.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
+skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">~/.gemini/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">~/.gemini/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (symlinks <code class="literal">~/.gemini/skills/&lt;name&gt;/</code> to that directory)</p></li></ul></div><p>If a path is used, it is expected to contain one folder per
+skill name, each containing a <code class="filename">SKILL.md</code>. The directory is
+symlinked to <code class="filename">~/.gemini/skills/</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+(attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  xlsx = ./skills/xlsx/SKILL.md;
+  data-analysis = ./skills/data-analysis;
+  pdf-processing = &#x27;&#x27;
+    ---
+    name: pdf-processing
+    description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
+    ---
+
+    # PDF Processing
+
+    ## Quick start
+
+    Use pdfplumber to extract text from PDFs:
+
+    ```python
+    import pdfplumber
+
+    with pdfplumber.open(&quot;document.pdf&quot;) as pdf:
+        text = pdf.pages[0].extract_text()
+    ```
+  &#x27;&#x27;;
+}
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -47407,11 +47928,101 @@ null or package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">Darwin: &quot;Library/Application Support/jjui&quot; 
-Linux: ${config.xdg.configHome}/jjui
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">${config.xdg.configHome}/jjui
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">${config.home.homeDirectory}/.jjui
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/jjui.nix" target="_top">
+&lt;home-manager/modules/programs/jjui.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.jjui.configLua"></a><a class="term" href="options.xhtml#opt-programs.jjui.configLua"><code class="option">programs.jjui.configLua</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The content of the <code class="filename">(config.programs.jjui.configDir)/config.lua</code> file, set either by specifying a path
+to a Lua file or by providing a multi-line Lua string.</p><p>See <a class="link" href="https://idursun.github.io/jjui/customization/config-lua/"  target="_top">https://idursun.github.io/jjui/customization/config-lua/</a> for documentation on Lua support.</p><p>Use the option <code class="option">plugins</code> to configure Lua plugins imported here.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  local foo = require(&quot;plugins.foo&quot;)
+  local bar = require(&quot;plugins.bar&quot;)
+  
+  function setup(config)
+    foo.setup(config)
+    bar.setup(&quot;#5B8DEF&quot;, config)
+  
+    config.action(&quot;show diff in diffnav&quot;, function()
+      local change_id = context.change_id()
+      if not change_id or change_id == &quot;&quot; then
+        flash({ text = &quot;No revision selected&quot;, error = true })
+        return
+      end
+  
+      exec_shell(string.format(&quot;jj diff -r %q --git --color always | diffnav&quot;, change_id))
+    end, { desc = &quot;show diff in diffnav&quot;, key = &quot;ctrl+d&quot;, scope = &quot;revisions&quot; })
+  end
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/jjui.nix" target="_top">
+&lt;home-manager/modules/programs/jjui.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.jjui.plugins"></a><a class="term" href="options.xhtml#opt-programs.jjui.plugins"><code class="option">programs.jjui.plugins</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Lua plugins, one per attribute.
+The &lt;name&gt; attribute will become the plugin name, and the &lt;value&gt; attribute is a path to a Lua file or a multi-line Lua string.
+Each attribute will be linked to <code class="filename">(config.programs.jjui.configDir)/plugins/&lt;name&gt;.lua</code> with &lt;value&gt; content.</p><p>See <a class="link" href="https://idursun.github.io/jjui/customization/config-lua/"  target="_top">https://idursun.github.io/jjui/customization/config-lua/</a>
+for documentation on Lua support.</p><p>Remember to import the defined plugins in the <code class="option">configLua</code> option.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (absolute path or strings concatenated with “\n”)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  foo = ./foo.lua;
+  bar = /* lua */ &#x27;\&#x27;
+    local M = {}
+
+    function M.setup(primary, config)
+      config.ui = config.ui or {}
+      config.ui.colors = config.ui.colors or {}
+
+      config.ui.colors.title = { fg = primary, bold = true }
+    end
+
+    return M
+  &#x27;\&#x27;;
+}
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -47430,8 +48041,8 @@ Linux: ${config.xdg.configHome}/jjui
  </span>
 </dt>
 <dd>
-<p>Options to add to the <code class="filename">config.toml</code> file. See
-<a class="link" href="https://github.com/idursun/jjui/wiki/Configuration"  target="_top">https://github.com/idursun/jjui/wiki/Configuration</a>
+<p>Options to add to the <code class="filename">(config.programs.jjui.configDir)/config.toml</code> file. See
+<a class="link" href="https://idursun.github.io/jjui/customization/config-toml/"  target="_top">https://idursun.github.io/jjui/customization/config-toml/</a>
 for options.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
@@ -49479,30 +50090,6 @@ one of “clippy”, “cat”, “dilbert”, “none”</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.kakoune.config.ui.changeColors"></a><a class="term" href="options.xhtml#opt-programs.kakoune.config.ui.changeColors"><code class="option">programs.kakoune.config.ui.changeColors</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Change color palette.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kakoune.nix" target="_top">
-&lt;home-manager/modules/programs/kakoune.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
  <a id="opt-programs.kakoune.config.ui.setTitle"></a><a class="term" href="options.xhtml#opt-programs.kakoune.config.ui.setTitle"><code class="option">programs.kakoune.config.ui.setTitle</code>
   </a>
  </span>
@@ -49564,78 +50151,6 @@ null or (unsigned integer, meaning &gt;=0)</p>
 one of “top”, “bottom”</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;bottom&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kakoune.nix" target="_top">
-&lt;home-manager/modules/programs/kakoune.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.kakoune.config.ui.useBuiltinKeyParser"></a><a class="term" href="options.xhtml#opt-programs.kakoune.config.ui.useBuiltinKeyParser"><code class="option">programs.kakoune.config.ui.useBuiltinKeyParser</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Bypass ncurses key parser and use an internal one.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kakoune.nix" target="_top">
-&lt;home-manager/modules/programs/kakoune.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.kakoune.config.ui.wheelDownButton"></a><a class="term" href="options.xhtml#opt-programs.kakoune.config.ui.wheelDownButton"><code class="option">programs.kakoune.config.ui.wheelDownButton</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Button to send for wheel down events.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kakoune.nix" target="_top">
-&lt;home-manager/modules/programs/kakoune.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.kakoune.config.ui.wheelUpButton"></a><a class="term" href="options.xhtml#opt-programs.kakoune.config.ui.wheelUpButton"><code class="option">programs.kakoune.config.ui.wheelUpButton</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Button to send for wheel up events.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -54015,8 +54530,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54043,8 +54558,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54659,8 +55174,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -54687,8 +55202,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55381,8 +55896,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55409,8 +55924,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -63202,7 +63717,8 @@ null or strings concatenated with “\n”</p>
 <p><span class="emphasis"><em>Type:</em></span>
 one of “lua”, “viml”, “teal”, “fennel” or string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;viml&quot;
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then &quot;lua&quot; else &quot;viml&quot;
+
 </code></pre>
 </dd>
 <dt>
@@ -63364,7 +63880,8 @@ use Python 3 plugins.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then false else true
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -63386,9 +63903,10 @@ boolean</p>
 <p>Enable ruby provider.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
+boolean</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot; then false else true
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -64144,9 +64662,8 @@ null or package</p>
 the configuration settings in this module, as nheko writes the access
 token to <code class="filename">$XDG_CONFIG_HOME/nheko/nheko.conf</code> the
 first time we sign in, and we need that data into these settings for the
-correct functionality of the application.</p><p>This a temporary inconvenience, however, as nheko has plans to move the
-authentication stuff into the local database they currently use. Once
-this happens, this will no longer be an issue.</p>
+correct functionality of the application.</p><p>This a temporary inconvenience, however, as nheko has plans to <a class="link" href="https://github.com/Nheko-Reborn/nheko/issues/1591"  target="_top">move the
+authentication stuff into the secret storage</a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
@@ -64178,136 +64695,6 @@ attribute set of section of an INI file (attrs of INI atom (null, bool, int, flo
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/nheko.nix" target="_top">
 &lt;home-manager/modules/programs/nheko.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.enable"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.enable"><code class="option">programs.niriswitcher.enable</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable niriswitcher, an application switcher for niri.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.package"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.package"><code class="option">programs.niriswitcher.package</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The niriswitcher package to use.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or package</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.niriswitcher
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.settings"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.settings"><code class="option">programs.niriswitcher.settings</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>niriswitcher configuration.
-For available settings see <a class="link" href="https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#options"  target="_top">https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#options</a>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or TOML value</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  keys = {
-    modifier = &quot;Super&quot;;
-    switch = {
-      next = &quot;Tab&quot;;
-      prev = &quot;Shift+Tab&quot;;
-    };
-  };
-  center_on_focus = true;
-  appearance = {
-    system_theme = &quot;dark&quot;;
-    icon_size = 64;
-  };
-}
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.niriswitcher.style"></a><a class="term" href="options.xhtml#opt-programs.niriswitcher.style"><code class="option">programs.niriswitcher.style</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>CSS style of the switcher.
-<a class="link" href="https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#themes"  target="_top">https://github.com/isaksamsten/niriswitcher/?tab=readme-ov-file#themes</a>
-for the documentation.</p><p>If the value is set to a path literal, then the path will be used as the CSS file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path or strings concatenated with “\n”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
-  .application-name {
-    opacity: 1;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .application.selected .application-name {
-    color: rgba(255, 255, 255, 1);
-  }
-&#x27;&#x27;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/niriswitcher.nix" target="_top">
-&lt;home-manager/modules/programs/niriswitcher.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -69101,8 +69488,8 @@ null or package</p>
 </dt>
 <dd>
 <p>Custom agents for opencode.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining agents</p></li><li class="listitem"><p>A path to a directory containing multiple agent files</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the agent filename,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/agent/&lt;name&gt;.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/agent/&lt;name&gt;.md</code>)</p></li></ul></div><p>If a path is used, it is expected to contain agent files.
-The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/agent/</code>.</p>
+and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/agents/&lt;name&gt;.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/agents/&lt;name&gt;.md</code>)</p></li></ul></div><p>If a path is used, it is expected to contain agent files.
+The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/agents/</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
@@ -69145,8 +69532,8 @@ The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/a
 </dt>
 <dd>
 <p>Custom commands for opencode.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining commands</p></li><li class="listitem"><p>A path to a directory containing multiple command files</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the command filename,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/command/&lt;name&gt;.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/command/&lt;name&gt;.md</code>)</p></li></ul></div><p>If a path is used, it is expected to contain command files.
-The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/command/</code>.</p>
+and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/commands/&lt;name&gt;.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/commands/&lt;name&gt;.md</code>)</p></li></ul></div><p>If a path is used, it is expected to contain command files.
+The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/commands/</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
@@ -69183,14 +69570,13 @@ The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/c
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.opencode.rules"></a><a class="term" href="options.xhtml#opt-programs.opencode.rules"><code class="option">programs.opencode.rules</code>
+ <a id="opt-programs.opencode.context"></a><a class="term" href="options.xhtml#opt-programs.opencode.context"><code class="option">programs.opencode.context</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>You can provide global custom instructions to opencode.
-The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content
-This value is written to <code class="filename">$XDG_CONFIG_HOME/opencode/AGENTS.md</code>.</p></li></ul></div>
+<p>Global context for OpenCode.</p><p>The value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string</p></li><li class="listitem"><p>A path to a file containing the content</p></li></ul></div><p>The configured content is written to
+<code class="filename">$XDG_CONFIG_HOME/opencode/AGENTS.md</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 strings concatenated with “\n” or absolute path</p>
@@ -69274,11 +69660,11 @@ JSON value</p>
  </span>
 </dt>
 <dd>
-<p>Custom agent skills for opencode.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing multiple skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the skill directory name,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (creates <code class="literal">opencode/skills/&lt;name&gt;/</code> with all files)</p></li></ul></div><p>This also accepts Nix store paths (e.g., source from a package), allowing you to
-reference subdirectories within a package source.</p><p>If a path is used, it is expected to contain one folder per skill name, each
-containing a <code class="filename">SKILL.md</code>. The directory is symlinked to
-<code class="filename">$XDG_CONFIG_HOME/opencode/skills/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/skills/"  target="_top">https://opencode.ai/docs/skills/</a> for the documentation.</p>
+<p>Custom skills for OpenCode.</p><p>This option can be either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining skills</p></li><li class="listitem"><p>A path to a directory containing skill folders</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the
+skill directory name, and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/skills/&lt;name&gt;/SKILL.md</code>)</p></li><li class="listitem"><p>A path to a directory (creates <code class="literal">opencode/skills/&lt;name&gt;/</code> with all files)</p></li></ul></div><p>This also accepts Nix store paths, for example a skill directory
+from a package.</p><p>If a path is used, it is expected to contain one folder per
+skill name, each containing a <code class="filename">SKILL.md</code>. The directory is
+symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/skills/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/skills/"  target="_top">https://opencode.ai/docs/skills/</a> for the documentation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path or string)) or absolute path</p>
@@ -69353,8 +69739,8 @@ See <a class="link" href="https://opencode.ai/docs/themes/"  target="_top">https
 </dt>
 <dd>
 <p>Custom tools for opencode.</p><p>This option can either be:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>An attribute set defining tools</p></li><li class="listitem"><p>A path to a directory containing multiple tool files</p></li></ul></div><p>If an attribute set is used, the attribute name becomes the tool filename,
-and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/tool/&lt;name&gt;.ts</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/tool/&lt;name&gt;.ts</code> or <code class="literal">opencode/tool/&lt;name&gt;.js</code>)</p></li></ul></div><p>If a path is used, it is expected to contain tool files.
-The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/tool/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/tools/"  target="_top">https://opencode.ai/docs/tools/</a> for the documentation.</p>
+and the value is either:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p>Inline content as a string (creates <code class="literal">opencode/tools/&lt;name&gt;.ts</code>)</p></li><li class="listitem"><p>A path to a file (creates <code class="literal">opencode/tools/&lt;name&gt;.ts</code> or <code class="literal">opencode/tools/&lt;name&gt;.js</code>)</p></li></ul></div><p>If a path is used, it is expected to contain tool files.
+The directory is symlinked to <code class="filename">$XDG_CONFIG_HOME/opencode/tools/</code>.</p><p>See <a class="link" href="https://opencode.ai/docs/tools/"  target="_top">https://opencode.ai/docs/tools/</a> for the documentation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 (attribute set of (strings concatenated with “\n” or absolute path)) or absolute path</p>
@@ -83233,6 +83619,33 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.starship.extraPackages"></a><a class="term" href="options.xhtml#opt-programs.starship.extraPackages"><code class="option">programs.starship.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra packages available to starship.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.jj-starship ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/starship.nix" target="_top">
+&lt;home-manager/modules/programs/starship.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.starship.presets"></a><a class="term" href="options.xhtml#opt-programs.starship.presets"><code class="option">programs.starship.presets</code>
   </a>
  </span>
@@ -86905,8 +87318,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -86933,8 +87346,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/vw0ckvq56dxkyb8bgfkpigsbj957kami-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/cm0ib7jc45c5jwc57rda2wmp2g57l4wn-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -88008,7 +88421,7 @@ input.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 unsigned integer, meaning &gt;=0</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">500
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">10
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">0
@@ -93796,7 +94209,14 @@ attribute set of (TOML value)</p>
 <p>Extra configuration written to
 <code class="filename">$XDG_CONFIG_HOME/wezterm/wezterm.lua</code>. See
 <a class="link" href="https://wezfurlong.org/wezterm/config/files.html"  target="_top">https://wezfurlong.org/wezterm/config/files.html</a>
-how to configure.</p>
+how to configure.</p><p>When used together with <code class="option">settings</code>, any table returned
+from this Lua code is merged into the generated configuration,
+taking precedence over <code class="option">settings</code> on conflicts. Note
+that this merge is shallow: a key returned here replaces the
+entire corresponding value from <code class="option">settings</code>, so nested
+tables and arrays are not combined. A <span class="command"><strong>return</strong></span>
+statement is optional — code that directly modifies the
+<span class="command"><strong>config</strong></span> variable also works.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 strings concatenated with “\n”</p>
@@ -93816,6 +94236,55 @@ return {
   keys = {
     {key=&quot;n&quot;, mods=&quot;SHIFT|CTRL&quot;, action=&quot;ToggleFullScreen&quot;},
   }
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/wezterm.nix" target="_top">
+&lt;home-manager/modules/programs/wezterm.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.wezterm.settings"></a><a class="term" href="options.xhtml#opt-programs.wezterm.settings"><code class="option">programs.wezterm.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/wezterm/wezterm.lua</code> using
+<code class="literal">lib.generators.toLua</code>. Values created with
+<code class="literal">lib.generators.mkLuaInline</code> are rendered as raw Lua
+expressions, which allows embedding wezterm API calls such as
+<code class="literal">wezterm.font</code>. See
+<a class="link" href="https://wezfurlong.org/wezterm/config/files.html"  target="_top">https://wezfurlong.org/wezterm/config/files.html</a> for
+available options.</p><p>When this option is set, <code class="option">extraConfig</code> is still
+supported. Any table returned from the extra Lua code is merged
+on top of these settings, so <code class="option">extraConfig</code> takes
+precedence on conflicts.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  color_scheme = &quot;Catppuccin Mocha&quot;;
+  font_size = 13;
+  hide_tab_bar_if_only_one_tab = true;
+  window_padding = {
+    left = 0;
+    right = 0;
+    top = 0;
+    bottom = 0;
+  };
+  font = lib.generators.mkLuaInline &#x27;&#x27;wezterm.font(&quot;JetBrains Mono&quot;)&#x27;&#x27;;
 }
 
 </code></pre>
@@ -104590,6 +105059,49 @@ attribute set of (absolute path or strings concatenated with “\n”)</p>
   &#x27;&#x27;;
   my-python-script = pkgs.writers.writePython3 &quot;my-python-script&quot; { } &#x27;&#x27;
     print(&#x27;Do something!&#x27;)
+  &#x27;&#x27;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/darkman.nix" target="_top">
+&lt;home-manager/modules/services/darkman.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.darkman.scripts"></a><a class="term" href="options.xhtml#opt-services.darkman.scripts"><code class="option">services.darkman.scripts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Scripts to run when switching modes, placed in
+<code class="filename">$XDG_DATA_HOME/darkman/</code>. Each script receives the new mode
+(<code class="literal">dark</code> or <code class="literal">light</code>) as its first argument, allowing a single script
+to handle both modes.</p><p>Multiline strings are interpreted as Bash shell scripts and a shebang
+is not required.</p><p>These scripts take precedence over legacy scripts of the same name in
+<code class="option">darkModeScripts</code> and <code class="option">lightModeScripts</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (absolute path or strings concatenated with “\n”)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  gtk-theme = &#x27;&#x27;
+    if [ &quot;$1&quot; = &quot;dark&quot; ]; then
+      ${pkgs.dconf}/bin/dconf write \
+          /org/gnome/desktop/interface/color-scheme &quot;&#x27;prefer-dark&#x27;&quot;
+    else
+      ${pkgs.dconf}/bin/dconf write \
+          /org/gnome/desktop/interface/color-scheme &quot;&#x27;prefer-light&#x27;&quot;
+    fi
   &#x27;&#x27;;
 }
 
@@ -116065,6 +116577,449 @@ one of “trace”, “debug”, “info”, “warn”, “error”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.pipewire.enable"></a><a class="term" href="options.xhtml#opt-services.pipewire.enable"><code class="option">services.pipewire.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable PipeWire configurations.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.clientConfigs"></a><a class="term" href="options.xhtml#opt-services.pipewire.clientConfigs"><code class="option">services.pipewire.clientConfigs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of configuration files for the PipeWire client library.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_CONFIG_HOME/pipewire/client.conf.d/</code>.</p><p>See the <a class="link" href="https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-client"  target="_top">PipeWire wiki</a> for examples.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;10-no-resample&quot; = {
+    &quot;stream.properties&quot; = {
+      &quot;resample.disable&quot; = true;
+    };
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.configPackages"></a><a class="term" href="options.xhtml#opt-services.pipewire.configPackages"><code class="option">services.pipewire.configPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of packages that provide PipeWire configurations, in the form of
+<code class="filename">share/pipewire/*/*.conf</code> files.</p><p>LV2 dependencies will be picked up from config packages automatically
+via <code class="literal">passthru.requiredLv2Packages</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  (pkgs.writeTextDir &quot;share/pipewire/pipewire.conf.d/10-loopback.conf&quot; &#x27;&#x27;
+    context.modules = [
+      {
+        name = libpipewire-module-loopback
+        args = {
+          node.description = &quot;Scarlett Focusrite Line 1&quot;
+          capture.props = {
+            audio.position = [ FL ]
+            stream.dont-remix = true
+            node.target = &quot;alsa_input.usb-Focusrite_Scarlett_Solo_USB_Y7ZD17C24495BC-00.analog-stereo&quot;
+            node.passive = true
+          }
+          playback.props = {
+            node.name = &quot;SF_mono_in_1&quot;
+            media.class = &quot;Audio/Source&quot;
+            audio.position = [ MONO ]
+          }
+        }
+      }
+    ]
+  &#x27;&#x27;)
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.configs"></a><a class="term" href="options.xhtml#opt-services.pipewire.configs"><code class="option">services.pipewire.configs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of configuration files for the PipeWire server.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_CONFIG_HOME/pipewire/pipewire.conf.d/</code>.</p><p>See <code class="literal">man pipewire.conf</code> for details, and the <a class="link" href="https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PipeWire"  target="_top">PipeWire wiki</a> for
+examples.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;10-clock-rate&quot; = {
+    &quot;context.properties&quot; = {
+      &quot;default.clock.rate&quot; = 44100;
+    };
+  };
+  &quot;11-no-upmixing&quot; = {
+    &quot;stream.properties&quot; = {
+      &quot;channelmix.upmix&quot; = false;
+    };
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.extraLv2Packages"></a><a class="term" href="options.xhtml#opt-services.pipewire.extraLv2Packages"><code class="option">services.pipewire.extraLv2Packages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of packages that provide LV2 plugins, in the form of
+<code class="filename">lib/lv2/*</code> files.</p><p>LV2 dependencies will be picked up from config packages automatically
+via <code class="literal">passthru.requiredLv2Packages</code>, so they don’t need to be set here.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.lsp-plugins ]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.jackConfigs"></a><a class="term" href="options.xhtml#opt-services.pipewire.jackConfigs"><code class="option">services.pipewire.jackConfigs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of configuration files for the PipeWire JACK server and client
+library.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_CONFIG_HOME/pipewire/jack.conf.d/</code>.</p><p>See the <a class="link" href="https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-JACK"  target="_top">PipeWire wiki</a> for examples.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;20-hide-midi&quot; = {
+    &quot;jack.properties&quot; = {
+      &quot;jack.show-midi&quot; = false;
+    };
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.pulseConfigs"></a><a class="term" href="options.xhtml#opt-services.pipewire.pulseConfigs"><code class="option">services.pipewire.pulseConfigs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of configuration files for the PipeWire PulseAudio server.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_CONFIG_HOME/pipewire/pipewire-pulse.conf.d/</code>.</p><p>See <code class="literal">man pipewire-pulse.conf</code> for details, and the <a class="link" href="https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Config-PulseAudio"  target="_top">PipeWire wiki</a> for
+examples.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;15-force-s16-info&quot; = {
+    &quot;pulse.rules&quot; = [
+      {
+        actions = {
+          quirks = [
+            &quot;force-s16-info&quot;
+          ];
+        };
+        matches = [
+          {
+            &quot;application.process.binary&quot; = &quot;my-broken-app&quot;;
+          }
+        ];
+      }
+    ];
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.wireplumber.enable"></a><a class="term" href="options.xhtml#opt-services.pipewire.wireplumber.enable"><code class="option">services.pipewire.wireplumber.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable WirePlumber configurations.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.wireplumber.configPackages"></a><a class="term" href="options.xhtml#opt-services.pipewire.wireplumber.configPackages"><code class="option">services.pipewire.wireplumber.configPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of packages that provide WirePlumber configurations, in the form
+of <code class="filename">share/wireplumber/*/*.conf</code> files.</p><p>LV2 dependencies will be picked up from config packages automatically
+via <code class="literal">passthru.requiredLv2Packages</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  (pkgs.writeTextDir &quot;share/wireplumber/wireplumber.conf.d/10-bluez.conf&quot; &#x27;&#x27;
+    monitor.bluez.properties = {
+      bluez5.roles = [ a2dp_sink a2dp_source bap_sink bap_source hsp_hs hsp_ag hfp_hf hfp_ag ]
+      bluez5.codecs = [ sbc sbc_xq aac ]
+      bluez5.enable-sbc-xq = true
+      bluez5.hfphsp-backend = &quot;native&quot;
+    }
+  &#x27;&#x27;)
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.wireplumber.configs"></a><a class="term" href="options.xhtml#opt-services.pipewire.wireplumber.configs"><code class="option">services.pipewire.wireplumber.configs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of configuration files for the WirePlumber daemon.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_CONFIG_HOME/wireplumber/wireplumber.conf.d/</code>.</p><p>See the <a class="link" href="https://search.nixos.org/options?channel=25.11&amp;type=options&amp;show=services.pipewire.wireplumber.extraConfig"  target="_top">NixOS option</a> for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (JSON value)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  log-level-debug = {
+    &quot;context.properties&quot; = {
+      &quot;log.level&quot; = &quot;D&quot;;
+    };
+  };
+  wh-1000xm3-ldac-hq = {
+    &quot;monitor.bluez.rules&quot; = [
+      {
+        actions = {
+          update-props = {
+            &quot;bluez5.a2dp.ldac.quality&quot; = &quot;hq&quot;;
+          };
+        };
+        matches = [
+          {
+            &quot;device.name&quot; = &quot;~bluez_card.*&quot;;
+            &quot;device.product.id&quot; = &quot;0x0cd3&quot;;
+            &quot;device.vendor.id&quot; = &quot;usb:054c&quot;;
+          }
+        ];
+      }
+    ];
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.wireplumber.scriptPackages"></a><a class="term" href="options.xhtml#opt-services.pipewire.wireplumber.scriptPackages"><code class="option">services.pipewire.wireplumber.scriptPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of packages that provide WirePlumber scripts, in the form of
+<code class="filename">share/wireplumber/scripts/*/*.lua</code> files.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  (pkgs.writeTextDir &quot;share/wireplumber/scripts/test/hello-world.lua&quot; &#x27;&#x27;
+    print(&quot;Hello, world!&quot;)
+  &#x27;&#x27;)
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.wireplumber.scripts"></a><a class="term" href="options.xhtml#opt-services.pipewire.wireplumber.scripts"><code class="option">services.pipewire.wireplumber.scripts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Set of lua scripts to be used by WirePlumber configuration files.</p><p>Every item in this attrset becomes a separate drop-in file in
+<code class="filename">$XDG_DATA_HOME/wireplumber/scripts/</code>.</p><p>See the <a class="link" href="https://search.nixos.org/options?channel=25.11&amp;type=options&amp;show=services.pipewire.wireplumber.extraScripts"  target="_top">NixOS option</a> for details.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;test/hello-world.lua&quot; = &#x27;&#x27;
+    print(&quot;Hello, world!&quot;)
+  &#x27;&#x27;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.pizauth.enable"></a><a class="term" href="options.xhtml#opt-services.pizauth.enable"><code class="option">services.pizauth.enable</code>
   </a>
  </span>
@@ -124260,6 +125215,88 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.syncthing.guiCredentials"></a><a class="term" href="options.xhtml#opt-services.syncthing.guiCredentials"><code class="option">services.syncthing.guiCredentials</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Credentials to use for access to the Syncthing GUI.  Configuring
+these is recommended, as otherwise any user with access to the GUI
+web address – which would typically include all local accounts on
+your system – will effectively have read/write access to the
+filesystem with your permissions.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix" target="_top">
+&lt;home-manager/modules/services/syncthing.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syncthing.guiCredentials.passwordFile"></a><a class="term" href="options.xhtml#opt-services.syncthing.guiCredentials.passwordFile"><code class="option">services.syncthing.guiCredentials.passwordFile</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The full path to a file that contains the password, or a hash of
+the password, to set for GUI access.</p><p>The password file is read each time Syncthing is started.</p><p>If the password file contains a bcrypt hash, Syncthing will use
+that hash as-is.  Otherwise, Syncthing will hash the password
+provided before storing it.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">config.sops.secrets.syncthing.path
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix" target="_top">
+&lt;home-manager/modules/services/syncthing.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syncthing.guiCredentials.username"></a><a class="term" href="options.xhtml#opt-services.syncthing.guiCredentials.username"><code class="option">services.syncthing.guiCredentials.username</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Username to use to log into the Syncthing GUI.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+non-empty string</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">config.home.username
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix" target="_top">
+&lt;home-manager/modules/services/syncthing.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.syncthing.key"></a><a class="term" href="options.xhtml#opt-services.syncthing.key"><code class="option">services.syncthing.key</code>
   </a>
  </span>
@@ -124326,30 +125363,6 @@ interface will persist and will have to be deleted manually.</p>
 boolean</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix" target="_top">
-&lt;home-manager/modules/services/syncthing.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-services.syncthing.passwordFile"></a><a class="term" href="options.xhtml#opt-services.syncthing.passwordFile"><code class="option">services.syncthing.passwordFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Path to the gui password file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -125064,6 +126077,127 @@ string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syncthing.nix" target="_top">
 &lt;home-manager/modules/services/syncthing.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syshud.enable"></a><a class="term" href="options.xhtml#opt-services.syshud.enable"><code class="option">services.syshud.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable syshud.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syshud.nix" target="_top">
+&lt;home-manager/modules/services/syshud.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syshud.package"></a><a class="term" href="options.xhtml#opt-services.syshud.package"><code class="option">services.syshud.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The syshud package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.syshud
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syshud.nix" target="_top">
+&lt;home-manager/modules/services/syshud.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syshud.settings"></a><a class="term" href="options.xhtml#opt-services.syshud.settings"><code class="option">services.syshud.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration for syshud.
+All available options can be found here:
+<a class="link" href="https://github.com/System64fumo/syshud?tab=readme-ov-file#configuration"  target="_top">https://github.com/System64fumo/syshud?tab=readme-ov-file#configuration</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  position = &quot;bottom&quot;;
+  orientation = &quot;h&quot;;
+  width = 300;
+  height = 50;
+  icon-size = 26;
+  show-percentage = true;
+  margins = &quot;0 0 0 0&quot;;
+  timeout = 3;
+  transition-time = 250;
+  listeners = &quot;audio_in,audio_out,backlight&quot;;
+  backlight-path = &quot;/sys/class/backlight/gmux_backlight&quot;;
+  keyboard-path = &quot;/dev/input/eventXX&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syshud.nix" target="_top">
+&lt;home-manager/modules/services/syshud.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.syshud.style"></a><a class="term" href="options.xhtml#opt-services.syshud.style"><code class="option">services.syshud.style</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom CSS style for syshud.
+If the value is set to a path literal, then the path will be used as the css file.
+Default style is available here:
+<a class="link" href="https://github.com/System64fumo/syshud/blob/main/style.css"  target="_top">https://github.com/System64fumo/syshud/blob/main/style.css</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or absolute path or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/syshud.nix" target="_top">
+&lt;home-manager/modules/services/syshud.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -138724,6 +139858,30 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-xdg.binHome"></a><a class="term" href="options.xhtml#opt-xdg.binHome"><code class="option">xdg.binHome</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Absolute path to directory holding user-specific executables.</p><p>Sets <code class="literal">XDG_BIN_HOME</code> for the user if <code class="literal">xdg.enable</code> is set <code class="literal">true</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+absolute path</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;~/.local/bin&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/xdg.nix" target="_top">
+&lt;home-manager/modules/misc/xdg.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-xdg.cacheFile"></a><a class="term" href="options.xhtml#opt-xdg.cacheFile"><code class="option">xdg.cacheFile</code>
   </a>
  </span>
@@ -140038,6 +141196,31 @@ one of “Application”, “Link”, “Directory”</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/xdg-desktop-entries.nix" target="_top">
 &lt;home-manager/modules/misc/xdg-desktop-entries.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-xdg.localBinInPath"></a><a class="term" href="options.xhtml#opt-xdg.localBinInPath"><code class="option">xdg.localBinInPath</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to add <code class="option">xdg.binHome</code> to <code class="envar">PATH</code> when
+<code class="option">xdg.enable</code> is enabled.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/misc/xdg.nix" target="_top">
+&lt;home-manager/modules/misc/xdg.nix&gt;
 </a></code>
 </td></tr>
 </table>
