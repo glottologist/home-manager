@@ -856,6 +856,45 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-accounts.calendar.accounts._name_.thunderbird.settings"></a><a class="term" href="options.xhtml#opt-accounts.calendar.accounts._name_.thunderbird.settings"><code class="option">accounts.calendar.accounts.&lt;name&gt;.thunderbird.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra settings to add to this Thunderbird calendar configuration.
+The <code class="varname">id</code> given as argument is an automatically
+generated account identifier.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+function that evaluates to a(n) attribute set of (boolean or signed integer or string)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">_: { }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">id: {
+  &quot;calendar.registry.${id}.refreshInterval&quot; = 5;
+
+  # If &quot;my-awesome-account&quot; is the attribute name of an email account under
+  # `config.accounts.email.accounts`, the below snippet links this calendar
+  # account to &quot;my-awesome-account&quot;.
+
+  &quot;calendar.registry.${id}.imip.identity.key&quot; =
+    &quot;id_${builtins.hashString &quot;sha256&quot; &quot;my-awesome-account&quot;}&quot;;
+};
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/thunderbird.nix" target="_top">
+&lt;home-manager/modules/programs/thunderbird.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-accounts.calendar.accounts._name_.vdirsyncer.enable"></a><a class="term" href="options.xhtml#opt-accounts.calendar.accounts._name_.vdirsyncer.enable"><code class="option">accounts.calendar.accounts.&lt;name&gt;.vdirsyncer.enable</code>
   </a>
  </span>
@@ -25514,7 +25553,7 @@ list of package</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  pkgs.kdePackages.plasma-browser-integration
+  pkgs.keepassxc
 ]
 
 </code></pre>
@@ -27011,7 +27050,10 @@ To find the extension ID, check its URL on the
 <code class="literal">updateUrl</code> or <code class="literal">crxPath</code> and
 <code class="literal">version</code> as explained in the
 <a class="link" href="https://developer.chrome.com/docs/extensions/mv2/external_extensions"  target="_top">Chrome
-documentation</a>.</p>
+documentation</a>.</p><p>When using <code class="literal">pkgs.ungoogled-chromium</code> on Linux, prefer <code class="literal">crxPath</code> and
+<code class="literal">version</code>. The default Chrome Web Store update URL is generally not
+sufficient there.</p><p>Proprietary Google Chrome on macOS only supports extensions from the
+Chrome Web Store.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of ((submodule) or string convertible to it)</p>
@@ -27050,7 +27092,8 @@ list of ((submodule) or string convertible to it)</p>
  </span>
 </dt>
 <dd>
-<p>Path to the extension’s crx file. Linux only.</p>
+<p>Path to the extension’s crx file.</p><p>Proprietary Google Chrome on macOS does not support local
+crx installation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or absolute path</p>
@@ -27098,7 +27141,8 @@ string matching the pattern [a-zA-Z]{32}</p>
  </span>
 </dt>
 <dd>
-<p>URL of the extension’s update manifest XML file. Linux only.</p>
+<p>URL of the extension’s update manifest XML file.</p><p>Proprietary Google Chrome on macOS only supports the Chrome
+Web Store update URL.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
@@ -27122,7 +27166,8 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>The extension’s version, required for local installation. Linux only.</p>
+<p>The extension’s version, required for local installation.</p><p>Proprietary Google Chrome on macOS does not support local
+crx installation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
@@ -27146,7 +27191,10 @@ null or string</p>
  </span>
 </dt>
 <dd>
-<p>Resulting customized Chromium package</p>
+<p>Resulting customized Chromium package.</p><p>This includes any Home Manager customizations such as
+<code class="literal">commandLineArgs</code> or <code class="literal">plasmaSupport</code>, and can be referenced from
+other Home Manager options through
+<code class="literal">config.programs.chromium.finalPackage</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or package <span class="emphasis"><em>(read only)</em></span></p>
@@ -27179,7 +27227,7 @@ list of package</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  pkgs.kdePackages.plasma-browser-integration
+  pkgs.keepassxc
 ]
 
 </code></pre>
@@ -31386,6 +31434,200 @@ An overlay function, takes self and super and returns an attribute set overridin
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.equibop.enable"></a><a class="term" href="options.xhtml#opt-programs.equibop.enable"><code class="option">programs.equibop.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Custom Discord App aiming to give you better performance and improve linux support.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.equibop.package"></a><a class="term" href="options.xhtml#opt-programs.equibop.package"><code class="option">programs.equibop.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The equibop package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.equibop
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.equibop.equicord.extraQuickCss"></a><a class="term" href="options.xhtml#opt-programs.equibop.equicord.extraQuickCss"><code class="option">programs.equibop.equicord.extraQuickCss</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Additional CSS rules.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  /* disable webcam preview mirroring */
+  .media-engine-video { transform: none; }
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.equibop.equicord.settings"></a><a class="term" href="options.xhtml#opt-programs.equibop.equicord.settings"><code class="option">programs.equibop.equicord.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Equicord settings written to
+<code class="filename">$XDG_CONFIG_HOME/equibop/settings/settings.json</code>. See
+<a class="link" href="https://github.com/Equicord/Equicord/blob/main/src/api/Settings.ts"  target="_top">https://github.com/Equicord/Equicord/blob/main/src/api/Settings.ts</a> for available options.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  autoUpdate = false;
+  autoUpdateNotification = false;
+  notifyAboutUpdates = false;
+  useQuickCss = true;
+  disableMinSize = true;
+  plugins = {
+    MessageLogger = {
+      enabled = true;
+      ignoreSelf = true;
+    };
+    FakeNitro.enabled = true;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.equibop.equicord.themes"></a><a class="term" href="options.xhtml#opt-programs.equibop.equicord.themes"><code class="option">programs.equibop.equicord.themes</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Themes to add for Equicord, they can be enabled by setting
+<code class="literal">programs.equibop.equicord.settings.enabledThemes</code>
+to <code class="literal">[ &quot;THEME_NAME.css&quot; ]</code></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (strings concatenated with “\n” or absolute path)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.equibop.settings"></a><a class="term" href="options.xhtml#opt-programs.equibop.settings"><code class="option">programs.equibop.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Equibop settings written to
+<code class="filename">$XDG_CONFIG_HOME/equibop/settings.json</code>. See
+<a class="link" href="https://github.com/Equicord/Equibop/blob/main/src/shared/settings.d.ts"  target="_top">https://github.com/Equicord/Equibop/blob/main/src/shared/settings.d.ts</a> for available options.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  appBadge = false;
+  arRPC = true;
+  checkUpdates = false;
+  customTitleBar = false;
+  disableMinSize = true;
+  minimizeToTray = false;
+  tray = false;
+  splashBackground = &quot;#000000&quot;;
+  splashColor = &quot;#ffffff&quot;;
+  splashTheming = true;
+  staticTitle = true;
+  hardwareAcceleration = true;
+  discordBranch = &quot;stable&quot;;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/equibop.nix" target="_top">
+&lt;home-manager/modules/programs/equibop.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.eww.enable"></a><a class="term" href="options.xhtml#opt-programs.eww.enable"><code class="option">programs.eww.enable</code>
   </a>
  </span>
@@ -33132,7 +33374,7 @@ one of “briefcase”, “cart”, “circle”, “dollar”, “fence”, “
 <p><span class="emphasis"><em>Type:</em></span>
 unsigned integer, meaning &gt;=0</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">0
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -33205,7 +33447,7 @@ boolean</p>
 <p>Submodule for installing and configuring extensions.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-(submodule) or (list of package) convertible to it</p>
+submodule</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -35918,6 +36160,176 @@ strings concatenated with “\n”</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.flashspace.enable"></a><a class="term" href="options.xhtml#opt-programs.flashspace.enable"><code class="option">programs.flashspace.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable FlashSpace workspace manager for macOS.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flashspace.nix" target="_top">
+&lt;home-manager/modules/programs/flashspace.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.flashspace.package"></a><a class="term" href="options.xhtml#opt-programs.flashspace.package"><code class="option">programs.flashspace.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The flashspace package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.flashspace
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flashspace.nix" target="_top">
+&lt;home-manager/modules/programs/flashspace.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.flashspace.profiles"></a><a class="term" href="options.xhtml#opt-programs.flashspace.profiles"><code class="option">programs.flashspace.profiles</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Profiles, workspaces, and app assignments written to
+<code class="filename">$XDG_CONFIG_HOME/flashspace/profiles.json</code>.</p><p>The root attribute must be <code class="varname">profiles</code>, containing a list of profile
+objects. Each profile holds a list of <code class="varname">workspaces</code>, and each
+workspace holds a list of <code class="varname">apps</code> identified by their
+<code class="varname">bundleIdentifier</code>.</p><p>See <a class="link" href="https://github.com/wojciech-zurek/FlashSpace"  target="_top">https://github.com/wojciech-zurek/FlashSpace</a> for the full schema.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+JSON value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  profiles = [
+    {
+      id = &quot;550e8400-e29b-41d4-a716-446655440000&quot;;
+      name = &quot;Work&quot;;
+      shortcut = &quot;control+option+1&quot;;
+      workspaces = [
+        {
+          id = &quot;a1b2c3d4-e5f6-7890-abcd-ef1234567890&quot;;
+          name = &quot;Coding&quot;;
+          display = &quot;Built-in Retina Display&quot;;
+          shortcut = &quot;cmd+1&quot;;
+          symbolIconName = &quot;terminal.fill&quot;;
+          openAppsOnActivation = true;
+          apps = [
+            {
+              name = &quot;Xcode&quot;;
+              bundleIdentifier = &quot;com.apple.dt.Xcode&quot;;
+              autoOpen = true;
+            }
+            {
+              name = &quot;iTerm2&quot;;
+              bundleIdentifier = &quot;com.googlecode.iterm2&quot;;
+              autoOpen = true;
+            }
+          ];
+        }
+        {
+          id = &quot;b2c3d4e5-f6a7-8901-bcde-f12345678901&quot;;
+          name = &quot;Communication&quot;;
+          display = &quot;Built-in Retina Display&quot;;
+          shortcut = &quot;cmd+2&quot;;
+          symbolIconName = &quot;message.fill&quot;;
+          openAppsOnActivation = false;
+          apps = [
+            {
+              name = &quot;Slack&quot;;
+              bundleIdentifier = &quot;com.tinyspeck.slackmacgap&quot;;
+              autoOpen = false;
+            }
+          ];
+        }
+      ];
+    }
+  ];
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flashspace.nix" target="_top">
+&lt;home-manager/modules/programs/flashspace.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.flashspace.settings"></a><a class="term" href="options.xhtml#opt-programs.flashspace.settings"><code class="option">programs.flashspace.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>General app settings written to
+<code class="filename">$XDG_CONFIG_HOME/flashspace/settings.toml</code>.</p><p>Covers hotkeys, display mode, transition effects, focus navigation,
+gestures, integrations, and advanced options.</p><p>See <a class="link" href="https://github.com/wojciech-zurek/FlashSpace"  target="_top">https://github.com/wojciech-zurek/FlashSpace</a> for available keys.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  showFlashSpace = &quot;cmd+shift+space&quot;;
+  toggleFlashSpace = &quot;control+option+command+t&quot;;
+  showFloatingNotifications = true;
+  displayMode = &quot;static&quot;;
+  centerCursorOnWorkspaceChange = true;
+  enableWorkspaceTransitions = true;
+  workspaceTransitionDuration = 0.25;
+  integrations = {
+    enableIntegrations = true;
+    runScriptOnWorkspaceChange = &quot;~/.config/flashspace/scripts/notify.sh&quot;;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/flashspace.nix" target="_top">
+&lt;home-manager/modules/programs/flashspace.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.floorp.enable"></a><a class="term" href="options.xhtml#opt-programs.floorp.enable"><code class="option">programs.floorp.enable</code>
   </a>
  </span>
@@ -36490,7 +36902,7 @@ one of “briefcase”, “cart”, “circle”, “dollar”, “fence”, “
 <p><span class="emphasis"><em>Type:</em></span>
 unsigned integer, meaning &gt;=0</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">0
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -36563,7 +36975,7 @@ boolean</p>
 <p>Submodule for installing and configuring extensions.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-(submodule) or (list of package) convertible to it</p>
+submodule</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -40407,13 +40819,14 @@ list of (submodule)</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  { path = &quot;~/path/to/config.inc&quot;; }
   {
-    path = &quot;~/path/to/conditional.inc&quot;;
+    path = &quot;~/path/to/config.inc&quot;;
+  }
+  {
     condition = &quot;gitdir:~/src/dir&quot;;
+    path = &quot;~/path/to/conditional.inc&quot;;
   }
 ]
-
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -40493,16 +40906,15 @@ attribute set of anything</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  commit = {
+    gpgSign = true;
+  };
   user = {
     email = &quot;bob@work.example.com&quot;;
     name = &quot;Bob Work&quot;;
     signingKey = &quot;1A2B3C4D5E6F7G8H&quot;;
   };
-  commit = {
-    gpgSign = true;
-  };
-};
-
+}
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -40701,24 +41113,42 @@ attribute set of string</p>
 </dt>
 <dd>
 <p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/git/config</code>.
-See <span class="citerefentry"><span class="refentrytitle">git-config</span>(1)</span> for details.</p>
+This may be either a single attrset of Git settings or an ordered
+list of attrset fragments when repeated sections or explicit
+ordering matter.</p><p>See <span class="citerefentry"><span class="refentrytitle">git-config</span>(1)</span> for details.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer) or attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer)))</p>
+(attribute set of attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer) or attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer)))) or list of attribute set of attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer) or attribute set of (string or boolean or signed integer or list of (string or boolean or signed integer)))</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  core = {
-    whitespace = &quot;trailing-space,space-before-tab&quot;;
-  };
-  url = {
-    &quot;ssh://git@host&quot; = {
-      insteadOf = &quot;otherhost&quot;;
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  {
+    core = {
+      whitespace = &quot;trailing-space,space-before-tab&quot;;
     };
-  };
-}
+    url = {
+      &quot;ssh://git@host&quot; = {
+        insteadOf = &quot;otherhost&quot;;
+      };
+    };
+  }
+  {
+    credential = {
+      &quot;https://example.com&quot; = {
+        helper = &quot;&quot;;
+      };
+    };
+  }
+  {
+    credential = {
+      &quot;https://example.com&quot; = {
+        helper = &quot;oauth&quot;;
+      };
+    };
+  }
+]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -42562,6 +42992,96 @@ null or one of “off”, “local”, “on”</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/go.nix" target="_top">
 &lt;home-manager/modules/programs/go.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.google-chrome.nativeMessagingHosts"></a><a class="term" href="options.xhtml#opt-programs.google-chrome.nativeMessagingHosts"><code class="option">programs.google-chrome.nativeMessagingHosts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of Google Chrome native messaging hosts to install.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  pkgs.keepassxc
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
+&lt;home-manager/modules/programs/chromium.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.google-chrome-beta.nativeMessagingHosts"></a><a class="term" href="options.xhtml#opt-programs.google-chrome-beta.nativeMessagingHosts"><code class="option">programs.google-chrome-beta.nativeMessagingHosts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of Google Chrome Beta native messaging hosts to install.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  pkgs.keepassxc
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
+&lt;home-manager/modules/programs/chromium.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.google-chrome-dev.nativeMessagingHosts"></a><a class="term" href="options.xhtml#opt-programs.google-chrome-dev.nativeMessagingHosts"><code class="option">programs.google-chrome-dev.nativeMessagingHosts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of Google Chrome Dev native messaging hosts to install.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  pkgs.keepassxc
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/chromium.nix" target="_top">
+&lt;home-manager/modules/programs/chromium.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -51657,6 +52177,94 @@ null or (list of string)</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.kitty.diffConfig.extraConfig"></a><a class="term" href="options.xhtml#opt-programs.kitty.diffConfig.extraConfig"><code class="option">programs.kitty.diffConfig.extraConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Additional configuration to add kitty’s diff.conf</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix" target="_top">
+&lt;home-manager/modules/programs/kitty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.kitty.diffConfig.keybindings"></a><a class="term" href="options.xhtml#opt-programs.kitty.diffConfig.keybindings"><code class="option">programs.kitty.diffConfig.keybindings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Mapping of keybindings to use inside kitty’s diff tool.</p><p>Configuration set through the <code class="literal">extraConfig</code> options will take
+greater priority.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">q = &quot;quit&quot;;
+j = &quot;scroll_by 1&quot;;
+k = &quot;scroll_by -1&quot;;
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix" target="_top">
+&lt;home-manager/modules/programs/kitty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.kitty.diffConfig.settings"></a><a class="term" href="options.xhtml#opt-programs.kitty.diffConfig.settings"><code class="option">programs.kitty.diffConfig.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/kitty/diff.conf</code>. See
+<a class="link" href="https://sw.kovidgoyal.net/kitty/kittens/diff/"  target="_top">https://sw.kovidgoyal.net/kitty/kittens/diff/</a>
+for the documentation.</p><p>Configuration set through the <code class="literal">extraConfig</code> option will take
+greater priority.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (string or boolean or signed integer or floating point number)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">diff_cmd = &quot;auto&quot;;
+mark_moved_lines = true;
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix" target="_top">
+&lt;home-manager/modules/programs/kitty.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.kitty.environment"></a><a class="term" href="options.xhtml#opt-programs.kitty.environment"><code class="option">programs.kitty.environment</code>
   </a>
  </span>
@@ -54727,7 +55335,7 @@ one of “briefcase”, “cart”, “circle”, “dollar”, “fence”, “
 <p><span class="emphasis"><em>Type:</em></span>
 unsigned integer, meaning &gt;=0</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">0
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">1
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -54800,7 +55408,7 @@ boolean</p>
 <p>Submodule for installing and configuring extensions.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-(submodule) or (list of package) convertible to it</p>
+submodule</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -67338,7 +67946,7 @@ boolean</p>
 <p>Settings to write to <code class="literal">app.json</code>.</p><p>Vault-specific settings take priority and will override these, if set.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -67362,7 +67970,7 @@ null or (attribute set of anything)</p>
 <p>Settings to write to <code class="literal">appearance.json</code>.</p><p>Vault-specific settings take priority and will override these, if set.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -67458,7 +68066,7 @@ package</p>
 <p>Settings to include in the plugin’s <code class="literal">data.json</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -67551,7 +68159,7 @@ one of “audio-recorder”, “backlink”, “bases”, “bookmarks”, “ca
 <p>Plugin settings to include.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -67989,7 +68597,7 @@ boolean</p>
 <p>Settings to write to app.json.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.programs.obsidian.defaultSettings.app
 </code></pre>
@@ -68013,7 +68621,7 @@ null or (attribute set of anything)</p>
 <p>Settings to write to appearance.json.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.programs.obsidian.defaultSettings.appearance
 </code></pre>
@@ -68106,7 +68714,7 @@ package</p>
 <p>Settings to include in the plugin’s <code class="literal">data.json</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -68199,7 +68807,7 @@ one of “audio-recorder”, “backlink”, “bases”, “bookmarks”, “ca
 <p>Plugin settings to include.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or (attribute set of anything)</p>
+JSON value</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
@@ -73607,6 +74215,107 @@ package</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.qalculate.enable"></a><a class="term" href="options.xhtml#opt-programs.qalculate.enable"><code class="option">programs.qalculate.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Qalculate!, a multi-purpose desktop calculator.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qalculate.nix" target="_top">
+&lt;home-manager/modules/programs/qalculate.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.qalculate.package"></a><a class="term" href="options.xhtml#opt-programs.qalculate.package"><code class="option">programs.qalculate.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The libqalculate package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.libqalculate
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">pkgs.qalculate-gtk
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qalculate.nix" target="_top">
+&lt;home-manager/modules/programs/qalculate.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.qalculate.settings"></a><a class="term" href="options.xhtml#opt-programs.qalculate.settings"><code class="option">programs.qalculate.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Configuration written to
+<code class="filename">$XDG_CONFIG_HOME/qalculate/qalc.cfg</code>.</p><p>Settings are organized into two INI sections:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="literal">General</code> — persistence and display preferences (e.g.
+<code class="literal">save_mode_on_exit</code>, <code class="literal">colorize</code>, <code class="literal">precision</code>).</p></li><li class="listitem"><p><code class="literal">Mode</code> — active calculator settings that mirror the options
+accepted by the <span class="command"><strong>set</strong></span> command in an interactive
+<span class="command"><strong>qalc</strong></span> session (e.g. <code class="literal">angle_unit</code>, <code class="literal">number_base</code>,
+<code class="literal">min_deci</code>).</p></li></ul></div><p>See <span class="citerefentry"><span class="refentrytitle">qalc</span>(1)</span> for the full list of available settings
+and their accepted values.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string))</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  General = {
+    precision = 10;
+    colorize = 1;
+    save_mode_on_exit = 1;
+    save_definitions_on_exit = 0;
+  };
+  Mode = {
+    angle_unit = 1;
+    number_base = 10;
+    min_deci = 0;
+    max_deci = -1;
+  };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/qalculate.nix" target="_top">
+&lt;home-manager/modules/programs/qalculate.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.qcal.enable"></a><a class="term" href="options.xhtml#opt-programs.qcal.enable"><code class="option">programs.qcal.enable</code>
   </a>
  </span>
@@ -76119,6 +76828,174 @@ attribute set of (string or signed integer or boolean)</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.rectangle.enable"></a><a class="term" href="options.xhtml#opt-programs.rectangle.enable"><code class="option">programs.rectangle.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Rectangle window manager.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rectangle.package"></a><a class="term" href="options.xhtml#opt-programs.rectangle.package"><code class="option">programs.rectangle.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The rectangle package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.rectangle
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rectangle.defaults"></a><a class="term" href="options.xhtml#opt-programs.rectangle.defaults"><code class="option">programs.rectangle.defaults</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Rectangle application defaults. Each attribute name is written as a
+native macOS preference key in Rectangle’s plist file.</p><p>Written to
+<code class="filename">~/Library/Preferences/com.knollsoft.Rectangle.plist</code>.</p><p>See <a class="link" href="https://github.com/rxhanson/Rectangle"  target="_top">https://github.com/rxhanson/Rectangle</a> for the available
+settings and their corresponding preference keys.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  launchOnLogin = true;
+  gapSize = 8.0;
+  windowSnapping = 1;
+  almostMaximizeHeight = 0.9;
+  almostMaximizeWidth = 0.9;
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rectangle.shortcuts"></a><a class="term" href="options.xhtml#opt-programs.rectangle.shortcuts"><code class="option">programs.rectangle.shortcuts</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Rectangle keyboard shortcuts. Attribute names are Rectangle action
+identifiers (e.g. <code class="literal">leftHalf</code>, <code class="literal">rightHalf</code>, <code class="literal">maximize</code>). Each value
+specifies a <code class="literal">keyCode</code> (macOS virtual key code) and a <code class="literal">modifierFlags</code>
+string naming the modifier combination (e.g. <code class="literal">&quot;ctrl+option+command&quot;</code>).</p><p>You can determine keycodes using an app like: <a class="link" href="https://manytricks.com/keycodes/"  target="_top">https://manytricks.com/keycodes/</a></p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of (submodule)</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  leftHalf   = { keyCode = 123; modifierFlags = &quot;ctrl+option+command&quot;; };
+  rightHalf  = { keyCode = 124; modifierFlags = &quot;ctrl+option+command&quot;; };
+  topHalf    = { keyCode = 126; modifierFlags = &quot;ctrl+option+command&quot;; };
+  bottomHalf = { keyCode = 125; modifierFlags = &quot;ctrl+option+command&quot;; };
+  maximize   = { keyCode = 46;  modifierFlags = &quot;ctrl+option+command&quot;; };
+  center     = { keyCode = 8;   modifierFlags = &quot;ctrl+option+command&quot;; };
+}
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rectangle.shortcuts._name_.keyCode"></a><a class="term" href="options.xhtml#opt-programs.rectangle.shortcuts._name_.keyCode"><code class="option">programs.rectangle.shortcuts.&lt;name&gt;.keyCode</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>macOS virtual key code for this shortcut.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+signed integer</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.rectangle.shortcuts._name_.modifierFlags"></a><a class="term" href="options.xhtml#opt-programs.rectangle.shortcuts._name_.modifierFlags"><code class="option">programs.rectangle.shortcuts.&lt;name&gt;.modifierFlags</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Modifier key combination for this shortcut. One of:</p><div class="itemizedlist"><ul class="itemizedlist " style="list-style-type: disc;"><li class="listitem"><p><code class="literal">&quot;shift&quot;</code> (⇧)</p></li><li class="listitem"><p><code class="literal">&quot;ctrl&quot;</code> (⌃)</p></li><li class="listitem"><p><code class="literal">&quot;option&quot;</code> (⌥)</p></li><li class="listitem"><p><code class="literal">&quot;ctrl+option&quot;</code> (⌃⌥)</p></li><li class="listitem"><p><code class="literal">&quot;ctrl+option+shift&quot;</code> (⌃⌥⇧)</p></li><li class="listitem"><p><code class="literal">&quot;command&quot;</code> (⌘)</p></li><li class="listitem"><p><code class="literal">&quot;shift+command&quot;</code> (⇧⌘)</p></li><li class="listitem"><p><code class="literal">&quot;ctrl+option+command&quot;</code> (⌃⌥⌘)</p></li><li class="listitem"><p><code class="literal">&quot;ctrl+option+shift+command&quot;</code> (⌃⌥⇧⌘)</p></li></ul></div>
+
+<p><span class="emphasis"><em>Type:</em></span>
+signed integer or (one of “command”, “ctrl”, “ctrl+option”, “ctrl+option+command”, “ctrl+option+shift”, “ctrl+option+shift+command”, “option”, “shift”, “shift+command”) convertible to it</p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/rectangle.nix" target="_top">
+&lt;home-manager/modules/programs/rectangle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.retext.enable"></a><a class="term" href="options.xhtml#opt-programs.retext.enable"><code class="option">programs.retext.enable</code>
   </a>
  </span>
@@ -77348,7 +78225,7 @@ null or boolean</p>
 <p>Additional configuration to add.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-(attribute set of (string or signed integer or boolean or (Rasi literal string) or list of (string or signed integer or boolean or (Rasi literal string)))) or string</p>
+attribute set of ((attribute set of (string or signed integer or boolean or (Rasi literal string) or list of (string or signed integer or boolean or (Rasi literal string)))) or string or signed integer or boolean or (Rasi literal string))</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -77356,6 +78233,9 @@ null or boolean</p>
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   kb-primary-paste = &quot;Control+V,Shift+Insert&quot;;
   kb-secondary-paste = &quot;Control+v,Insert&quot;;
+  &quot;run,drun&quot; = {
+    display-name = &quot;open:&quot;;
+  };
 }
 
 </code></pre>
@@ -90552,7 +91432,7 @@ string</p>
  </span>
 </dt>
 <dd>
-<p>Whether to enable Vesktop, an alternate client for Discord with Vencord built-in.</p>
+<p>Whether to enable Alternate client for Discord with Vencord built-in.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -90566,8 +91446,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90590,8 +91470,8 @@ null or package</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90605,8 +91485,7 @@ null or package</p>
 <dd>
 <p>Vesktop settings written to
 <code class="filename">$XDG_CONFIG_HOME/vesktop/settings.json</code>. See
-<a class="link" href="https://github.com/Vencord/Vesktop/blob/main/src/shared/settings.d.ts"  target="_top">https://github.com/Vencord/Vesktop/blob/main/src/shared/settings.d.ts</a>
-for available options.</p>
+<a class="link" href="https://github.com/Vencord/Vesktop/blob/main/src/shared/settings.d.ts"  target="_top">https://github.com/Vencord/Vesktop/blob/main/src/shared/settings.d.ts</a> for available options.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 JSON value</p>
@@ -90635,8 +91514,8 @@ JSON value</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90665,8 +91544,8 @@ strings concatenated with “\n”</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90680,8 +91559,7 @@ strings concatenated with “\n”</p>
 <dd>
 <p>Vencord settings written to
 <code class="filename">$XDG_CONFIG_HOME/vesktop/settings/settings.json</code>. See
-<a class="link" href="https://github.com/Vendicated/Vencord/blob/main/src/api/Settings.ts"  target="_top">https://github.com/Vendicated/Vencord/blob/main/src/api/Settings.ts</a>
-for available options.</p>
+<a class="link" href="https://github.com/Vendicated/Vencord/blob/main/src/api/Settings.ts"  target="_top">https://github.com/Vendicated/Vencord/blob/main/src/api/Settings.ts</a> for available options.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 JSON value</p>
@@ -90709,8 +91587,8 @@ JSON value</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90723,7 +91601,8 @@ JSON value</p>
 </dt>
 <dd>
 <p>Themes to add for Vencord, they can be enabled by setting
-<code class="literal">programs.vesktop.vencord.settings.enabledThemes</code> to <code class="literal">[ &quot;THEME_NAME.css&quot; ]</code></p>
+<code class="literal">programs.vesktop.vencord.settings.enabledThemes</code>
+to <code class="literal">[ &quot;THEME_NAME.css&quot; ]</code></p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (strings concatenated with “\n” or absolute path)</p>
@@ -90734,8 +91613,8 @@ attribute set of (strings concatenated with “\n” or absolute path)</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -90761,8 +91640,8 @@ boolean</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop.nix" target="_top">
-&lt;home-manager/modules/programs/vesktop.nix&gt;
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/vesktop" target="_top">
+&lt;home-manager/modules/programs/vesktop&gt;
 </a></code>
 </td></tr>
 </table>
@@ -91618,7 +92497,7 @@ list of package</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  pkgs.kdePackages.plasma-browser-integration
+  pkgs.keepassxc
 ]
 
 </code></pre>
@@ -109036,7 +109915,8 @@ string</p>
 </dt>
 <dd>
 <p>Whether to enable the Home Manager upgrade service that periodically updates your Nix
-channels before running <code class="literal">home-manager switch</code>.</p>
+configuration by running <code class="literal">home-manager switch</code>
+.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -109058,12 +109938,44 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.home-manager.autoUpgrade.flags"></a><a class="term" href="options.xhtml#opt-services.home-manager.autoUpgrade.flags"><code class="option">services.home-manager.autoUpgrade.flags</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra arguments passed to <code class="literal">home-manager switch</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;--impure&quot;
+  &quot;-b&quot;
+  &quot;hmbak&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/home-manager-auto-upgrade.nix" target="_top">
+&lt;home-manager/modules/services/home-manager-auto-upgrade.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.home-manager.autoUpgrade.flakeDir"></a><a class="term" href="options.xhtml#opt-services.home-manager.autoUpgrade.flakeDir"><code class="option">services.home-manager.autoUpgrade.flakeDir</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>The directory of the flake to update.</p>
+<p>Directory containing flake.nix.
+Also check <code class="literal">services.home-manager.autoUpgrade.useFlake</code> option.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
@@ -109093,8 +110005,7 @@ string</p>
 <p>The interval at which the Home Manager auto upgrade is run.
 This value is passed to the systemd timer configuration
 as the <code class="literal">OnCalendar</code> option.
-The format is described in
-<a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
+The format is described in <a class="link" href="https://www.freedesktop.org/software/systemd/man/systemd.time.html" target="_top"><span class="citerefentry"><span class="refentrytitle">systemd.time</span>(7)</span></a>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
@@ -109113,12 +110024,49 @@ string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.home-manager.autoUpgrade.preSwitchCommands"></a><a class="term" href="options.xhtml#opt-services.home-manager.autoUpgrade.preSwitchCommands"><code class="option">services.home-manager.autoUpgrade.preSwitchCommands</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Shell commands executed before <code class="literal">home-manager switch</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">if lib.versionAtLeast config.home.stateVersion &quot;26.05&quot;
+   || !config.services.home-manager.autoUpgrade.useFlake
+then
+  [ ]
+else
+  [ &quot;nix flake update&quot; ]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;${pkgs.gitMinimal}/bin/git pull&quot;
+  &quot;nix flake update&quot;
+]
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/home-manager-auto-upgrade.nix" target="_top">
+&lt;home-manager/modules/services/home-manager-auto-upgrade.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.home-manager.autoUpgrade.useFlake"></a><a class="term" href="options.xhtml#opt-services.home-manager.autoUpgrade.useFlake"><code class="option">services.home-manager.autoUpgrade.useFlake</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Whether to use ‘nix flake update’ instead of ‘nix-channel --update’.</p>
+<p>Whether to use flake-based Home Manager configuration.</p><p>Flake URI uses FQDN, long, and short hostnames, and you must configure the corresponding user@host key in <code class="literal">homeConfigurations</code>. For example: user@hostname or user@host.example.com.</p><p>Also check <code class="literal">services.home-manager.autoUpgrade.flakeDir</code> option.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -116815,6 +117763,35 @@ attribute set of (JSON value)</p>
     };
   };
 }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/pipewire.nix" target="_top">
+&lt;home-manager/modules/services/pipewire.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.pipewire.extraLadspaPackages"></a><a class="term" href="options.xhtml#opt-services.pipewire.extraLadspaPackages"><code class="option">services.pipewire.extraLadspaPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>List of packages that provide LADSPA plugins, in the form of
+<code class="filename">lib/ladspa/*</code> files.</p><p>LADSPA dependencies will be picked up from config packages automatically
+via <code class="literal">passthru.requiredLadspaPackages</code>, so they don’t need to be set here.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ pkgs.noisetorch-ladspa ]
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -128751,6 +129728,147 @@ string</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/way-displays.nix" target="_top">
 &lt;home-manager/modules/services/way-displays.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wayle.enable"></a><a class="term" href="options.xhtml#opt-services.wayle.enable"><code class="option">services.wayle.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable wayle shell.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wayle.nix" target="_top">
+&lt;home-manager/modules/services/wayle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wayle.package"></a><a class="term" href="options.xhtml#opt-services.wayle.package"><code class="option">services.wayle.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The wayle package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.wayle
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wayle.nix" target="_top">
+&lt;home-manager/modules/services/wayle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wayle.autoInstallDependencies"></a><a class="term" href="options.xhtml#opt-services.wayle.autoInstallDependencies"><code class="option">services.wayle.autoInstallDependencies</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to automatically install soft dependencies used by wayle that
+will be required based on your config.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wayle.nix" target="_top">
+&lt;home-manager/modules/services/wayle.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.wayle.settings"></a><a class="term" href="options.xhtml#opt-services.wayle.settings"><code class="option">services.wayle.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Standard configuration options for wayle.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  bar = {
+    layout = [
+      {
+        center = [
+          &quot;media&quot;
+        ];
+        left = [
+          &quot;clock&quot;
+        ];
+        monitor = &quot;*&quot;;
+        right = [
+          &quot;battery&quot;
+        ];
+      }
+    ];
+    location = &quot;top&quot;;
+    rounding = &quot;sm&quot;;
+    scale = 1;
+  };
+  modules = {
+    clock = {
+      format = &quot;%H:%M&quot;;
+      icon-show = true;
+      label-show = true;
+    };
+  };
+  styling = {
+    palette = {
+      bg = &quot;#16161e&quot;;
+      fg = &quot;#c0caf5&quot;;
+      primary = &quot;#7aa2f7&quot;;
+    };
+    theme-provider = &quot;wayle&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/wayle.nix" target="_top">
+&lt;home-manager/modules/services/wayle.nix&gt;
 </a></code>
 </td></tr>
 </table>
