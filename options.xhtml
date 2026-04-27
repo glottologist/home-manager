@@ -10656,7 +10656,7 @@ absolute path</p>
 <p>Path to target file relative to <code class="envar">HOME</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -15012,8 +15012,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -15040,8 +15040,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -24507,9 +24507,6 @@ each with its own source directories and repositories.</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   personal = {
     location = {
@@ -33073,12 +33070,27 @@ attribute set of (JSON value)</p>
  </span>
 </dt>
 <dd>
-<p>Attribute set of Firefox profiles.</p>
+<p>Attribute set of Firefox profiles.</p><p>When using Firefox Developer Edition, the profile name should be
+<code class="literal">dev-edition-default</code>. You can still set <code class="option">path</code> to store the
+profile in a custom directory.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  &quot;dev-edition-default&quot; = {
+    id = 0;
+    path = config.home.username;
+
+    settings = {
+      &quot;browser.aboutConfig.showWarning&quot; = false;
+    };
+  };
+}
+
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -33184,8 +33196,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33212,8 +33224,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33492,7 +33504,17 @@ Once you have NUR installed run</p><pre><code class="programlisting console">$ n
 inside ‹name› after the first installation.</p><p>To automatically enable extensions add
 <code class="literal">&quot;extensions.autoDisableScopes&quot; = 0;</code>
 to
-<a class="link" href="options.xhtml#opt-programs.firefox.profiles._name_.settings"  ><code class="option">programs.firefox.profiles.&lt;profile&gt;.settings</code></a></p>
+<a class="link" href="options.xhtml#opt-programs.firefox.profiles._name_.settings"  ><code class="option">programs.firefox.profiles.&lt;profile&gt;.settings</code></a></p><p>On systems using impermanence, this only prevents
+‹name› from requiring manual extension approval. It
+does not preserve extension runtime state such as
+extension UUIDs, logins, local storage, or
+per-extension data. Persist the ‹name› profile state
+needed by your extensions, or configure supported
+extension settings declaratively with
+<a class="link" href="options.xhtml#opt-programs.firefox.profiles._name_.extensions.settings"  ><code class="option">programs.firefox.profiles.&lt;profile&gt;.extensions.settings</code></a>.</p><p>Persisting only the <code class="literal">extensions</code> directory is generally
+not sufficient, because ‹name› stores extension state
+in other profile files and databases that are managed
+outside Home Manager.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of package</p>
@@ -33828,8 +33850,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33856,8 +33878,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34550,8 +34572,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34578,8 +34600,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36609,6 +36631,9 @@ attribute set of (submodule)</p>
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -36712,8 +36737,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -36740,8 +36765,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37020,7 +37045,17 @@ Once you have NUR installed run</p><pre><code class="programlisting console">$ n
 inside ‹name› after the first installation.</p><p>To automatically enable extensions add
 <code class="literal">&quot;extensions.autoDisableScopes&quot; = 0;</code>
 to
-<a class="link" href="options.xhtml#opt-programs.floorp.profiles._name_.settings"  ><code class="option">programs.floorp.profiles.&lt;profile&gt;.settings</code></a></p>
+<a class="link" href="options.xhtml#opt-programs.floorp.profiles._name_.settings"  ><code class="option">programs.floorp.profiles.&lt;profile&gt;.settings</code></a></p><p>On systems using impermanence, this only prevents
+‹name› from requiring manual extension approval. It
+does not preserve extension runtime state such as
+extension UUIDs, logins, local storage, or
+per-extension data. Persist the ‹name› profile state
+needed by your extensions, or configure supported
+extension settings declaratively with
+<a class="link" href="options.xhtml#opt-programs.floorp.profiles._name_.extensions.settings"  ><code class="option">programs.floorp.profiles.&lt;profile&gt;.extensions.settings</code></a>.</p><p>Persisting only the <code class="literal">extensions</code> directory is generally
+not sufficient, because ‹name› stores extension state
+in other profile files and databases that are managed
+outside Home Manager.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of package</p>
@@ -37356,8 +37391,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37384,8 +37419,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38078,8 +38113,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38106,8 +38141,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55042,6 +55077,9 @@ attribute set of (submodule)</p>
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -55145,8 +55183,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55173,8 +55211,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55453,7 +55491,17 @@ Once you have NUR installed run</p><pre><code class="programlisting console">$ n
 inside ‹name› after the first installation.</p><p>To automatically enable extensions add
 <code class="literal">&quot;extensions.autoDisableScopes&quot; = 0;</code>
 to
-<a class="link" href="options.xhtml#opt-programs.librewolf.profiles._name_.settings"  ><code class="option">programs.librewolf.profiles.&lt;profile&gt;.settings</code></a></p>
+<a class="link" href="options.xhtml#opt-programs.librewolf.profiles._name_.settings"  ><code class="option">programs.librewolf.profiles.&lt;profile&gt;.settings</code></a></p><p>On systems using impermanence, this only prevents
+‹name› from requiring manual extension approval. It
+does not preserve extension runtime state such as
+extension UUIDs, logins, local storage, or
+per-extension data. Persist the ‹name› profile state
+needed by your extensions, or configure supported
+extension settings declaratively with
+<a class="link" href="options.xhtml#opt-programs.librewolf.profiles._name_.extensions.settings"  ><code class="option">programs.librewolf.profiles.&lt;profile&gt;.extensions.settings</code></a>.</p><p>Persisting only the <code class="literal">extensions</code> directory is generally
+not sufficient, because ‹name› stores extension state
+in other profile files and databases that are managed
+outside Home Manager.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of package</p>
@@ -55789,8 +55837,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -55817,8 +55865,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -56511,8 +56559,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -56539,8 +56587,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -64298,7 +64346,7 @@ absolute path</p>
 <p>Path to target file relative to <code class="varname">xdg.configHome/nvim</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -69892,13 +69940,13 @@ attribute set of (atom (null, bool, int, float or string))</p>
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   UITheme = &quot;theme-contrast-dark&quot;;
   editorWindowMode = false;
   forcedRtl = false;
   maximized = true;
   titlebar = &quot;custom&quot;;
-&#x27;&#x27;
+}
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -79943,9 +79991,6 @@ package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 open submodule of attribute set of anything</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   address = &quot;libera.chat:6697&quot;;
   nickname = &quot;nicholas&quot;;
@@ -82288,9 +82333,6 @@ null or (list of string)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 list of (submodule)</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -83706,9 +83748,6 @@ list of (submodule)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -83783,9 +83822,6 @@ null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -84003,9 +84039,6 @@ list of (submodule)</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -84080,9 +84113,6 @@ null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -87841,9 +87871,6 @@ list of package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -88258,8 +88285,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -88286,8 +88313,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/9jvr0qbaf9cnlaadb1mzjyw6kywkn0wn-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/amwgd7d5jwilfh37sx1y9l1ck250r69d-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -108439,9 +108466,6 @@ package</p>
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
   xyz = {
     path = &quot;${config.home.homeDirectory}/foo/home-manager&quot;;
@@ -111994,9 +112018,6 @@ string</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -112157,9 +112178,6 @@ null or one of “normal”, “90”, “180”, “270”, “flipped”, “f
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -141319,7 +141337,7 @@ absolute path</p>
 <p>Path to target file relative to <code class="varname">xdg.cacheHome</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -141605,7 +141623,7 @@ absolute path</p>
 <p>Path to target file relative to <code class="varname">xdg.configHome</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -141891,7 +141909,7 @@ absolute path</p>
 <p>Path to target file relative to &lt;varname&gt;xdg.dataHome&lt;/varname&gt;.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -143068,7 +143086,7 @@ absolute path</p>
 <p>Path to target file relative to &lt;varname&gt;xdg.stateHome&lt;/varname&gt;.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-string</p>
+non-empty string</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">name
 </code></pre>
@@ -143855,9 +143873,6 @@ boolean</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -143878,9 +143893,6 @@ submodule</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -143903,9 +143915,6 @@ submodule</p>
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
@@ -143926,9 +143935,6 @@ submodule</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 submodule</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
