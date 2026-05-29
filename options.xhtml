@@ -15107,8 +15107,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -15135,8 +15135,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -33008,21 +33008,117 @@ package</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.eww.configDir"></a><a class="term" href="options.xhtml#opt-programs.eww.configDir"><code class="option">programs.eww.configDir</code>
+ <a id="opt-programs.eww.scssConfig"></a><a class="term" href="options.xhtml#opt-programs.eww.scssConfig"><code class="option">programs.eww.scssConfig</code>
   </a>
  </span>
 </dt>
 <dd>
 <p>The directory that gets symlinked to
-<code class="filename">$XDG_CONFIG_HOME/eww</code>.</p>
+<code class="filename">$XDG_CONFIG_HOME/eww/eww.scss</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-null or absolute path</p>
+null or strings concatenated with “\n”</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
 </code></pre>
 
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">./eww-config-dir
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  window {
+    background: pink;
+  }
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eww.nix" target="_top">
+&lt;home-manager/modules/programs/eww.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.eww.systemd.enable"></a><a class="term" href="options.xhtml#opt-programs.eww.systemd.enable"><code class="option">programs.eww.systemd.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Launches Eww Daemon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eww.nix" target="_top">
+&lt;home-manager/modules/programs/eww.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.eww.systemd.target"></a><a class="term" href="options.xhtml#opt-programs.eww.systemd.target"><code class="option">programs.eww.systemd.target</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Systemd target to bind to.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">config.wayland.systemd.target
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/eww.nix" target="_top">
+&lt;home-manager/modules/programs/eww.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.eww.yuckConfig"></a><a class="term" href="options.xhtml#opt-programs.eww.yuckConfig"><code class="option">programs.eww.yuckConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The content that gets symlinked to
+<code class="filename">$XDG_CONFIG_HOME/eww/eww.yuck</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
+  (defwindow example
+    :monitor 0
+    :geometry (geometry :x &quot;0%&quot;
+                         :y &quot;20px&quot;
+                         :width &quot;90%&quot;
+                         :height &quot;30px&quot;
+                         :anchor &quot;top center&quot;)
+    :stacking &quot;fg&quot;
+    :reserve (struts :distance &quot;40px&quot; :side &quot;top&quot;)
+    :windowtype &quot;dock&quot;
+    :wm-ignore false
+  &quot;example content&quot;)
+&#x27;&#x27;
 </code></pre>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
@@ -34447,8 +34543,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -34475,8 +34571,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35101,8 +35197,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35129,8 +35225,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35823,8 +35919,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -35851,8 +35947,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -37985,8 +38081,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38013,8 +38109,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38639,8 +38735,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -38667,8 +38763,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -39361,8 +39457,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -39389,8 +39485,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -43525,7 +43621,7 @@ list of (submodule)</p>
   { package = pkgs.gnomeExtensions.dash-to-panel; }
   {
     id = &quot;user-theme@gnome-shell-extensions.gcampax.github.com&quot;;
-    package = pkgs.gnome-shell-extensions;
+    package = pkgs.gnomeExtensions.user-themes;
   }
 ]
 
@@ -57390,8 +57486,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -57418,8 +57514,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58044,8 +58140,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58072,8 +58168,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58766,8 +58862,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -58794,8 +58890,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -78851,7 +78947,10 @@ point configurations.</p><p>For each entry, to perform the equivalent of
 <code class="literal">rclone mount remote:path/to/files /path/to/local/mount</code> — as described in the
 rclone documentation <a class="link" href="https://rclone.org/commands/rclone_mount/"  target="_top">https://rclone.org/commands/rclone_mount/</a> — we create
 a key-value pair like this:
-<code class="literal">&quot;path/to/files/on/remote&quot; = { ... }</code>.</p>
+<code class="literal">&quot;path/to/files/on/remote&quot; = { ... }</code>.</p><p>On macOS, FUSE mounts additionally require macFUSE
+(<a class="link" href="https://osxfuse.github.io/"  target="_top">https://osxfuse.github.io/</a>) to be installed and its system extension
+approved. Home Manager does not install macFUSE; rclone will surface
+a runtime error if it is missing.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of (submodule)</p>
@@ -79028,9 +79127,10 @@ attribute set of (null or boolean or signed integer or floating point number or 
 <dd>
 <p>Sensitive configuration values such as passwords, API keys, and tokens. These
 must be provided as file paths to the secrets, which will be read at activation
-time.</p><p>These values are expanded in a shell context within a systemd service, so
+time.</p><p>These values are expanded in a shell context within the rclone-config
+service (a systemd user service on Linux, a launchd agent on macOS), so
 you can use bash features like command substitution or variable expansion
-(e.g. “${XDG_RUNTIME_DIR}” as used by agenix).</p>
+(e.g. “${XDG_RUNTIME_DIR}” on Linux, as used by agenix).</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 attribute set of string</p>
@@ -79242,7 +79342,11 @@ one of “dlna”, “docker”, “ftp”, “http”, “nfs”, “restic”,
 configuration file is written.</p><p>This is typically used when secrets are managed by an external provisioner
 whose service must run before the secrets are accessible.</p><p>When using sops-nix or agenix, this value is set automatically to
 sops-nix.service or agenix.service, respectively. Set this manually if you
-use a different secret provisioner.</p>
+use a different secret provisioner.</p><p>Read-only on non-systemd platforms (always null), since this option
+has no equivalent ordering primitive outside systemd. On macOS, the
+config-install launchd agent retries on failure (KeepAlive.Crashed),
+so it will succeed on a subsequent attempt once the secret-provisioner
+agent has materialized the secret files.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 null or string</p>
@@ -85531,18 +85635,19 @@ boolean</p>
 <p>Whether to enable or not the old default config values.
 This option will become deprecated in the future.
 For an equivalent, copy and paste the following
-code snippet in your config:</p><p>programs.ssh.matchBlocks.“*” = {
-forwardAgent = false;
-addKeysToAgent = “no”;
-compression = false;
-serverAliveInterval = 0;
-serverAliveCountMax = 3;
-hashKnownHosts = false;
-userKnownHostsFile = “~/.ssh/known_hosts”;
-controlMaster = “no”;
-controlPath = “~/.ssh/master-%r@%n:%p”;
-controlPersist = “no”;
-};</p>
+code snippet in your config:</p><pre><code class="programlisting nix">programs.ssh.settings.&quot;*&quot; = {
+  ForwardAgent = false;
+  AddKeysToAgent = &quot;no&quot;;
+  Compression = false;
+  ServerAliveInterval = 0;
+  ServerAliveCountMax = 3;
+  HashKnownHosts = false;
+  UserKnownHostsFile = &quot;~/.ssh/known_hosts&quot;;
+  ControlMaster = &quot;no&quot;;
+  ControlPath = &quot;~/.ssh/master-%r@%n:%p&quot;;
+  ControlPersist = &quot;no&quot;;
+};
+</code></pre>
 
 <p><span class="emphasis"><em>Type:</em></span>
 boolean</p>
@@ -85621,7 +85726,7 @@ strings concatenated with “\n”</p>
 host specific configuration.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-attribute set of string</p>
+attribute set of anything</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -85664,33 +85769,55 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.ssh.matchBlocks"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks"><code class="option">programs.ssh.matchBlocks</code>
+ <a id="opt-programs.ssh.settings"></a><a class="term" href="options.xhtml#opt-programs.ssh.settings"><code class="option">programs.ssh.settings</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>Specify per-host settings. Note, if the order of rules matter
-then use the DAG functions to express the dependencies as
-shown in the example.</p><p>See
+<p>OpenSSH client configuration blocks written to
+<code class="filename">~/.ssh/config</code>.</p><p>Attribute names are interpreted as <code class="literal">Host</code> patterns unless they
+start with <code class="literal">Host </code> or <code class="literal">Match </code>, in which case they are written
+literally as block headers. If the order of rules matter then
+use the DAG functions to express the dependencies as shown in
+the example.</p><p>See
 <span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span>
 for more information.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-DAG of submodule</p>
+DAG of open submodule of attribute set of anything</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
-  &quot;john.example.com&quot; = {
-    hostname = &quot;example.com&quot;;
-    user = &quot;john&quot;;
+  &quot;github.com&quot; = {
+    HostName = &quot;github.com&quot;;
+    User = &quot;git&quot;;
+    IdentityFile = &quot;~/.ssh/github&quot;;
   };
-  foo = lib.hm.dag.entryBefore [&quot;john.example.com&quot;] {
-    hostname = &quot;example.com&quot;;
-    identityFile = &quot;/home/john/.ssh/foo_rsa&quot;;
+
+  &quot;Host *.example.org&quot; = lib.hm.dag.entryBefore [ &quot;github.com&quot; ] {
+    IdentityFile = &quot;~/.ssh/example&quot;;
+    LocalForward = [
+      {
+        bind.port = 8080;
+        host.address = &quot;10.0.0.13&quot;;
+        host.port = 80;
+      }
+      &quot;9000 10.0.0.2:90&quot;
+    ];
+    DynamicForward = &quot;127.0.0.1:1080&quot;;
   };
-};
+
+  &quot;Match host *.corp exec \&quot;test -f ~/.corp\&quot;&quot; = {
+    ProxyJump = &quot;bastion&quot;;
+    RemoteForward = {
+      bind.port = 8081;
+      host.address = &quot;10.0.0.14&quot;;
+      host.port = 80;
+    };
+  };
+}
 
 </code></pre>
 
@@ -85705,1191 +85832,25 @@ DAG of submodule</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.addKeysToAgent"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.addKeysToAgent"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.addKeysToAgent</code>
+ <a id="opt-programs.ssh.settings._name_.header"></a><a class="term" href="options.xhtml#opt-programs.ssh.settings._name_.header"><code class="option">programs.ssh.settings.&lt;name&gt;.header</code>
   </a>
  </span>
 </dt>
 <dd>
-<p>When enabled, a private key that is used during authentication will be
-added to ssh-agent if it is running (with confirmation enabled if
-set to ‘confirm’). The argument must be ‘no’ (the default), ‘yes’, ‘confirm’
-(optionally followed by a time interval), ‘ask’ or a time interval (e.g. ‘1h’).</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.addressFamily"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.addressFamily"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.addressFamily</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies which address family to use when connecting.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or one of “any”, “inet”, “inet6”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.certificateFile"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.certificateFile"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.certificateFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies files from which the user certificate is read.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-(list of string) or null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.checkHostIP"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.checkHostIP"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.checkHostIP</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Check the host IP address in the
-<code class="filename">known_hosts</code> file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">true
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.compression"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.compression"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.compression</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies whether to use compression. Omitted from the host
-block when <code class="literal">null</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.controlMaster"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.controlMaster"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.controlMaster</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Configure sharing of multiple sessions over a single network connection.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or one of “yes”, “no”, “ask”, “auto”, “autoask”</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.controlPath"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.controlPath"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.controlPath</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specify path to the control socket used for connection sharing.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.controlPersist"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.controlPersist"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.controlPersist</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether control socket should remain open in the background.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;10m&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.dynamicForwards"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.dynamicForwards"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.dynamicForwards</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specify dynamic port forwardings. See
-<span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span> for <code class="literal">DynamicForward</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-list of (submodule)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[ { port = 8080; } ];
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.dynamicForwards._.address"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.dynamicForwards._.address"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.dynamicForwards.*.address</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The address to bind to.</p>
+<p>The literal <code class="literal">Host</code> or <code class="literal">Match</code> line that opens this block.</p><p>By default this is derived from the attribute name: names
+starting with <code class="literal">Host </code> or <code class="literal">Match </code> are used literally, and
+all other names are prefixed with <code class="literal">Host </code>. This default is
+suitable for most configurations.</p><p>Set this only when the header cannot be expressed as the
+attribute name, e.g. when it carries Nix string context
+(store paths), or when a stable attribute name is wanted
+for <code class="option">lib.hm.dag</code> ordering.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 string</p>
 
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;localhost&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.dynamicForwards._.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.dynamicForwards._.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.dynamicForwards.*.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to bind to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">8080
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.extraOptions"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.extraOptions"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.extraOptions</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Extra configuration options for the host.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-attribute set of string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.forwardAgent"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.forwardAgent"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.forwardAgent</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether the connection to the authentication agent (if any)
-will be forwarded to the remote machine.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.forwardX11"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.forwardX11"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.forwardX11</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies whether X11 connections will be automatically redirected
-over the secure channel and <code class="envar">DISPLAY</code> set.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.forwardX11Trusted"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.forwardX11Trusted"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.forwardX11Trusted</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies whether remote X11 clients will have full access to the
-original X11 display.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.hashKnownHosts"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.hashKnownHosts"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.hashKnownHosts</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Indicates that
-<span class="citerefentry"><span class="refentrytitle">ssh</span>(1)</span>
-should hash host names and addresses when they are added to
-the known hosts file.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.host"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.host"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.host</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p><code class="literal">Host</code> pattern used by this conditional block.
-See
-<span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span>
-for <code class="literal">Host</code> block details.
-This option is ignored if
-<code class="option">ssh.matchBlocks.*.match</code>
-if defined.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;*.example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.hostname"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.hostname"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.hostname</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies the real host name to log into.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.identitiesOnly"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.identitiesOnly"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.identitiesOnly</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies that ssh should only use the authentication
-identity explicitly configured in the
-<code class="filename">~/.ssh/config</code> files or passed on the
-ssh command-line, even if <span class="command"><strong>ssh-agent</strong></span>
-offers more identities.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.identityAgent"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.identityAgent"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.identityAgent</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies the location of the ssh identity agent.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-(list of string) or null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.identityFile"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.identityFile"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.identityFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies files from which the user identity is read.
-Identities will be tried in the given order.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-(list of string) or null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.kexAlgorithms"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.kexAlgorithms"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.kexAlgorithms</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies the available KEX (Key Exchange) algorithms.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or (list of string)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  &quot;curve25519-sha256@libssh.org&quot;
-  &quot;diffie-hellman-group-exchange-sha256&quot;
-]
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specify local port forwardings. See
-<span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span> for <code class="literal">LocalForward</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-list of (submodule)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  {
-    bind.port = 8080;
-    host.address = &quot;10.0.0.13&quot;;
-    host.port = 80;
-  }
-];
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.bind"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.bind"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.bind</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Local port binding options</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-submodule</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.bind.address"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.bind.address"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.bind.address</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The address to bind to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;localhost&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.bind.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.bind.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.bind.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to bind to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">8080
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.host"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.host"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.host</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Host port binding options</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-submodule</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.host.address"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.host.address"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.host.address</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The address to forward to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.localForwards._.host.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.localForwards._.host.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.localForwards.*.host.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to forward to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">8080
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.match"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.match"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.match</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p><code class="literal">Match</code> block conditions used by this block. See
-<span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span>
-for <code class="literal">Match</code> block details.
-This option takes precedence over
-<code class="option">ssh.matchBlocks.*.host</code>
-if defined.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&#x27;&#x27;
-  host &lt;hostname&gt; canonical
-  host &lt;hostname&gt; exec &quot;ping -c1 -q 192.168.17.1&quot;&#x27;&#x27;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to connect on remote host.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.proxyCommand"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.proxyCommand"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.proxyCommand</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The command to use to connect to the server.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.proxyJump"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.proxyJump"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.proxyJump</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The proxy host to use to connect to the server.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specify remote port forwardings. See
-<span class="citerefentry"><span class="refentrytitle">ssh_config</span>(5)</span> for <code class="literal">RemoteForward</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-list of (submodule)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  {
-    bind.port = 8080;
-    host.address = &quot;10.0.0.13&quot;;
-    host.port = 80;
-  }
-];
-
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.bind</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Local port binding options</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-submodule</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind.address"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind.address"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.bind.address</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The address to bind to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">&quot;localhost&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.bind.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.bind.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to bind to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">8080
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.host"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.host"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.host</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Host port binding options</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-submodule</p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.host.address"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.host.address"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.host.address</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The address to forward to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;example.org&quot;
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.remoteForwards._.host.port"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.remoteForwards._.host.port"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.remoteForwards.*.host.port</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies port number to forward to.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or 16 bit unsigned integer; between 0 and 65535 (both inclusive)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">8080
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.sendEnv"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.sendEnv"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.sendEnv</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Environment variables to send from the local host to the
-server.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-list of string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.serverAliveCountMax"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.serverAliveCountMax"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.serverAliveCountMax</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Sets the number of server alive messages which may be sent
-without SSH receiving any messages back from the server.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or (positive integer, meaning &gt;0)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.serverAliveInterval"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.serverAliveInterval"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.serverAliveInterval</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Set timeout in seconds after which response will be requested.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or signed integer</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.setEnv"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.setEnv"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.setEnv</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Environment variables and their value to send to the server.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-attribute set of (string or absolute path or signed integer or floating point number)</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.user"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.user"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.user</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies the user to log in as.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/programs/ssh.nix" target="_top">
-&lt;home-manager/modules/programs/ssh.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.ssh.matchBlocks._name_.userKnownHostsFile"></a><a class="term" href="options.xhtml#opt-programs.ssh.matchBlocks._name_.userKnownHostsFile"><code class="option">programs.ssh.matchBlocks.&lt;name&gt;.userKnownHostsFile</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Specifies one or more files to use for the user host key
-database, separated by whitespace. The default is
-<code class="filename">~/.ssh/known_hosts</code>.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-null or string</p>
-
-<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
-</code></pre>
+<p><span class="emphasis"><em>Default:</em></span>
+The attribute name, prefixed with <code class="literal">Host </code> unless it already
+starts with <code class="literal">Host </code> or <code class="literal">Match </code>.</p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -91206,8 +90167,8 @@ list of lib.maintainers</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -91234,8 +90195,8 @@ list of lib.teams</p>
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
 <tr><td>
-<code class="filename"><a class="filename"  href="file:///nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix" target="_top">
-/nix/store/d4s2p5hb4jbc4f9xrjlc4k7qwzfwl65n-source/modules/generic/meta-maintainers.nix
+<code class="filename"><a class="filename"  href="file:///nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix" target="_top">
+/nix/store/fjh4h1yh7yd6f56az28d9c5r7cqag56l-source/modules/generic/meta-maintainers.nix
 </a></code>
 </td></tr>
 </table>
@@ -94663,6 +93624,7 @@ null or package</p>
 <p>List of Vicinae extensions to install.</p><p>You can use the <code class="literal">config.lib.vicinae.mkExtension</code> and <code class="literal">config.lib.vicinae.mkRayCastExtension</code> functions to create them, like:</p><pre><code class="programlisting nix"> [
   (config.lib.vicinae.mkExtension {
     name = &quot;test-extension&quot;;
+    npmDepsHash = &quot;sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;;
     src =
       pkgs.fetchFromGitHub {
         owner = &quot;schromp&quot;;
@@ -94676,13 +93638,17 @@ null or package</p>
     name = &quot;gif-search&quot;;
     sha256 = &quot;sha256-G7il8T1L+P/2mXWJsb68n4BCbVKcrrtK8GnBNxzt73Q=&quot;;
     rev = &quot;4d417c2dfd86a5b2bea202d4a7b48d8eb3dbaeb1&quot;;
+    npmDepsHash = &quot;sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;;
   })
   (config.lib.vicinae.mkRayCastExtension {
     name = &quot;my-local-raycast-extension&quot;;
     src = ./extensions/my-local-raycast-extension;
   })
  ],
-</code></pre>
+</code></pre><p>Set <code class="literal">npmDepsHash</code> when <code class="literal">src</code> is produced by a fetcher such as
+<code class="literal">pkgs.fetchFromGitHub</code> or <code class="literal">pkgs.fetchgit</code>; otherwise
+dependency import reads <code class="literal">package-lock.json</code> from the fetched source
+during evaluation.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 list of package</p>
@@ -110641,7 +109607,7 @@ string</p>
 <p>Configuration written to <code class="filename">$XDG_CONFIG_HOME/dunst/dunstrc</code>.</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
-open submodule of attribute set of attribute set of (string or boolean or signed integer or list of string)</p>
+DAG of open submodule of attribute set of (string or boolean or signed integer or list of string)</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
 </code></pre>
@@ -110655,6 +109621,7 @@ open submodule of attribute set of attribute set of (string or boolean or signed
     transparency = 10;
     frame_color = &quot;#eceff1&quot;;
     font = &quot;Droid Sans 9&quot;;
+    icon_path = &quot;/run/current-system/sw/share/icons/hicolor/32x32/status:/run/current-system/sw/share/icons/hicolor/32x32/devices&quot;;
   };
 
   urgency_normal = {
@@ -110662,30 +109629,14 @@ open submodule of attribute set of attribute set of (string or boolean or signed
     foreground = &quot;#eceff1&quot;;
     timeout = 10;
   };
+
+  custom-rule = lib.hm.dag.entryAfter [ &quot;global&quot; ] {
+    appname = &quot;custom-app&quot;;
+    timeout = 1;
+  };
 };
 
 </code></pre>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/dunst.nix" target="_top">
-&lt;home-manager/modules/services/dunst.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-services.dunst.settings.global.icon_path"></a><a class="term" href="options.xhtml#opt-services.dunst.settings.global.icon_path"><code class="option">services.dunst.settings.global.icon_path</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Paths where dunst will look for icons.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-strings concatenated with “:”</p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -123997,6 +122948,34 @@ list of string</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-services.podman.extraPackages"></a><a class="term" href="options.xhtml#opt-services.podman.extraPackages"><code class="option">services.podman.extraPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra packages added to <code class="envar">PATH</code> when creating Podman machines.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ pkgs.openssh ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">with pkgs; [ openssh hello ];
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/podman/darwin.nix" target="_top">
+&lt;home-manager/modules/services/podman/darwin.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-services.podman.images"></a><a class="term" href="options.xhtml#opt-services.podman.images"><code class="option">services.podman.images</code>
   </a>
  </span>
@@ -133724,6 +132703,233 @@ package</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/volnoti.nix" target="_top">
 &lt;home-manager/modules/services/volnoti.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.enable"></a><a class="term" href="options.xhtml#opt-services.voxtype.enable"><code class="option">services.voxtype.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Voxtype speech-to-text daemon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">false
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">true
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.package"></a><a class="term" href="options.xhtml#opt-services.voxtype.package"><code class="option">services.voxtype.package</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The voxtype package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">pkgs.voxtype
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">pkgs.voxtype-vulkan
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.environment"></a><a class="term" href="options.xhtml#opt-services.voxtype.environment"><code class="option">services.voxtype.environment</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Environment variables for the Voxtype user service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.extraArgs"></a><a class="term" href="options.xhtml#opt-services.voxtype.extraArgs"><code class="option">services.voxtype.extraArgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra command-line arguments passed to <code class="literal">voxtype daemon</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;--verbose&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.loadModels"></a><a class="term" href="options.xhtml#opt-services.voxtype.loadModels"><code class="option">services.voxtype.loadModels</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Downloads the listed models with <code class="literal">voxtype setup --download</code> before starting
+the daemon.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">[ ]
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
+  &quot;base.en&quot;
+]
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.settings"></a><a class="term" href="options.xhtml#opt-services.voxtype.settings"><code class="option">services.voxtype.settings</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Voxtype configuration written to <code class="literal">$XDG_CONFIG_HOME/voxtype/config.toml</code>.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+TOML value</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">{ }
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">{
+  output = {
+    fallback_to_clipboard = true;
+    mode = &quot;type&quot;;
+  };
+  whisper = {
+    language = &quot;en&quot;;
+    model = &quot;base.en&quot;;
+  };
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.wayland.display"></a><a class="term" href="options.xhtml#opt-services.voxtype.wayland.display"><code class="option">services.voxtype.wayland.display</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Wayland display socket name to expose to the Voxtype user service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;wayland-1&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-services.voxtype.x11.display"></a><a class="term" href="options.xhtml#opt-services.voxtype.x11.display"><code class="option">services.voxtype.x11.display</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>X11 display name to expose to the Voxtype user service.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or string</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting nix">null
+</code></pre>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">&quot;:0&quot;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/nix-community/home-manager/blob/master/modules/services/voxtype.nix" target="_top">
+&lt;home-manager/modules/services/voxtype.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -147119,8 +146325,8 @@ list of package</p>
 </code></pre>
 
 <p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting nix">[
-  &lt;derivation eog-49.1&gt;
-  &lt;derivation evince-48.1&gt;
+  &lt;derivation eog-50.1&gt;
+  &lt;derivation evince-48.4&gt;
 ]
 </code></pre>
 
